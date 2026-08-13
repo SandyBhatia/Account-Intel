@@ -1,0 +1,107 @@
+/* Graphite & Copper — ported from the pilot dashboard */
+:root{
+  --bg:#131518; --panel:#1B1E22; --panelHi:#242830; --panel2:#22262C; --rule:#353B44;
+  --text:#D0CCC5; --dim:#8E877D; --key:#F7F4EE;
+  --struct:#C68B5E; --structHi:#E4B48D; --go:#6BAE93; --stop:#E27686;
+  --sheen:rgba(255,255,255,.055); --glass:rgba(19,21,24,.8); --shadow:rgba(0,0,0,.6);
+  --mono:ui-monospace,"SF Mono","Cascadia Mono",Consolas,monospace;
+  --t-micro:.72rem; --t-small:.82rem; --t-body:.94rem; --t-h3:1.12rem; --t-h2:1.3rem;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);background-image:radial-gradient(120% 90% at 15% -10%,#1F2328 0%,#131518 55%);
+  background-attachment:fixed;color:var(--text);
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:17px;line-height:1.55;
+  -webkit-font-smoothing:antialiased}
+a{color:var(--struct);text-decoration:none} a:hover{text-decoration:underline}
+button{font-family:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--struct);outline-offset:3px}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.go{color:var(--go)}.stop{color:var(--stop)}.st{color:var(--struct)}.dim{color:var(--dim)}.k{color:var(--key)}
+
+.gloss{background:linear-gradient(176deg,var(--panelHi) 0%,var(--panel) 46%,var(--panel) 100%);
+  border:1px solid var(--rule);border-radius:12px;
+  box-shadow:inset 0 1px 0 var(--sheen),inset 0 0 40px -22px rgba(255,255,255,.14),
+  0 14px 34px -20px var(--shadow),0 2px 6px -3px var(--shadow)}
+
+.bar{position:sticky;top:0;z-index:70;background:var(--glass);
+  backdrop-filter:saturate(150%) blur(16px);-webkit-backdrop-filter:saturate(150%) blur(16px);
+  border-bottom:1px solid var(--rule);box-shadow:0 1px 0 var(--sheen) inset;
+  padding:10px 18px;display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.brand{font-family:var(--mono);font-size:var(--t-micro);letter-spacing:.16em;text-transform:uppercase;color:var(--dim)}
+.brand b{color:var(--struct)}
+.nb{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(178deg,var(--panelHi),var(--panel));
+  border:1px solid var(--rule);padding:8px 15px;border-radius:8px;color:var(--dim);font-size:.85rem;font-weight:600;
+  box-shadow:inset 0 1px 0 var(--sheen);transition:.18s}
+.nb:hover{color:var(--text);text-decoration:none}
+.nb.on{border-color:var(--struct);color:var(--key);box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 0 0 1px var(--struct),0 6px 18px -10px var(--struct)}
+
+.wrap{max-width:1240px;margin:0 auto;padding:24px 18px 64px}
+h1.page{font-size:clamp(1.5rem,3.4vw,2rem);font-weight:800;letter-spacing:-.03em;
+  background:linear-gradient(178deg,var(--key),#9C958B);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{font-family:var(--mono);font-size:var(--t-micro);color:var(--dim);letter-spacing:.09em;margin-top:7px}
+
+.pill{font-family:var(--mono);font-size:.7rem;font-weight:700;letter-spacing:.09em;padding:5px 11px;border-radius:16px;white-space:nowrap;color:#131518;display:inline-block}
+.pill.PURSUE{background:linear-gradient(178deg,#8FC7AC,var(--go));box-shadow:inset 0 1px 0 rgba(255,255,255,.4)}
+.pill.QUALIFY{background:linear-gradient(178deg,var(--structHi),var(--struct));box-shadow:inset 0 1px 0 rgba(255,255,255,.4)}
+.pill.WATCH{background:none;color:var(--struct);border:1px solid var(--struct)}
+.pill.NO_BASELINE{background:none;color:var(--dim);border:1px dashed var(--rule);font-weight:600}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:14px}
+.card{text-align:left;display:flex;flex-direction:column;overflow:hidden;transition:transform .16s,box-shadow .16s;color:inherit}
+.card:hover{text-decoration:none;transform:translateY(-2px);box-shadow:inset 0 1px 0 var(--sheen),0 18px 40px -18px var(--shadow),0 0 0 1px var(--struct)}
+.card.empty{opacity:.72}
+.c-top{padding:15px 17px 0;display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.c-name{font-size:var(--t-h3);font-weight:700;color:var(--key);letter-spacing:-.02em}
+.c-meta{font-family:var(--mono);font-size:var(--t-micro);color:var(--dim);letter-spacing:.07em;margin-top:4px}
+.c-why{padding:13px 17px 0;font-size:var(--t-body);line-height:1.5}
+.c-why b{color:var(--key)}
+.c-foot{margin-top:auto;padding:13px 17px;border-top:1px solid var(--rule);display:flex;justify-content:space-between;gap:10px;
+  font-family:var(--mono);font-size:var(--t-micro);color:var(--dim)}
+.c-foot .open{color:var(--struct);font-weight:700}
+
+.grouplab{font-family:var(--mono);font-size:var(--t-micro);letter-spacing:.19em;text-transform:uppercase;color:var(--struct);
+  margin:26px 0 12px;display:flex;align-items:center;gap:12px}
+.grouplab::after{content:"";flex:1;height:1px;background:var(--rule)}
+
+.ex{margin-bottom:16px;overflow:hidden}
+.ex-hd{padding:17px 21px 16px;border-bottom:1px solid var(--rule)}
+.ex-no{font-family:var(--mono);font-size:var(--t-micro);letter-spacing:.18em;text-transform:uppercase;margin-bottom:9px;
+  background:linear-gradient(178deg,var(--structHi),var(--struct));-webkit-background-clip:text;background-clip:text;color:transparent}
+.ex-hd h2{font-size:clamp(1.05rem,2.1vw,var(--t-h2));font-weight:700;line-height:1.34;letter-spacing:-.016em;color:var(--key)}
+.ex-bd{padding:19px 21px;font-size:var(--t-body);line-height:1.6}
+.ex-bd b{color:var(--key)}
+.sowhat{border-top:1px solid var(--rule);margin-top:18px;padding-top:16px}
+.sowhat .l{font-family:var(--mono);font-size:var(--t-micro);letter-spacing:.16em;text-transform:uppercase;color:var(--struct);display:block;margin-bottom:7px}
+.src{font-family:var(--mono);font-size:var(--t-micro);color:var(--dim);line-height:1.7;padding:12px 21px;border-top:1px solid var(--rule);
+  background:linear-gradient(178deg,var(--panel2),var(--panel))}
+
+table.tbl{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:var(--t-small)}
+.tbl th,.tbl td{padding:8px 6px;text-align:right;border-bottom:1px solid var(--rule)}
+.tbl th:first-child,.tbl td:first-child{text-align:left;font-family:system-ui;color:var(--text)}
+.tbl thead th{font-size:var(--t-micro);letter-spacing:.11em;text-transform:uppercase;color:var(--dim);font-weight:400}
+.tbl tbody tr:last-child td{border-bottom:none}
+
+.sigrow{display:grid;grid-template-columns:96px 1fr auto;gap:12px;padding:12px 0;border-bottom:1px solid var(--rule);font-size:var(--t-small);align-items:baseline}
+.sigrow:last-child{border-bottom:none}
+.sigdate{font-family:var(--mono);font-size:var(--t-micro);color:var(--dim)}
+.sigcat{font-family:var(--mono);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--struct)}
+
+.act{display:flex;gap:14px;align-items:flex-start;padding:15px 17px}
+.act .pr{font-family:var(--mono);font-weight:700;color:#131518;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  background:linear-gradient(178deg,var(--structHi),var(--struct));box-shadow:inset 0 1px 0 rgba(255,255,255,.4)}
+.act .pr.p1{background:linear-gradient(178deg,#EB93A1,var(--stop))}
+.act h3{font-size:var(--t-body);color:var(--key);font-weight:700}
+.act .nar{font-size:var(--t-small);margin-top:4px}
+.act .ev{font-family:var(--mono);font-size:var(--t-micro);color:var(--dim);margin-top:7px;line-height:1.6}
+.act .btns{margin-left:auto;display:flex;gap:6px;flex-shrink:0}
+.bt{background:linear-gradient(178deg,var(--panelHi),var(--panel));border:1px solid var(--rule);border-radius:7px;
+  padding:6px 12px;color:var(--dim);font-size:.78rem;font-weight:600;box-shadow:inset 0 1px 0 var(--sheen)}
+.bt:hover{color:var(--key)}
+.bt.primary{border-color:var(--struct);color:var(--struct)}
+
+input,textarea,select{background:var(--panel2);border:1px solid var(--rule);border-radius:8px;color:var(--key);
+  padding:10px 12px;font-size:var(--t-body);width:100%;font-family:inherit}
+textarea.mono{font-family:var(--mono);font-size:var(--t-small)}
+label{font-family:var(--mono);font-size:var(--t-micro);letter-spacing:.12em;text-transform:uppercase;color:var(--dim);display:block;margin:14px 0 6px}
+.note{font-family:var(--mono);font-size:var(--t-micro);color:var(--dim);line-height:1.7}
