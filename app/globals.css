@@ -108,3 +108,24 @@ input,textarea,select{background:var(--panel2);border:1px solid var(--rule);bord
 textarea.mono{font-family:var(--mono);font-size:var(--t-small)}
 label{font-family:var(--mono);font-size:var(--t-micro);letter-spacing:.12em;text-transform:uppercase;color:var(--dim);display:block;margin:14px 0 6px}
 .note{font-family:var(--mono);font-size:var(--t-micro);color:var(--dim);line-height:1.7}
+
+/* ---- wide-screen account layout ---- */
+.acct{display:grid;gap:18px;grid-template-columns:1fr}
+@media (min-width:1080px){
+  .acct{grid-template-columns:330px minmax(0,1fr);align-items:start}
+  .rail{position:sticky;top:74px}
+}
+.exgrid{display:grid;gap:16px;grid-template-columns:1fr}
+@media (min-width:1400px){
+  .exgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .exgrid .ex.wide{grid-column:1 / -1}
+}
+.ex{margin-bottom:0}
+.wrap.wide{max-width:1680px}
+
+/* ---- portfolio sort toggle ---- */
+.seg{display:inline-flex;border:1px solid var(--rule);border-radius:8px;overflow:hidden}
+.seg a{padding:7px 13px;font-size:.8rem;font-weight:600;color:var(--dim);background:linear-gradient(178deg,var(--panelHi),var(--panel))}
+.seg a:hover{color:var(--text);text-decoration:none}
+.seg a[data-on="true"]{color:var(--key);background:linear-gradient(178deg,var(--struct),#A9754E)}
+.seg a+a{border-left:1px solid var(--rule)}

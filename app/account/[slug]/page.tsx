@@ -15,6 +15,10 @@ interface Exhibit {
   sources?: { label: string; url?: string }[];
 }
 
+/** An exhibit needs the full width when it carries a chart or a wide table;
+ *  narrative exhibits pair up two-across on large screens. */
+const isWide = (ex: Exhibit) => Boolean(ex.chart) || (ex.table?.head.length ?? 0) > 5;
+
 export default async function AccountPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const supabase = await createClient();
@@ -32,104 +36,117 @@ export default async function AccountPage({ params }: { params: Promise<{ slug: 
   return (
     <>
       <TopBar active="portfolio" />
-      <main className="wrap">
+      <main className="wrap wide">
         <Link href="/" className="note" style={{ display: "inline-block", marginBottom: 14 }}>‹ Back to portfolio</Link>
 
-        <div className="gloss" style={{ padding: "26px 28px", marginBottom: 16 }}>
-          <div className="ex-no">Account intelligence · {account.sector} · {account.relationship}</div>
-          <h1 className="page">{account.full_name || account.name}</h1>
-          <p className="sub">
-            {account.is_public ? "Public filer" : "Private — verified public sources only"}
-            {account.next_report ? ` · next disclosure ${account.next_report}` : ""}
-            {baseline ? ` · baseline v${baseline.version}, evidence dated ${baseline.as_of}` : ""}
-          </p>
+        <div className="acct">
+          {/* ---------------- sticky rail: who they are, our call, what to do ---------------- */}
+          <aside className="rail">
+            <div className="gloss" style={{ padding: "20px 21px" }}>
+              <div className="ex-no">{account.sector} · {account.relationship}</div>
+              <h1 style={{ fontSize: "1.55rem", fontWeight: 800, letterSpacing: "-.03em", color: "var(--key)", lineHeight: 1.15, margin: "4px 0 8px" }}>
+                {account.full_name || account.name}
+              </h1>
+              <p className="note" style={{ marginBottom: 15 }}>
+                {account.is_public ? "Public filer" : "Private — verified public sources only"}
+                {account.next_report ? ` · next disclosure ${account.next_report}` : ""}
+                {baseline ? ` · baseline v${baseline.version}, evidence ${baseline.as_of}` : ""}
+              </p>
 
-          <div style={{ display: "flex", alignItems: "center", gap: 15, margin: "20px 0 16px", flexWrap: "wrap" }}>
-            <span className={`pill ${verdict}`} style={{ fontSize: ".95rem", padding: "7px 15px" }}>{verdict.replace("_", " ")}</span>
-            <span style={{ fontSize: "var(--t-body)", flex: 1, minWidth: 220 }}>
-              {baseline?.verdict_line ?? <span className="dim">No baseline built. This page will carry the full evidence pack once the research session is done and imported.</span>}
-            </span>
-            <RefreshButton slug={account.slug} />
-          </div>
+              <span className={`pill ${verdict}`} style={{ fontSize: ".85rem", padding: "6px 13px" }}>{verdict.replace("_", " ")}</span>
+              <p style={{ fontSize: "var(--t-small)", lineHeight: 1.55, margin: "12px 0 0" }}>
+                {baseline?.verdict_line ?? <span className="dim">No baseline built yet. This page fills in once the research session is imported.</span>}
+              </p>
 
-          {thesis.length > 0 && (
-            <ol style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 11, maxWidth: "80ch" }}>
-              {thesis.map((tItem) => (
-                <li key={tItem.n} style={{ fontSize: "var(--t-body)", lineHeight: 1.58 }}>
-                  <span className="mono st" style={{ fontSize: "var(--t-micro)", fontWeight: 700, marginRight: 9 }}>{tItem.n}</span>
-                  <span dangerouslySetInnerHTML={{ __html: tItem.text }} />
-                </li>
-              ))}
-            </ol>
-          )}
-        </div>
+              {thesis.length > 0 && (
+                <ol style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 10, marginTop: 17, paddingTop: 15, borderTop: "1px solid var(--rule)" }}>
+                  {thesis.map((tItem) => (
+                    <li key={tItem.n} style={{ fontSize: "var(--t-small)", lineHeight: 1.55 }}>
+                      <span className="mono st" style={{ fontSize: ".65rem", fontWeight: 700, marginRight: 8 }}>{tItem.n}</span>
+                      <span dangerouslySetInnerHTML={{ __html: tItem.text }} />
+                    </li>
+                  ))}
+                </ol>
+              )}
 
-        {actions && actions.length > 0 && (
-          <div className="gloss" style={{ marginBottom: 16 }}>
-            <div className="ex-hd"><div className="ex-no">Engine · proposed actions</div>
-              <h2>What the rules say to do next</h2></div>
-            {actions.map((a) => (
-              <div className="act" key={a.id} style={{ borderTop: "1px solid var(--rule)" }}>
-                <span className={`pr ${a.priority === 1 ? "p1" : ""}`}>{a.priority}</span>
-                <div>
-                  <h3>{a.title}</h3>
-                  {a.narrative && <p className="nar">{a.narrative}</p>}
-                  <p className="ev">{a.rule_id}{a.due_by ? ` · due ${a.due_by}` : ""}</p>
-                </div>
+              <div style={{ marginTop: 17, paddingTop: 14, borderTop: "1px solid var(--rule)" }}>
+                <RefreshButton slug={account.slug} />
               </div>
-            ))}
-          </div>
-        )}
+            </div>
 
-        {exhibits.map((ex) => (
-          <div className="ex gloss" key={ex.no}>
-            <div className="ex-hd">
-              <div className="ex-no">Exhibit {ex.no} · {ex.title}</div>
-              <h2>{ex.headline}</h2>
-            </div>
-            <div className="ex-bd">
-              {ex.body_html && <div dangerouslySetInnerHTML={{ __html: ex.body_html }} />}
-              {ex.chart && <ExhibitChart spec={ex.chart} />}
-              {ex.table && (
-                <div className="tblwrap" style={{ marginTop: ex.body_html || ex.chart ? 16 : 0 }}>
-                  <table className={`tbl ${ex.table.head.length > 7 ? "dense" : ""}`}>
-                    <thead><tr>{ex.table.head.map((h, i) => <th key={i}>{h}</th>)}</tr></thead>
-                    <tbody>{ex.table.rows.map((r, i) => (
-                      <tr key={i}>{r.map((c, j) => <td key={j} dangerouslySetInnerHTML={{ __html: String(c) }} />)}</tr>
-                    ))}</tbody>
-                  </table>
-                </div>
-              )}
-              {ex.sowhat && (
-                <div className="sowhat"><span className="l">So what</span>
-                  <span dangerouslySetInnerHTML={{ __html: ex.sowhat }} />
-                </div>
-              )}
-            </div>
-            {ex.sources && ex.sources.length > 0 && (
-              <div className="src">
-                {ex.sources.map((s, i) => (
-                  <span key={i}>{i > 0 && " · "}{s.url ? <a href={s.url} target="_blank" rel="noopener">{s.label} ↗</a> : s.label}</span>
+            {actions && actions.length > 0 && (
+              <div className="gloss" style={{ marginTop: 16 }}>
+                <div style={{ padding: "14px 18px 4px" }}><div className="ex-no">Proposed actions</div></div>
+                {actions.map((a) => (
+                  <div className="act" key={a.id} style={{ paddingTop: 10, paddingBottom: 12 }}>
+                    <span className={`pr ${a.priority === 1 ? "p1" : ""}`}>{a.priority}</span>
+                    <div>
+                      <h3 style={{ fontSize: "var(--t-small)" }}>{a.title}</h3>
+                      {a.narrative && <p className="nar" style={{ fontSize: ".8rem" }}>{a.narrative}</p>}
+                      <p className="ev">{a.rule_id}{a.due_by ? ` · due ${a.due_by}` : ""}</p>
+                    </div>
+                  </div>
                 ))}
               </div>
             )}
-          </div>
-        ))}
+          </aside>
 
-        <div className="gloss" style={{ padding: "17px 21px" }}>
-          <div className="ex-no" style={{ marginBottom: 6 }}>Signal feed · verified events since baseline</div>
-          {(signals ?? []).length === 0 && <p className="note" style={{ padding: "10px 0" }}>No signals gathered yet. Use Refresh — every signal requires a working source URL or it is rejected at the API layer.</p>}
-          {(signals ?? []).map((s) => (
-            <div className="sigrow" key={s.id}>
-              <span className="sigdate">{s.published_on ?? "undated"}</span>
-              <span>
-                <span className="sigcat">{s.category}</span>{s.contradicts_baseline && <span className="stop mono" style={{ fontSize: ".65rem", marginLeft: 8 }}>CONTRADICTS BASELINE</span>}
-                <br /><b className="k">{s.headline}</b>
-                {s.detail && <><br /><span style={{ fontSize: "var(--t-small)" }}>{s.detail}</span></>}
-              </span>
-              <a href={s.source_url} target="_blank" rel="noopener" className="mono" style={{ fontSize: "var(--t-micro)" }}>{s.source_name} ↗</a>
+          {/* ---------------- evidence ---------------- */}
+          <div>
+            <div className="exgrid">
+              {exhibits.map((ex) => (
+                <div className={`ex gloss ${isWide(ex) ? "wide" : ""}`} key={ex.no}>
+                  <div className="ex-hd">
+                    <div className="ex-no">Exhibit {ex.no} · {ex.title}</div>
+                    <h2>{ex.headline}</h2>
+                  </div>
+                  <div className="ex-bd">
+                    {ex.body_html && <div dangerouslySetInnerHTML={{ __html: ex.body_html }} />}
+                    {ex.chart && <ExhibitChart spec={ex.chart} />}
+                    {/* A table is shown only when there is no chart carrying the same series. */}
+                    {ex.table && !ex.chart && (
+                      <div className="tblwrap" style={{ marginTop: ex.body_html ? 16 : 0 }}>
+                        <table className={`tbl ${ex.table.head.length > 7 ? "dense" : ""}`}>
+                          <thead><tr>{ex.table.head.map((h, i) => <th key={i}>{h}</th>)}</tr></thead>
+                          <tbody>{ex.table.rows.map((r, i) => (
+                            <tr key={i}>{r.map((c, j) => <td key={j} dangerouslySetInnerHTML={{ __html: String(c) }} />)}</tr>
+                          ))}</tbody>
+                        </table>
+                      </div>
+                    )}
+                    {ex.sowhat && (
+                      <div className="sowhat"><span className="l">So what</span>
+                        <span dangerouslySetInnerHTML={{ __html: ex.sowhat }} />
+                      </div>
+                    )}
+                  </div>
+                  {ex.sources && ex.sources.length > 0 && (
+                    <div className="src">
+                      {ex.sources.map((s, i) => (
+                        <span key={i}>{i > 0 && " · "}{s.url ? <a href={s.url} target="_blank" rel="noopener">{s.label} ↗</a> : s.label}</span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
-          ))}
+
+            <div className="gloss" style={{ padding: "17px 21px", marginTop: 16 }}>
+              <div className="ex-no" style={{ marginBottom: 6 }}>Signal feed · verified events since baseline</div>
+              {(signals ?? []).length === 0 && <p className="note" style={{ padding: "10px 0" }}>No signals gathered yet. Use Refresh — a signal without a working source URL is rejected before it reaches the database.</p>}
+              {(signals ?? []).map((s) => (
+                <div className="sigrow" key={s.id}>
+                  <span className="sigdate">{s.published_on ?? "undated"}</span>
+                  <span>
+                    <span className="sigcat">{s.category}</span>{s.contradicts_baseline && <span className="stop mono" style={{ fontSize: ".65rem", marginLeft: 8 }}>CONTRADICTS BASELINE</span>}
+                    <br /><b className="k">{s.headline}</b>
+                    {s.detail && <><br /><span style={{ fontSize: "var(--t-small)" }}>{s.detail}</span></>}
+                  </span>
+                  <a href={s.source_url} target="_blank" rel="noopener" className="mono" style={{ fontSize: "var(--t-micro)" }}>{s.source_name} ↗</a>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </main>
     </>

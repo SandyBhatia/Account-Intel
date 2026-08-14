@@ -6,7 +6,9 @@ export const dynamic = "force-dynamic";
 
 const ORDER: Record<string, number> = { PURSUE: 1, QUALIFY: 2, WATCH: 3, NO_BASELINE: 4 };
 
-export default async function Portfolio() {
+export default async function Portfolio({ searchParams }: { searchParams: Promise<{ sort?: string }> }) {
+  const sp = await searchParams;
+  const sortBy = sp.sort === "verdict" ? "verdict" : "relationship";
   const supabase = await createClient();
   const { data: accounts } = await supabase.from("accounts").select("*").order("name");
   const { data: baselines } = await supabase.from("baselines").select("account_id, verdict, verdict_line, as_of, review_status").eq("active", true);
@@ -27,7 +29,27 @@ export default async function Portfolio() {
           {rows.length} accounts · {baselines?.length ?? 0} with verified baselines · customers first, verdict-sorted within group
         </p>
 
-        {groups.map(([key, label]) => {
+        <div style={{ display: "flex", gap: 10, alignItems: "center", marginTop: 16 }}>
+          <span className="note">Group by</span>
+          <span className="seg">
+            <Link href="/?sort=relationship" data-on={sortBy === "relationship"}>Relationship</Link>
+            <Link href="/?sort=verdict" data-on={sortBy === "verdict"}>Verdict</Link>
+          </span>
+        </div>
+
+        {sortBy === "verdict" ? (
+          (["PURSUE", "QUALIFY", "WATCH", "NO_BASELINE"] as const).map((v) => {
+            const set = rows.filter((r) => (r.baseline?.verdict ?? "NO_BASELINE") === v)
+              .sort((x, y) => x.relationship.localeCompare(y.relationship) || x.name.localeCompare(y.name));
+            if (set.length === 0) return null;
+            return (
+              <section key={v}>
+                <div className="grouplab">{v.replace("_", " ")} · {set.length}</div>
+                <div className="cards">{set.map((a) => <AccountCard key={a.id} a={a} />)}</div>
+              </section>
+            );
+          })
+        ) : groups.map(([key, label]) => {
           const set = rows
             .filter((r) => r.relationship === key)
             .sort((x, y) => (ORDER[x.baseline?.verdict ?? "NO_BASELINE"] - ORDER[y.baseline?.verdict ?? "NO_BASELINE"]) || x.name.localeCompare(y.name));
@@ -35,27 +57,7 @@ export default async function Portfolio() {
             <section key={key}>
               <div className="grouplab">{label} · {set.length}</div>
               <div className="cards">
-                {set.map((a) => {
-                  const v = a.baseline?.verdict ?? "NO_BASELINE";
-                  return (
-                    <Link key={a.id} href={`/account/${a.slug}`} className={`card gloss ${v === "NO_BASELINE" ? "empty" : ""}`}>
-                      <div className="c-top">
-                        <div>
-                          <div className="c-name">{a.name}</div>
-                          <div className="c-meta">{a.sector} · {a.relationship}</div>
-                        </div>
-                        <span className={`pill ${v}`}>{v.replace("_", " ")}</span>
-                      </div>
-                      <div className="c-why">
-                        {a.baseline?.verdict_line ?? <span className="dim">Not yet researched — no verdict earned. {a.is_public ? "Public filings available for the baseline build." : "Private company; baseline will use verifiable public sources only."}</span>}
-                      </div>
-                      <div className="c-foot">
-                        <span>{a.next_report ? `Next · ${a.next_report}` : "No public cadence"}{a.baseline ? ` · evidence ${a.baseline.as_of}` : ""}</span>
-                        <span className="open">{a.actions > 0 ? `${a.actions} action${a.actions > 1 ? "s" : ""} ›` : "Open ›"}</span>
-                      </div>
-                    </Link>
-                  );
-                })}
+                {set.map((a) => <AccountCard key={a.id} a={a} />)}
               </div>
             </section>
           );
@@ -75,5 +77,38 @@ export default async function Portfolio() {
         </div>
       </main>
     </>
+  );
+}
+
+interface CardRow {
+  id: string; slug: string; name: string; sector: string | null; relationship: string;
+  is_public: boolean; next_report: string | null; actions: number;
+  baseline?: { verdict: string; verdict_line: string | null; as_of: string } | undefined;
+}
+
+function AccountCard({ a }: { a: CardRow }) {
+  const v = a.baseline?.verdict ?? "NO_BASELINE";
+  return (
+    <Link href={`/account/${a.slug}`} className={`card gloss ${v === "NO_BASELINE" ? "empty" : ""}`}>
+      <div className="c-top">
+        <div>
+          <div className="c-name">{a.name}</div>
+          <div className="c-meta">{a.sector} · {a.relationship}</div>
+        </div>
+        <span className={`pill ${v}`}>{v.replace("_", " ")}</span>
+      </div>
+      <div className="c-why">
+        {a.baseline?.verdict_line ?? (
+          <span className="dim">
+            Not yet researched — no verdict earned.{" "}
+            {a.is_public ? "Public filings available for the baseline build." : "Private company; baseline will use verifiable public sources only."}
+          </span>
+        )}
+      </div>
+      <div className="c-foot">
+        <span>{a.next_report ? `Next · ${a.next_report}` : "No public cadence"}{a.baseline ? ` · evidence ${a.baseline.as_of}` : ""}</span>
+        <span className="open">{a.actions > 0 ? `${a.actions} action${a.actions > 1 ? "s" : ""} ›` : "Open ›"}</span>
+      </div>
+    </Link>
   );
 }
