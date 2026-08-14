@@ -22,7 +22,7 @@ export default async function Portfolio() {
     <>
       <TopBar active="portfolio" />
       <main className="wrap">
-        <h1 className="page">Transportation &amp; Logistics Portfolio</h1>
+        <h1 className="page">Portfolio</h1>
         <p className="sub">
           {rows.length} accounts · {baselines?.length ?? 0} with verified baselines · customers first, verdict-sorted within group
         </p>

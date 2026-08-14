@@ -77,6 +77,9 @@ h1.page{font-size:clamp(1.5rem,3.4vw,2rem);font-weight:800;letter-spacing:-.03em
   background:linear-gradient(178deg,var(--panel2),var(--panel))}
 
 table.tbl{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:var(--t-small)}
+table.tbl.dense{font-size:.76rem}
+.tbl.dense th,.tbl.dense td{padding:7px 4px}
+.tblwrap{overflow-x:auto;max-width:100%}
 .tbl th,.tbl td{padding:8px 6px;text-align:right;border-bottom:1px solid var(--rule)}
 .tbl th:first-child,.tbl td:first-child{text-align:left;font-family:system-ui;color:var(--text)}
 .tbl thead th{font-size:var(--t-micro);letter-spacing:.11em;text-transform:uppercase;color:var(--dim);font-weight:400}

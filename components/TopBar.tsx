@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function TopBar({ active }: { active: "portfolio" | "actions" | "admin" }) {
   return (
     <div className="bar">
-      <span className="brand"><b>Mphasis</b> · Account Intelligence</span>
+      <span className="brand"><b>Mphasis</b> Transportation &amp; Logistics · Account Intelligence</span>
       <nav style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
         <Link className={`nb ${active === "portfolio" ? "on" : ""}`} href="/">◧ Portfolio</Link>
         <Link className={`nb ${active === "actions" ? "on" : ""}`} href="/actions">⚡ Actions</Link>

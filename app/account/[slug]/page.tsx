@@ -2,6 +2,7 @@ import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import TopBar from "@/components/TopBar";
 import RefreshButton from "@/components/RefreshButton";
+import ExhibitChart, { type ChartSpec } from "@/components/ExhibitChart";
 
 export const dynamic = "force-dynamic";
 
@@ -9,6 +10,7 @@ interface Exhibit {
   no: string; title: string; headline: string;
   body_html?: string;
   table?: { head: string[]; rows: (string | number)[][] };
+  chart?: ChartSpec;
   sowhat?: string;
   sources?: { label: string; url?: string }[];
 }
@@ -87,13 +89,16 @@ export default async function AccountPage({ params }: { params: Promise<{ slug: 
             </div>
             <div className="ex-bd">
               {ex.body_html && <div dangerouslySetInnerHTML={{ __html: ex.body_html }} />}
+              {ex.chart && <ExhibitChart spec={ex.chart} />}
               {ex.table && (
-                <table className="tbl" style={{ marginTop: ex.body_html ? 16 : 0 }}>
-                  <thead><tr>{ex.table.head.map((h, i) => <th key={i}>{h}</th>)}</tr></thead>
-                  <tbody>{ex.table.rows.map((r, i) => (
-                    <tr key={i}>{r.map((c, j) => <td key={j} dangerouslySetInnerHTML={{ __html: String(c) }} />)}</tr>
-                  ))}</tbody>
-                </table>
+                <div className="tblwrap" style={{ marginTop: ex.body_html || ex.chart ? 16 : 0 }}>
+                  <table className={`tbl ${ex.table.head.length > 7 ? "dense" : ""}`}>
+                    <thead><tr>{ex.table.head.map((h, i) => <th key={i}>{h}</th>)}</tr></thead>
+                    <tbody>{ex.table.rows.map((r, i) => (
+                      <tr key={i}>{r.map((c, j) => <td key={j} dangerouslySetInnerHTML={{ __html: String(c) }} />)}</tr>
+                    ))}</tbody>
+                  </table>
+                </div>
               )}
               {ex.sowhat && (
                 <div className="sowhat"><span className="l">So what</span>

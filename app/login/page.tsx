@@ -52,7 +52,7 @@ function LoginInner() {
 
   return (
     <main className="wrap" style={{ maxWidth: 440, paddingTop: 70 }}>
-      <div className="ex-no">Mphasis · Account Intelligence</div>
+      <div className="ex-no">Mphasis Transportation &amp; Logistics · Account Intelligence</div>
       <h1 className="page" style={{ marginBottom: 18 }}>Sign in</h1>
 
       <div style={{ display: "flex", gap: 8, marginBottom: 14 }}>

@@ -45,6 +45,9 @@ $$[
 ]$$::jsonb,
 $$[
  {"no":"A","title":"Operating ratio","headline":"Twelve quarters of oscillation: Q2 2026 at 62.5% is worse than a year ago, and the improvement narrative has no evidence behind it.",
+  "chart":{"kind":"line","unit":"%","y_label":"OR %","annotate_last":true,
+           "labels":["Q3'23","Q4'23","Q1'24","Q2'24","Q3'24","Q4'24","Q1'25","Q2'25","Q3'25","Q4'25","Q1'26","Q2'26"],
+           "series":[{"name":"Operating ratio","tone":"struct","values":[62.0,59.3,63.6,64.0,63.1,62.6,63.4,61.7,61.4,61.2,64.6,62.5]}]},
   "table":{"head":["","Q3'23","Q4'23","Q1'24","Q2'24","Q3'24","Q4'24","Q1'25","Q2'25","Q3'25","Q4'25","Q1'26","Q2'26"],
            "rows":[["OR %","62.0","59.3","63.6","64.0","63.1","62.6","63.4","61.7","61.4","61.2","64.6","62.5"]]},
   "sowhat":"An operator that cannot show structural OR improvement funds initiatives that promise it. Efficiency framed as <b>decision automation</b> — not headcount — matches both the need and the political constraints.",
@@ -80,6 +83,8 @@ $$[
 ]$$::jsonb,
 $$[
  {"no":"A","title":"Revenue quality","headline":"C$264.4M revenue, +9.5% — but decomposition shows the growth came from the regulated lever, not the commercial estate.",
+  "chart":{"kind":"bar","y_label":"C$000","labels":["AIF","Concessions\u00A0/\u00A0parking","Airside\u00A0&\u00A0terminal","Real estate","Contributions\u00A0&\u00A0other"],
+           "series":[{"name":"FY2025 revenue","tone":"struct","values":[118504,61837,60398,15773,7924]}]},
   "table":{"head":["Revenue line (C$000)","FY2025","Note"],
    "rows":[["Airport improvement fees","118,504","regulated, volume x rate"],
            ["Concessions, parking, ground transport","61,837","commercial"],
@@ -101,6 +106,9 @@ $$[
   "sowhat":"Ambition is up, internal build capacity is down, and external help is entering through small doors. That is precisely the shape of engagement Mphasis can win: <b>land small on ops-AI, expand on results.</b>",
   "sources":[{"label":"FY2025 Annual Report","url":"https://flyyeg.com/wp-content/uploads/YEG_Annual-Report_Digital_May-1.pdf"},{"label":"YEG newsroom — ADA launch","url":"https://flyyeg.com/newsroom/"}]},
  {"no":"D","title":"Traffic & pipeline","headline":"8.14M passengers (+2.8%), within 0.1% of 2019 — recovery is done; what remains is a monetisation story.",
+  "chart":{"kind":"line","unit":"M","y_label":"passengers (M)","annotate_last":true,"y_min":0,
+           "labels":["2019","2020","2021","2022","2023","2024","2025"],
+           "series":[{"name":"Passengers","tone":"go","values":[8.15,2.60,2.79,5.85,7.50,7.92,8.14]}]},
   "table":{"head":["","2019","2020","2021","2022","2023","2024","2025"],
    "rows":[["Passengers (M)","8.15","2.60","2.79","5.85","7.50","7.92","8.14"]]},
   "sowhat":"Domestic +6.2%, transborder −15%, cargo/ZVL movements +28% with economic impact estimated at C$164M. The 2,000-acre ICH airport city broke ground; North Tower lands Q1 2028. Growth from here is estate + cargo + experience — all data problems.",
