@@ -34,6 +34,7 @@ create table if not exists public.baselines (
   verdict_line  text,                            -- one-line why
   thesis        jsonb,                           -- [{n, text}]
   exhibits      jsonb,                           -- [{no, title, headline, body_html?, table?, chart?, sowhat, sources:[{label,url,date}]}]
+  financials    jsonb,                           -- standard 8-quarter series, see components/FinancialsPanel.tsx
   as_of         date not null,                   -- evidence date (e.g. filing date)
   built_at      timestamptz default now(),
   active        boolean default true,

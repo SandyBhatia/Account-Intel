@@ -1,0 +1,24 @@
+insert into public.baselines (account_id,version,verdict,verdict_line,thesis,exhibits,as_of,active,review_status)
+select id, coalesce((select max(version) from public.baselines b where b.account_id=a.id),0)+1,'PURSUE',
+'Efficiency Reimagined has banked $1.2B of a $3B full-year target, the Amazon glide-down is complete, and the CEO has named RFID and AI as the next lever. A funded programme with a public number attached to it.',
+'[
+ {"n":"01","text":"<b>The structural reset is complete.</b> The Amazon glide-down eliminated roughly <b>2 million pieces per day</b> of lower-quality volume and removed about <b>$4.5 billion</b> of related expense, 45 buildings closed in H1 and around 80% of Driver Choice participants departed in Q2."},
+ {"n":"02","text":"<b>Efficiency Reimagined is funded, named and measured</b> — approximately <b>$1.2 billion</b> of programme benefits in H1 2026 against a full-year target of roughly <b>$3 billion</b>. The remaining $1.8 billion is someone''s scorecard right now."},
+ {"n":"03","text":"<b>Guidance was raised.</b> FY2026 revenue approximately $91.2 billion, operating profit approximately $8.65 billion, adjusted EPS approximately $7.22, with H2 domestic operating margin projected around 8.8%."},
+ {"n":"04","text":"<b>The CEO named the technology.</b> Investment in RFID and artificial intelligence for package visibility, described as the most significant advancement in a decade."}
+]'::jsonb,
+'[
+ {"no":"A","title":"Q2 2026 and the cost of transformation","headline":"Revenue $22.8B with GAAP operating profit of $930M against $2.1B adjusted — the gap is the reset being paid for.",
+  "chart":{"kind":"bar","y_label":"$ billions","labels":["Revenue","Adjusted operating profit","GAAP operating profit","Transformation charge"],
+    "series":[{"name":"Q2 2026","tone":"struct","values":[22.8,2.1,0.93,0.891]}]},
+  "body_html":"<p>Consolidated revenue <b>$22.8 billion</b> (+7.6%), GAAP operating profit $930 million, adjusted operating profit <b>$2.1 billion</b> (+12%), GAAP diluted EPS $0.71, adjusted diluted EPS $1.76. The GAAP figures carry after-tax transformation charges of <b>$891 million</b> ($1.05 per share), primarily employee separation costs from the completed Driver Choice Program.</p>",
+  "sowhat":"An organisation absorbing this much restructuring has already accepted disruption. The hard decision is made. What follows a physical network reconfiguration is always a systems and decisioning reconfiguration — and that phase is beginning now.",
+  "sources":[{"label":"UPS 2Q 2026 earnings release","url":"https://about.ups.com/us/en/newsroom/press-releases/financials/ups-releases-2q-2026-earnings.html"},{"label":"UPS 2Q 2026 release (PDF)","url":"https://investors.ups.com/_assets/_c53d8bf327c039b6881e8488f7b20256/ups/news/2026-07-28_UPS_Releases_2Q_2026_2164.pdf"}]},
+ {"no":"B","title":"Revenue quality shift","headline":"Revenue per piece is rising faster than revenue in both segments — the company is now run on mix and pricing decisions.",
+  "chart":{"kind":"grouped","y_label":"% change YoY","labels":["US Domestic","International"],
+    "series":[{"name":"Revenue","tone":"struct","values":[6.0,12.5]},{"name":"Revenue per piece","tone":"go","values":[9.3,18.9]}]},
+  "body_html":"<p>US Domestic revenue rose 6.0% on a 9.3% increase in revenue per piece, with operating margin of 0.1% GAAP and <b>8.0% adjusted</b>. International revenue rose 12.5% on an 18.9% increase in revenue per piece, with margin of 12.4% on both bases. Asia-to-Asia export volume grew 13.6%. Management describes the business as more selective and focused on revenue quality rather than volume.</p>",
+  "sowhat":"Yield outpacing revenue in both segments means the enterprise is being steered by pricing and mix decisions at enormous transaction volume. That is a data problem at a scale few companies have, and it is now the stated strategy.",
+  "sources":[{"label":"UPS 2Q 2026 earnings release","url":"https://about.ups.com/us/en/newsroom/press-releases/financials/ups-releases-2q-2026-earnings.html"},{"label":"UPS — takeaways from Q2 2026","url":"https://about.ups.com/us/en/our-stories/innovation-driven/top-5-takeaways-from-ups-s-q2-2026-earnings-announcement.html"}]}
+]'::jsonb,'2026-07-28',true,'current'
+from public.accounts a where slug='ups';

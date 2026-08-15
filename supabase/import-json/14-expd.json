@@ -1,0 +1,63 @@
+{
+ "slug": "expd",
+ "verdict": "QUALIFY",
+ "verdict_line": "Three of the top seats changed in two years — CEO in 2025, CFO in 2025, CIO in 2024 — at a company famous for building its own technology. Exceptional Q2 numbers and no debt. The open question is whether the build-not-buy culture moves with the people.",
+ "as_of": "2026-08-05",
+ "thesis": [
+  {
+   "n": "01",
+   "text": "<b>An outstanding quarter.</b> Revenue <b>$3.50 billion</b> (+32%), operating income $349.6 million (+41%), net earnings $266.2 million (+45%), diluted EPS $2.03 (+51%) — driven by airfreight revenue up 57% and tonnage up 14%."
+  },
+  {
+   "n": "02",
+   "text": "<b>The balance sheet is pristine</b> — $1.03 billion of cash and no long-term debt beyond leases, with $461 million returned to shareholders in the quarter and $748 million year to date."
+  },
+  {
+   "n": "03",
+   "text": "<b>Leadership has turned over at the top.</b> Daniel R. Wall elected President and CEO in April 2025, David A. Hackett became CFO on 1 October 2025, Courtney Hawkins joined as SVP and Chief Information Officer in 2024, previously in technology leadership at Nordstrom, Starbucks and Nike."
+  },
+  {
+   "n": "04",
+   "text": "<b>The verdict moved from WATCH to QUALIFY on that turnover.</b> Expeditors has historically built rather than bought technology, three new executives, one of them from outside the industry, is the only realistic circumstance in which that posture changes."
+  }
+ ],
+ "exhibits": [
+  {
+   "no": "A",
+   "title": "Q2 2026 performance",
+   "headline": "Revenue up 32% and EPS up 51%, with over a billion in cash and no long-term debt.",
+   "chart": {
+    "kind": "bar",
+    "y_label": "% change YoY",
+    "labels": [
+     "Diluted EPS",
+     "Net earnings",
+     "Operating income",
+     "Revenue",
+     "Airfreight tonnage"
+    ],
+    "series": [
+     {
+      "name": "Q2 2026",
+      "tone": "go",
+      "values": [
+       51,
+       45,
+       41,
+       32,
+       14
+      ]
+     }
+    ]
+   },
+   "body_html": "<p>Quarter ended 30 June 2026: revenue <b>$3,502,335 thousand</b> (+32%), operating income $349.6 million (+41%), net earnings attributable to shareholders $266.2 million (+45%), diluted EPS $2.03 (+51%). Airfreight revenue rose 57% and customs and other services 27%, airfreight tonnage rose 14% while ocean volume was flat. Cash $1.03 billion with no long-term debt beyond leases, approximately 20,389 full-time equivalents. Investor Day is scheduled for <b>18 November 2026</b>.</p>",
+   "sowhat": "A new CEO, a new CFO and a relatively new CIO from outside logistics, arriving into record results and a debt-free balance sheet, have both the mandate and the means to revisit build-versus-buy. The Investor Day on 18 November is where any change of technology posture would surface.",
+   "sources": [
+    {
+     "label": "Expeditors Q2 2026 earnings and peer review",
+     "url": "https://markets.financialcontent.com/stocks/article/stockstory-2026-8-3-earnings-to-watch-expeditors-expd-reports-q2-results-tomorrow"
+    }
+   ]
+  }
+ ]
+}

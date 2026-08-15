@@ -1,0 +1,25 @@
+insert into public.baselines (account_id,version,verdict,verdict_line,thesis,exhibits,as_of,active,review_status)
+select id, coalesce((select max(version) from public.baselines b where b.account_id=a.id),0)+1,'PURSUE',
+'The largest systems-integration event in modern North American rail is live: an $85B acquisition of Norfolk Southern, ~$2.75B of targeted synergies, and an STB decision expected in 2027. Integration planning is fundable now, years before close.',
+'[
+ {"n":"01","text":"<b>The merger is confirmed and quantified.</b> Terms are 1.0 UP share plus $88.82 cash per NS share — an <b>$85 billion enterprise value</b> for Norfolk Southern and a combined enterprise of over <b>$250 billion</b>, with ~225M UP shares issued (NS holders taking ~27%), a $2.5B reverse termination fee and <b>~$2.75B of expected annualised synergies</b>."},
+ {"n":"02","text":"<b>The regulatory clock is running and visible.</b> Joint application filed 19 Dec 2025, found incomplete 16 Jan 2026, revised application filed 30 Apr 2026, STB accepted it 28 May 2026 but held proceedings in abeyance pending supplemental information, delivered 7 July 2026. Completion expected 2027."},
+ {"n":"03","text":"<b>UP is already spending on it.</b> Q2 2026 included <b>$35 million of Norfolk Southern acquisition-related costs</b> — integration work is funded and under way well ahead of any approval."},
+ {"n":"04","text":"<b>The base business is the best operator in the peer set,</b> so efficiency is not the pitch. Q2 2026 OR 59.7% reported and 59.2% adjusted, with fuel alone costing 120bps. Freight-car velocity +5%, terminal dwell −7%, workforce productivity +5%."}
+]'::jsonb,
+'[
+ {"no":"A","title":"Q2 2026 performance","headline":"Revenue $6.864B, up 12%, with the best operating ratio on the roster — 59.7% reported, 59.2% adjusted.",
+  "chart":{"kind":"bar","y_label":"OR % (Q2 2026, reported)","y_min":55,
+    "labels":["Union Pacific","CPKC (core adj)","CN","CPKC","Norfolk Southern"],
+    "series":[{"name":"Operating ratio","tone":"struct","values":[59.7,61.6,62.5,64.6,67.6]}]},
+  "body_html":"<p>Operating revenue <b>$6.864 billion</b> (+12%), net income <b>$1.993 billion</b> (+6%) and adjusted net income $2.028 billion (+12%), diluted EPS $3.36 (+7%), adjusted $3.41 (+13%), revenue carloads 2.163 million (+2%). Reported OR 59.7% (+70bps) and adjusted OR 59.2% (+110bps), with fuel expense up 63% costing <b>120 basis points</b>. Debt $30.327 billion at 2.5x adjusted debt/adjusted EBITDA, H1 free cash flow $1.812 billion, capital plan $3.3 billion, $1.640 billion of dividends paid in H1.</p>",
+  "sowhat":"UP is the benchmark others are measured against. Any efficiency pitch dies on contact. The opening is <b>scale and integration complexity</b> — problems that get harder as the network grows, not cheaper.",
+  "sources":[{"label":"Union Pacific Q2 2026 8-K earnings release (SEC)","url":"https://www.sec.gov/Archives/edgar/data/0000100885/000010088526000249/a2026-07x238xkex991earning.htm"}]},
+ {"no":"B","title":"The merger","headline":"$85 billion for Norfolk Southern, ~$2.75 billion of targeted synergies, and an STB decision expected in 2027.",
+  "chart":{"kind":"bar","y_label":"$ billions","labels":["NS enterprise value","Combined enterprise","Cash consideration","Targeted synergies","Reverse break fee"],
+    "series":[{"name":"Transaction terms","tone":"go","values":[85,250,20,2.75,2.5]}]},
+  "body_html":"<p>Announced 29 July 2025. Consideration is <b>1.0 UP share plus $88.82 in cash per NS share</b>. UP''s own 10-Q frames it as approximately 225 million UP shares plus roughly $20 billion of cash. Norfolk Southern shareholders would hold about 27% of the combined company. The Surface Transportation Board accepted the revised application on <b>28 May 2026</b> but held proceedings — including environmental review — in abeyance, ordering supplemental information by 27 July 2026, applicants filed their first round of responses on 7 July 2026 addressing TTX, Kansas City Terminal and Terminal Railroad Association. On 22 July 2026 the STB ordered employee-impact data made public.</p><p>A specific competitive condition matters to another roster account: UP and NS combined would exceed 50% of TTX, so they have committed to divest shares to bring combined ownership to <b>49% or below</b>.</p>",
+  "sowhat":"Two Class I networks, two PSR platforms, two data estates, two application portfolios. Post-merger integration at this scale runs for years and is contracted early. Clean-room and integration-planning work is legitimate <b>now</b>, the programme itself lands on approval.",
+  "sources":[{"label":"STB decision — Federal Register, 29 May 2026","url":"https://www.federalregister.gov/documents/2026/05/29/2026-10751/union-pacific-corporation-and-union-pacific-railroad-company-control-norfolk-southern-corporation"},{"label":"Union Pacific Q2 2026 8-K (SEC)","url":"https://www.sec.gov/Archives/edgar/data/0000100885/000010088526000249/a2026-07x238xkex991earning.htm"}]}
+]'::jsonb,'2026-07-23',true,'current'
+from public.accounts a where slug='unp';

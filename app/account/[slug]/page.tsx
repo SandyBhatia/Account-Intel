@@ -3,6 +3,7 @@ import { createClient } from "@/lib/supabase/server";
 import TopBar from "@/components/TopBar";
 import RefreshButton from "@/components/RefreshButton";
 import ExhibitChart, { type ChartSpec } from "@/components/ExhibitChart";
+import FinancialsPanel, { type Financials } from "@/components/FinancialsPanel";
 
 export const dynamic = "force-dynamic";
 
@@ -93,6 +94,16 @@ export default async function AccountPage({ params }: { params: Promise<{ slug: 
 
           {/* ---------------- evidence ---------------- */}
           <div>
+            {baseline?.financials ? (
+              <div className="exgrid" style={{ marginBottom: 16 }}>
+                <FinancialsPanel fin={baseline.financials as Financials} />
+              </div>
+            ) : baseline ? (
+              <div className="gloss" style={{ padding: "15px 19px", marginBottom: 16 }}>
+                <p className="note">Financial series not yet loaded for this account.</p>
+              </div>
+            ) : null}
+
             <div className="exgrid">
               {exhibits.map((ex) => (
                 <div className={`ex gloss ${isWide(ex) ? "wide" : ""}`} key={ex.no}>

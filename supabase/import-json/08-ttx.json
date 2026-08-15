@@ -1,0 +1,92 @@
+{
+ "slug": "ttx",
+ "verdict": "PURSUE",
+ "verdict_line": "Owned by all seven Class I railroads, operating ~177,000 pooled cars and the majority of North American intermodal well cars. The UP-NS merger forces a divestment below 49% and puts TTX under regulatory scrutiny — a governance moment with an integration agenda attached.",
+ "as_of": "2026-05-29",
+ "thesis": [
+  {
+   "n": "01",
+   "text": "<b>One account, every railroad relationship.</b> TTX ownership per the STB record: <b>Union Pacific 37.03%, Norfolk Southern 19.78%, CSX 19.78%, BNSF 17.4%, CN 3.2%, CPKC 2.2%, Ferromex 0.6%.</b> Five of those seven are on this roster."
+  },
+  {
+   "n": "02",
+   "text": "<b>It owns the intermodal asset base.</b> Approximately <b>177,000 pooled railcars</b>, including over half of the well cars used for intermodal traffic in North America — the physical substrate of the intermodal horizontal."
+  },
+  {
+   "n": "03",
+   "text": "<b>The merger creates a forced change.</b> UP and NS combined would exceed 50% of TTX, so they have committed to divest down to <b>49% or below</b>. Ownership restructuring under STB scrutiny is a governance and data-transparency moment."
+  },
+  {
+   "n": "04",
+   "text": "<b>The financial relationship is material to owners.</b> Union Pacific's TTX investment carrying value was approximately <b>$1.8 billion</b> at end-2023, with car-hire expense of roughly <b>$399 million</b> in 2023 — from one owner alone."
+  }
+ ],
+ "exhibits": [
+  {
+   "no": "A",
+   "title": "Ownership structure",
+   "headline": "Seven railroad owners, five of them on this roster — and a merger that forces the two largest to sell down.",
+   "chart": {
+    "kind": "bar",
+    "y_label": "% ownership",
+    "labels": [
+     "Union Pacific",
+     "Norfolk Southern",
+     "CSX",
+     "BNSF",
+     "CN",
+     "CPKC",
+     "Ferromex"
+    ],
+    "series": [
+     {
+      "name": "TTX ownership",
+      "tone": "struct",
+      "values": [
+       37.03,
+       19.78,
+       19.78,
+       17.4,
+       3.2,
+       2.2,
+       0.6
+      ]
+     }
+    ]
+   },
+   "body_html": "<p>TTX is privately owned by North America's Class I railroads and operates as the industry's railcar cooperative under pooling authority granted by the Surface Transportation Board. Ownership percentages above are drawn from the STB decision published in the Federal Register. In share terms: UP 5,850 shares, NS and CSX 3,125 each, BNSF 2,750, CN 500. Because UP and NS combined would exceed 50%, the merger applicants have committed to divest shares to reach 49% or below and avoid a separate control application.</p><p>Founded in 1955 as Trailer Train by the Pennsylvania Railroad, renamed and restructured under an ICC-approved pooling agreement in 1974.</p>",
+   "sowhat": "Credibility earned at TTX travels to every railroad on the roster simultaneously. And because TTX exists to serve its owners at cost rather than extract margin, an efficiency argument aligns with its charter instead of fighting it.",
+   "sources": [
+    {
+     "label": "STB decision — Federal Register, 29 May 2026",
+     "url": "https://www.federalregister.gov/documents/2026/05/29/2026-10751/union-pacific-corporation-and-union-pacific-railroad-company-control-norfolk-southern-corporation"
+    },
+    {
+     "label": "BNSF Form 10-Q Q2 2026 — related party transactions (SEC)",
+     "url": "https://www.sec.gov/Archives/edgar/data/0000934612/000093461226000013/bni-20260630.htm"
+    },
+    {
+     "label": "TTX — Who We Are",
+     "url": "https://www.ttx.com/about/who-we-are/"
+    }
+   ]
+  },
+  {
+   "no": "B",
+   "title": "The technology signal",
+   "headline": "Joining the RailPulse telematics venture in October 2025 instruments a 177,000-car fleet — and raises the question of what to do with the data.",
+   "body_html": "<p>TTX joined the <b>RailPulse</b> telematics joint venture in October 2025, adding the scale and fleet-management capability of the largest shared railcar provider. Executive Vice President <b>Marty Thomas</b> framed the move as a commitment to innovation and the long-term strength of the freight rail industry. TTX separately invests in industry technology intended to improve the quality and timeliness of financial and operating information for itself and for the owner railroads it reports to. Because most owners are public companies, TTX's financial reporting must meet Sarbanes-Oxley requirements.</p>",
+   "sowhat": "Telematics answers where a car is and how it is behaving. It does not answer what should happen next — repositioning, maintenance sequencing, pool allocation across seven owners. That second question is the offer.",
+   "sources": [
+    {
+     "label": "Trains — TTX joins RailPulse",
+     "url": "https://www.trains.com/pro/mechanical/freight-cars/ttx-joins-railpulse-telematics-joint-venture/"
+    },
+    {
+     "label": "TTX — Who We Are",
+     "url": "https://www.ttx.com/about/who-we-are/"
+    }
+   ]
+  }
+ ]
+}

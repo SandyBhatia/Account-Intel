@@ -1,0 +1,18 @@
+insert into public.baselines (account_id,version,verdict,verdict_line,thesis,exhibits,as_of,active,review_status)
+select id, coalesce((select max(version) from public.baselines b where b.account_id=a.id),0)+1,'PURSUE',
+'New business signings up 34% against revenue growth of 4.3% — the gap between sold and live is implementation capacity, and it widens every quarter. A $2.7B pipeline and a 90%-complete Wincanton integration on top.',
+'[
+ {"n":"01","text":"<b>Signings are outrunning delivery.</b> Approximately <b>$410 million</b> of new business signed in the quarter, up 34% — the strongest in three years — against revenue growth of just 4.3%."},
+ {"n":"02","text":"<b>The committed book is large and dated.</b> Contracts won through Q2 are expected to generate roughly <b>$1 billion of incremental 2026 revenue</b> (+29%) plus a further <b>$353 million for 2027</b>. Record sales pipeline of approximately $2.7 billion as at 29 July 2026."},
+ {"n":"03","text":"<b>Margin is under pressure while this happens.</b> Operating income fell to $77 million from $89 million even as adjusted EBITDA rose to $219 million — the cost of standing up new sites lands before the revenue does."},
+ {"n":"04","text":"<b>Two technology programmes are live:</b> GXO IQ has moved from launch to scaled deployment, and the Wincanton integration is around 90% complete, on track for $60 million of run-rate synergies by year end."}
+]'::jsonb,
+'[
+ {"no":"A","title":"The implementation gap","headline":"Signings grew 34% while revenue grew 4.3% — the difference is work sold but not yet stood up.",
+  "chart":{"kind":"bar","y_label":"$ millions","labels":["New business signed (Q2)","Incremental 2026 revenue","2027 revenue secured","Sales pipeline"],
+    "series":[{"name":"GXO disclosed","tone":"go","values":[410,1000,353,2700]}]},
+  "body_html":"<p>Revenue <b>$3.441 billion</b> (+4.3%, organic 3.4%), operating income $77 million (from $89 million), net income attributable to GXO $25 million, adjusted EBITDA $219 million (from $212 million), adjusted diluted EPS $0.59 (from $0.57). Around 40% of new wins were in the strategic verticals — aerospace and defence, technology, industrial and life sciences. Net leverage improved to 2.6x from 3.0x. Management noted humanoid-robot deployments are not yet at ROI, roughly two years from production use.</p>",
+  "sowhat":"In contract logistics every win is an implementation: WMS configuration, client system integration, automation commissioning, data flows. A 34% signing rate against 4.3% revenue growth is the most direct services opportunity on the roster, and it compounds.",
+  "sources":[{"label":"GXO Q2 2026 results","url":"https://investors.gxo.com/news-releases/news-release-details/gxo-reports-second-quarter-2026-results"},{"label":"GXO Q2 2026 release (PDF)","url":"https://investors.gxo.com/static-files/1183723b-dd51-4f53-b876-8d87510632ad"}]}
+]'::jsonb,'2026-08-04',true,'current'
+from public.accounts a where slug='gxo';

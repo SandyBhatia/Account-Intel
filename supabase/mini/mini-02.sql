@@ -1,0 +1,47 @@
+insert into public.baselines (account_id,version,verdict,verdict_line,thesis,exhibits,as_of,active,review_status)
+select id, coalesce((select max(version) from public.baselines b where b.account_id=a.id),0)+1,'PURSUE',
+'Operating margin fell from 16.7% to 7.0% in the year it was spun out, and the CEO has publicly called untangling its parcel-centric technology "a massive effort." A transition services agreement expires around June 2028. The clearest carve-out mandate on the roster.',
+'[
+ {"n":"01","text":"<b>Margin collapsed through separation.</b> FY2026 operating income fell <b>58.6% to $616 million</b> on revenue of $8.8 billion (−1.1%) — an operating margin of <b>7.0%</b> against 16.7% the prior year. Adjusted operating income $1.1 billion (−25.6%), adjusted margin 12.6%."},
+ {"n":"02","text":"<b>The technology separation is stated in the CEO''s own words.</b> John Smith has described how FedEx meshed back-office technology across units in 2009, that the majority of it was parcel-centric, and that unbundling it is, in his phrase, a massive effort."},
+ {"n":"03","text":"<b>The clock is contractual.</b> A Transition Services Agreement with FedEx runs up to two years from the spin-off — to approximately <b>June 2028</b> — covering order creation and network technology operations. Systems independence must be achieved before it lapses."},
+ {"n":"04","text":"<b>Pricing must now stand alone.</b> Separation decouples parcel and LTL contracts, so LTL must be priced on its own merits without parcel volume subsidising the relationship — making yield management and customer profitability analytics first-order capabilities."}
+]'::jsonb,
+'[
+ {"no":"A","title":"The cost of independence","headline":"Operating margin fell from 16.7% to 7.0% and operating income dropped 58.6% in the separation year.",
+  "chart":{"kind":"grouped","y_label":"%","labels":["Operating margin","Adjusted operating margin"],
+    "series":[{"name":"FY2025","tone":"dim","values":[16.7,16.7]},{"name":"FY2026","tone":"stop","values":[7.0,12.6]}]},
+  "body_html":"<p>For FY2026 (year ended 31 May 2026): revenue <b>$8.8 billion</b> (−1.1%), operating income <b>$616 million</b> (−58.6%), adjusted operating income $1.1 billion (−25.6%). Q4 FY2026: revenue $2.4 billion (+4.8%), operating income $158 million (−66.9%), adjusted $363 million, average daily shipments 86,700 (−5.9%) with revenue per shipment $415.22 (+11.5%). Pre-spin the company took on <b>$4.3 billion of debt</b> ($3.7B senior notes plus a $0.6B term loan) with a $1.2 billion revolver. Shares outstanding 149,518,133 as at 3 August 2026.</p><p class=''note''>Basis note: these are FedEx Freight <b>segment</b> results as reported within FedEx Corporation and are explicitly not presented on a carve-out basis, the 10-K''s audited carve-out financials differ, and standalone full-year net income was not disclosed.</p>",
+  "sowhat":"Revenue per shipment rose 11.5% while shipments fell 5.9% — they are already trading volume for yield. Doing that well without parcel cross-subsidy requires pricing science they have never had to own before.",
+  "sources":[{"label":"FedEx Freight FY2026 Form 10-K (SEC)","url":"https://www.sec.gov/Archives/edgar/data/0002082247/000162828026053359/fdxf-20260531.htm"},{"label":"FedEx Freight investor relations","url":"https://investors.fedex.com/fedex-freight-spin-off/default.aspx"}]},
+ {"no":"B","title":"The separation clock","headline":"Independent since 1 June 2026, with a transition services agreement expiring around June 2028 and a seven-month transition period closing 31 December 2026.",
+  "body_html":"<p>FedEx completed the spin-off on <b>1 June 2026</b>, distributing <b>80.1%</b> of FedEx Freight stock pro rata — one share for every two FedEx shares — and retaining <b>19.9%</b>, which per the 10-K it must generally dispose of within 24 months. The company changed its fiscal year-end from 31 May to 31 December, so its first standalone reporting period is a <b>seven-month transition period from 1 June to 31 December 2026</b>. Guidance for that period: revenue growth of 4–6% against $5.1 billion, operating income $475–515 million, diluted EPS $1.75–1.95. President and CEO <b>John A. Smith</b>, CFO <b>Marshall Witt</b>, Chairman R. Brad Martin. Approximately 40,000 employees and 355+ terminals.</p>",
+  "sowhat":"Three dated pressure points converge: first standalone results in early 2027, FedEx''s 19.9% disposal within 24 months, and TSA expiry around June 2028. Everything about the technology estate has to be resolved inside that window.",
+  "sources":[{"label":"FedEx Freight FY2026 Form 10-K (SEC)","url":"https://www.sec.gov/Archives/edgar/data/0002082247/000162828026053359/fdxf-20260531.htm"},{"label":"FedEx completes spin-off of FedEx Freight","url":"https://newsroom.fedex.com/newsroom/global-english/fedex-completes-spin-off-of-fedex-freight"},{"label":"FedEx Freight leadership announcement","url":"https://newsroom.fedex.com/newsroom/global-english/fedex-announces-leadership-for-independent-fedex-freight-company-upon-separation"}]}
+]'::jsonb,'2026-05-31',true,'current'
+from public.accounts a where slug='fedex-frt';
+
+insert into public.baselines (account_id,version,verdict,verdict_line,thesis,exhibits,as_of,active,review_status)
+select id, coalesce((select max(version) from public.baselines b where b.account_id=a.id),0)+1,'PURSUE',
+'Efficiency Reimagined has banked $1.2B of a $3B full-year target, the Amazon glide-down is complete, and the CEO has named RFID and AI as the next lever. A funded programme with a public number attached to it.',
+'[
+ {"n":"01","text":"<b>The structural reset is complete.</b> The Amazon glide-down eliminated roughly <b>2 million pieces per day</b> of lower-quality volume and removed about <b>$4.5 billion</b> of related expense, 45 buildings closed in H1 and around 80% of Driver Choice participants departed in Q2."},
+ {"n":"02","text":"<b>Efficiency Reimagined is funded, named and measured</b> — approximately <b>$1.2 billion</b> of programme benefits in H1 2026 against a full-year target of roughly <b>$3 billion</b>. The remaining $1.8 billion is someone''s scorecard right now."},
+ {"n":"03","text":"<b>Guidance was raised.</b> FY2026 revenue approximately $91.2 billion, operating profit approximately $8.65 billion, adjusted EPS approximately $7.22, with H2 domestic operating margin projected around 8.8%."},
+ {"n":"04","text":"<b>The CEO named the technology.</b> Investment in RFID and artificial intelligence for package visibility, described as the most significant advancement in a decade."}
+]'::jsonb,
+'[
+ {"no":"A","title":"Q2 2026 and the cost of transformation","headline":"Revenue $22.8B with GAAP operating profit of $930M against $2.1B adjusted — the gap is the reset being paid for.",
+  "chart":{"kind":"bar","y_label":"$ billions","labels":["Revenue","Adjusted operating profit","GAAP operating profit","Transformation charge"],
+    "series":[{"name":"Q2 2026","tone":"struct","values":[22.8,2.1,0.93,0.891]}]},
+  "body_html":"<p>Consolidated revenue <b>$22.8 billion</b> (+7.6%), GAAP operating profit $930 million, adjusted operating profit <b>$2.1 billion</b> (+12%), GAAP diluted EPS $0.71, adjusted diluted EPS $1.76. The GAAP figures carry after-tax transformation charges of <b>$891 million</b> ($1.05 per share), primarily employee separation costs from the completed Driver Choice Program.</p>",
+  "sowhat":"An organisation absorbing this much restructuring has already accepted disruption. The hard decision is made. What follows a physical network reconfiguration is always a systems and decisioning reconfiguration — and that phase is beginning now.",
+  "sources":[{"label":"UPS 2Q 2026 earnings release","url":"https://about.ups.com/us/en/newsroom/press-releases/financials/ups-releases-2q-2026-earnings.html"},{"label":"UPS 2Q 2026 release (PDF)","url":"https://investors.ups.com/_assets/_c53d8bf327c039b6881e8488f7b20256/ups/news/2026-07-28_UPS_Releases_2Q_2026_2164.pdf"}]},
+ {"no":"B","title":"Revenue quality shift","headline":"Revenue per piece is rising faster than revenue in both segments — the company is now run on mix and pricing decisions.",
+  "chart":{"kind":"grouped","y_label":"% change YoY","labels":["US Domestic","International"],
+    "series":[{"name":"Revenue","tone":"struct","values":[6.0,12.5]},{"name":"Revenue per piece","tone":"go","values":[9.3,18.9]}]},
+  "body_html":"<p>US Domestic revenue rose 6.0% on a 9.3% increase in revenue per piece, with operating margin of 0.1% GAAP and <b>8.0% adjusted</b>. International revenue rose 12.5% on an 18.9% increase in revenue per piece, with margin of 12.4% on both bases. Asia-to-Asia export volume grew 13.6%. Management describes the business as more selective and focused on revenue quality rather than volume.</p>",
+  "sowhat":"Yield outpacing revenue in both segments means the enterprise is being steered by pricing and mix decisions at enormous transaction volume. That is a data problem at a scale few companies have, and it is now the stated strategy.",
+  "sources":[{"label":"UPS 2Q 2026 earnings release","url":"https://about.ups.com/us/en/newsroom/press-releases/financials/ups-releases-2q-2026-earnings.html"},{"label":"UPS — takeaways from Q2 2026","url":"https://about.ups.com/us/en/our-stories/innovation-driven/top-5-takeaways-from-ups-s-q2-2026-earnings-announcement.html"}]}
+]'::jsonb,'2026-07-28',true,'current'
+from public.accounts a where slug='ups';

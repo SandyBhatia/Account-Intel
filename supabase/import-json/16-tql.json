@@ -1,0 +1,71 @@
+{
+ "slug": "tql",
+ "verdict": "QUALIFY",
+ "verdict_line": "$6.82B of gross revenue on a 20.1% net margin, run by 9,000 people — the most people-intensive economics on the roster, in the one model AI reshapes fastest. C.H. Robinson has already proved what is possible.",
+ "as_of": "2026-01-02",
+ "thesis": [
+  {
+   "n": "01",
+   "text": "<b>The economics are now visible.</b> Gross revenue of <b>$6.82 billion in 2024</b> at a net revenue margin of <b>20.1%</b>, giving net revenue of approximately <b>$1.37 billion</b> — the third-largest freight broker by revenue."
+  },
+  {
+   "n": "02",
+   "text": "<b>It is carried by headcount.</b> Approximately <b>9,000 employees</b> across 56 offices and a network of over 130,000 carriers. Dedicated account teams and 24/7 service are the differentiator — and the cost structure most exposed to automation."
+  },
+  {
+   "n": "03",
+   "text": "<b>Revenue is highly cyclical:</b> $4.1 billion (2020), $7.8 billion (2021), $8.8 billion (2022), $6.7 billion (2023), $6.82 billion (2024). A business that can swing 25% in a year cannot carry fixed people cost through a trough."
+  },
+  {
+   "n": "04",
+   "text": "<b>The peer benchmark is brutal and public.</b> C.H. Robinson has cut headcount 28.7% since mid-2023 while growing volume, on 60%+ productivity gains. That is the number a TQL executive has to answer."
+  }
+ ],
+ "exhibits": [
+  {
+   "no": "A",
+   "title": "Revenue trajectory and margin",
+   "headline": "$6.82 billion gross and $1.37 billion net in 2024 — after a 24% peak-to-trough swing.",
+   "chart": {
+    "kind": "bar",
+    "y_label": "$ billions gross revenue",
+    "labels": [
+     "2020",
+     "2021",
+     "2022",
+     "2023",
+     "2024"
+    ],
+    "series": [
+     {
+      "name": "Gross revenue",
+      "tone": "struct",
+      "values": [
+       4.1,
+       7.8,
+       8.8,
+       6.7,
+       6.82
+      ]
+     }
+    ]
+   },
+   "body_html": "<p>TQL is privately held and does not file financial statements. Per the Transport Topics 2025 freight-brokerage rankings, 2024 gross revenue was <b>$6.82 billion</b> with a net revenue margin of <b>20.1%</b>, equating to roughly <b>$1.37 billion</b> of net revenue, across approximately 9,000 employees, 56 offices and 130,000+ carriers. Founded 1997 by <b>Ken Oaks</b>, who remains CEO, President <b>Kerry Byrne</b>. Cincinnati's largest private company. Because it is private, profitability is not disclosed.</p><p>TQL's <b>TRAX</b> platform has undergone an AI-driven overhaul, with the company emphasising machine learning for capacity prediction and spot pricing, and asset-light capital expenditure of roughly 1.2% of revenue redirected toward technology and sales.</p>",
+   "sowhat": "At 20.1% net margin across $6.82 billion of gross revenue, one point of productivity is worth real money — and they are already building AI internally. The opening is to accelerate what TRAX has started rather than to introduce the idea.",
+   "sources": [
+    {
+     "label": "Transport Topics 2025 freight brokerage rankings (via industry analysis)",
+     "url": "https://keynnectlogistics.com/top-5-most-profitable-freight-brokerage-2025/"
+    },
+    {
+     "label": "Forbes — TQL company overview",
+     "url": "https://www.forbes.com/companies/tql-total-quality-logistics/"
+    },
+    {
+     "label": "Total Quality Logistics — company profile",
+     "url": "https://en.wikipedia.org/wiki/Total_Quality_Logistics"
+    }
+   ]
+  }
+ ]
+}

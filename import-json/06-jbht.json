@@ -1,0 +1,75 @@
+{
+ "slug": "jbht",
+ "verdict": "PURSUE",
+ "verdict_line": "First double-digit intermodal growth quarter in over a decade and a record 578,072 loads — with the operating ratio flat at 88.9%. Record volume is not becoming margin, and the bid season opens in October.",
+ "as_of": "2026-07-15",
+ "thesis": [
+  {
+   "n": "01",
+   "text": "<b>A genuine inflection.</b> Intermodal loads reached a record <b>578,072</b>, up 10% — per Intermodal president Darren Field on the 22 July call, the first double-digit volume growth quarter in over a decade."
+  },
+  {
+   "n": "02",
+   "text": "<b>Volume did not become margin.</b> Intermodal operating income rose 58% to $150.9 million, yet the intermodal operating ratio stayed roughly <b>flat at 88.9%</b>. Under twelve cents of every intermodal dollar survives as operating profit."
+  },
+  {
+   "n": "03",
+   "text": "<b>Mix is masking yield.</b> Eastern loads +16% against transcontinental +5%, shorter eastern hauls cut length of haul, and excluding fuel, yields rose only marginally. Managing profitability through a mix shift is a pricing-science problem."
+  },
+  {
+   "n": "04",
+   "text": "<b>The bid season opens in October</b> — annual intermodal contracts are priced then, which makes decision-support a this-quarter conversation."
+  }
+ ],
+ "exhibits": [
+  {
+   "no": "A",
+   "title": "Growth without margin",
+   "headline": "Every growth metric double-digit, the intermodal operating ratio did not move.",
+   "chart": {
+    "kind": "bar",
+    "y_label": "% change YoY",
+    "labels": [
+     "Diluted EPS",
+     "Net earnings",
+     "Operating income",
+     "Intermodal revenue",
+     "Revenue",
+     "Intermodal loads",
+     "Intermodal OR"
+    ],
+    "series": [
+     {
+      "name": "Q2 2026 vs Q2 2025",
+      "tone": "struct",
+      "values": [
+       45,
+       40.7,
+       32,
+       22,
+       19.4,
+       10,
+       0
+      ]
+     }
+    ]
+   },
+   "body_html": "<p>Revenue <b>$3.50 billion</b> (+19.4%), operating income $259.5 million (+32%), net earnings $181.0 million (+40.7%), diluted EPS $1.91 (+45%). Intermodal revenue $1.75 billion (+22%) with segment operating income $150.9 million (+58%) on record loads of 578,072 (+10%). Brokerage (ICS) revenue $388 million (+49%) swung to a $1.7 million operating profit from a $3.6 million loss. Truckload posted a $1.3 million operating loss. Total debt approximately $1.15 billion, H1 operating cash flow $723.3 million, net capital expenditure fell to $144.9 million from $399.1 million.</p>",
+   "sowhat": "At an 88.9% operating ratio, marginal decisions decide the year — which loads to accept, where to reposition boxes, how to price. Precisely where applied AI pays for itself, and the capital freed by an 64% capex reduction is available to fund it.",
+   "sources": [
+    {
+     "label": "J.B. Hunt Q2 2026 results",
+     "url": "https://www.ajot.com/news/jb-hunt-reports-second-quarter-2026-results"
+    },
+    {
+     "label": "Transport Topics — J.B. Hunt Q2 2026",
+     "url": "https://www.ttnews.com/articles/jb-hunt-earnings-q2-2026"
+    },
+    {
+     "label": "FreightWaves — intermodal shift analysis",
+     "url": "https://www.freightwaves.com/news/massive-opportunities-for-j-b-hunt-in-intermodal-shift"
+    }
+   ]
+  }
+ ]
+}

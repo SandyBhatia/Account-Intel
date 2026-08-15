@@ -1,0 +1,18 @@
+insert into public.baselines (account_id,version,verdict,verdict_line,thesis,exhibits,as_of,active,review_status)
+select id, coalesce((select max(version) from public.baselines b where b.account_id=a.id),0)+1,'QUALIFY',
+'The best AI operating story in the portfolio — 60%+ productivity gains since 2022 and headcount down 28.7% under the current CEO. They are proof the thesis works, which makes them a hard sell and a superb reference for their peers.',
+'[
+ {"n":"01","text":"<b>Lean AI is delivering measurably.</b> Per CEO Dave Bozeman, evergreen productivity improvements of <b>over 60% since the end of 2022</b> in both NAST and Global Forwarding, with 15%+ year-over-year in Q2, while average headcount fell <b>10.8% year over year</b> and roughly 28.7% since he took over in mid-2023."},
+ {"n":"02","text":"<b>Margins hit target.</b> NAST adjusted operating margin 40.9% and Global Forwarding 33.4% — both at mid-cycle targets. Adjusted operating margin 34.7% overall, up 360bps."},
+ {"n":"03","text":"<b>The revenue beat was low quality, which is why the market disliked it.</b> Transportation adjusted gross profit margin <i>fell</i> 210bps to 15.4% as truckload linehaul costs rose about 29% and passed through into revenue, cash from operations collapsed to <b>$35.9 million from $227.1 million</b> on a $227.3 million adverse working-capital swing."},
+ {"n":"04","text":"<b>This resolves the prior open question.</b> Revenue grew 19.3% and the shares fell because gross margin thinned and cash generation deteriorated — the top line was pass-through, not profit."}
+]'::jsonb,
+'[
+ {"no":"A","title":"Quality of the beat","headline":"Revenue up 19.3% and adjusted operating margin up 360bps — but gross margin thinned and operating cash fell 84%.",
+  "chart":{"kind":"bar","y_label":"$ millions","labels":["Cash from operations Q2 2025","Cash from operations Q2 2026"],
+    "series":[{"name":"Operating cash flow","tone":"stop","values":[227.1,35.9]}]},
+  "body_html":"<p>Total revenue <b>$4.93 billion</b> (+19.3%), adjusted gross profit $738.0 million (+6.5%), income from operations $255.7 million (+18.4%), adjusted operating margin 34.7% (+360bps), diluted EPS $1.56 (+23.8%), adjusted $1.61 (+24.8%). Transportation adjusted gross profit margin fell 210 basis points to <b>15.4%</b> as truckload linehaul costs rose roughly 29% and were passed through into revenue with adjusted gross profit per shipment roughly flat. Guidance was reaffirmed, not raised: FY2026 adjusted operating income $964 million to $1.04 billion. President and CEO Dave Bozeman, CFO Damon Lee.</p>",
+  "sowhat":"C.H. Robinson is the competitive proof point, not primarily a target. Their published numbers — 60% productivity, 28.7% headcount reduction, volumes still growing — are the strongest available evidence when pitching AI-native operations to <b>TQL, J.B. Hunt ICS and XPO brokerage</b>.",
+  "sources":[{"label":"C.H. Robinson Q2 2026 results","url":"https://finance.yahoo.com/markets/stocks/articles/c-h-robinson-reports-2026-200500665.html"},{"label":"Air freight & logistics peer earnings review","url":"https://markets.financialcontent.com/stocks/article/stockstory-2026-8-3-earnings-to-watch-expeditors-expd-reports-q2-results-tomorrow"}]}
+]'::jsonb,'2026-07-29',true,'current'
+from public.accounts a where slug='chrw';

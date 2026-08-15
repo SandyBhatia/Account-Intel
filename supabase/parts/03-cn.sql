@@ -1,0 +1,22 @@
+insert into public.baselines (account_id,version,verdict,verdict_line,thesis,exhibits,as_of,active,review_status)
+select id, coalesce((select max(version) from public.baselines b where b.account_id=a.id),0)+1,'PURSUE',
+'Guidance raised on the back of productivity offsetting a 60% fuel increase — and a CITO fifteen months into the job with a digital transformation mandate. An existing customer with a named buyer and a stated agenda.',
+'[
+ {"n":"01","text":"<b>Productivity is the whole story.</b> Fuel expense rose 60% (+C$249M), adding roughly 210bps of operating-ratio pressure, and CN still delivered an OR of 62.5% by hitting a record Q2 fuel efficiency of 0.836 US gal per 1,000 GTM."},
+ {"n":"02","text":"<b>Guidance was raised, not defended.</b> CN now assumes low-single-digit RTM growth (up from flattish) and mid-to-high single-digit adjusted diluted EPS growth for 2026."},
+ {"n":"03","text":"<b>There is a named technology buyer in his first eighteen months.</b> Bhushan Ivaturi, EVP and Chief Information and Technology Officer since April 2025, previously SVP and CIO at Enbridge where he led its digital transformation."},
+ {"n":"04","text":"<b>Consolidation is on CN''s agenda too.</b> The quarter carried advisory costs related to rail consolidation matters, alongside strategic commercial agreements with Union Pacific that could extend CN''s reach into Mexico and Kansas City."}
+]'::jsonb,
+'[
+ {"no":"A","title":"Q2 2026 performance","headline":"Revenue C$4,753M up 11%, EPS up 10%, and an operating ratio held at 62.5% against a 60% fuel increase.",
+  "chart":{"kind":"grouped","y_label":"C$ millions","labels":["Revenue","Operating income","Net income"],
+    "series":[{"name":"Q2 2026","tone":"struct","values":[4753,1781,1249]}]},
+  "body_html":"<p>Revenue <b>C$4,753 million</b> (+11%), operating income C$1,781 million (+9%), adjusted C$1,798 million (+10%), net income C$1,249 million (+7%), diluted EPS C$2.06 (+10%), adjusted C$2.08 (+11%), revenue ton-miles 62.3 billion (+5%). Operating ratio <b>62.5%</b> (+80bps), adjusted 62.2% (+50bps). First-half free cash flow C$1,842 million (+19%). Leverage 2.61x adjusted net debt to adjusted EBITDA, inside the 2.7x target. Q2 buyback of ~2.9 million shares for C$454 million. 2026 capital programme approximately C$2.8 billion. Q3 dividend C$0.9150 per share payable 29 September 2026.</p>",
+  "sowhat":"CN''s own narrative is that productivity offsets fuel. That is an optimisation argument made by the customer, not by us — the fastest route in is to extend it with <b>AI-native operations</b> rather than to introduce a new thesis.",
+  "sources":[{"label":"CN Q2 2026 results","url":"https://www.cn.ca/en/investors/financial-results/"},{"label":"CN investor relations","url":"https://www.cn.ca/en/investors/"}]},
+ {"no":"B","title":"The buying centre","headline":"Bhushan Ivaturi, EVP and Chief Information and Technology Officer since April 2025 — an incoming CIO with a transformation track record.",
+  "body_html":"<p>CN''s senior-most technology executive is <b>Bhushan Ivaturi</b>, Executive Vice-President and Chief Information and Technology Officer, appointed <b>April 2025</b>. Per CN''s own materials he was previously Senior Vice President and Chief Information Officer at Enbridge, where he led its digital transformation. He holds a Master of Science in Information Systems and Operations Management and a bachelor''s degree in mechanical engineering, with executive education at Harvard Business School, MIT Sloan and the Stanford Executive Program. President and CEO: Tracy Robinson.</p>",
+  "sowhat":"An executive roughly eighteen months into a CIO role is still shaping his platform strategy and vendor roster, and is measured on visible transformation. This window narrows through 2027.",
+  "sources":[{"label":"CN leadership","url":"https://www.cn.ca/en/about-cn/leadership/"}]}
+]'::jsonb,'2026-07-24',true,'current'
+from public.accounts a where slug='cn';

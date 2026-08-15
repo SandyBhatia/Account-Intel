@@ -1,0 +1,18 @@
+insert into public.baselines (account_id,version,verdict,verdict_line,thesis,exhibits,as_of,active,review_status)
+select id, coalesce((select max(version) from public.baselines b where b.account_id=a.id),0)+1,'QUALIFY',
+'Record revenue, operating margin up 240 basis points and intermodal volume up 9% — a railroad executing well, which makes the efficiency pitch harder. Strong intermodal alignment, no named technology owner yet.',
+'[
+ {"n":"01","text":"<b>This is a strong quarter, not a distressed one.</b> Record revenue of <b>$3.94 billion</b> (+10%), operating income $1.51 billion (+17%), operating margin <b>38.3%</b> (+240bps), diluted EPS $0.54 (+23%)."},
+ {"n":"02","text":"<b>Intermodal is the growth engine</b> — volume up 9% within total volume growth of 6% to 1.68 million units. Direct alignment with the Intermodal-as-Horizontal pillar."},
+ {"n":"03","text":"<b>Cash generation transformed.</b> H1 free cash flow before dividends of <b>$1.62 billion</b> against $444 million in the prior year, with FY2026 guidance of over 80% free cash flow growth and capex held below $2.4 billion."},
+ {"n":"04","text":"<b>Safety improved sharply</b> — FRA injury rate down 19% and train accident rate down 30% year over year, closing the safety-remediation wedge."}
+]'::jsonb,
+'[
+ {"no":"A","title":"Q2 2026 performance","headline":"Record revenue with 240 basis points of margin expansion — CSX is executing, so the entry point is growth, not repair.",
+  "chart":{"kind":"bar","y_label":"% change YoY","labels":["Diluted EPS","Net earnings","Operating income","Revenue","Intermodal volume","Total volume"],
+    "series":[{"name":"Q2 2026","tone":"go","values":[23,21,17,10,9,6]}]},
+  "body_html":"<p>Revenue <b>$3.94 billion</b> (record, +10%), operating income $1.51 billion (+17%), operating margin 38.3% (+240bps), net earnings $1.00 billion (+21%), diluted EPS $0.54 (+23%). Volume 1.68 million units (+6%) with intermodal volume up 9%. First-half free cash flow before dividends $1.62 billion against $444 million. FY2026 guidance: mid-to-high single-digit revenue growth, over 350 basis points of operating-margin expansion, over 80% free cash flow growth, capex below $2.4 billion. CEO: Steve Angel.</p><p class=''note''>CSX is also a 19.78% owner of TTX and a stakeholder in the UP-NS merger proceedings — see the TTX and Union Pacific baselines.</p>",
+  "sowhat":"With margin expanding and cash generation transformed, CSX has money and no crisis. The credible approach is intermodal growth capacity and pricing science — helping them capture more of a segment already growing 9% — rather than cost repair.",
+  "sources":[{"label":"CSX Q2 2026 results coverage","url":"https://ca.finance.yahoo.com/news/csx-q2-earnings-revenues-beat-172900827.html"}]}
+]'::jsonb,'2026-07-22',true,'current'
+from public.accounts a where slug='csx';

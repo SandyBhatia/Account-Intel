@@ -1,0 +1,102 @@
+insert into public.baselines (account_id,version,verdict,verdict_line,thesis,exhibits,as_of,active,review_status)
+select id, coalesce((select max(version) from public.baselines b where b.account_id=a.id),0)+1,'PURSUE',
+'New business signings up 34% against revenue growth of 4.3% — the gap between sold and live is implementation capacity, and it widens every quarter. A $2.7B pipeline and a 90%-complete Wincanton integration on top.',
+'[
+ {"n":"01","text":"<b>Signings are outrunning delivery.</b> Approximately <b>$410 million</b> of new business signed in the quarter, up 34% — the strongest in three years — against revenue growth of just 4.3%."},
+ {"n":"02","text":"<b>The committed book is large and dated.</b> Contracts won through Q2 are expected to generate roughly <b>$1 billion of incremental 2026 revenue</b> (+29%) plus a further <b>$353 million for 2027</b>. Record sales pipeline of approximately $2.7 billion as at 29 July 2026."},
+ {"n":"03","text":"<b>Margin is under pressure while this happens.</b> Operating income fell to $77 million from $89 million even as adjusted EBITDA rose to $219 million — the cost of standing up new sites lands before the revenue does."},
+ {"n":"04","text":"<b>Two technology programmes are live:</b> GXO IQ has moved from launch to scaled deployment, and the Wincanton integration is around 90% complete, on track for $60 million of run-rate synergies by year end."}
+]'::jsonb,
+'[
+ {"no":"A","title":"The implementation gap","headline":"Signings grew 34% while revenue grew 4.3% — the difference is work sold but not yet stood up.",
+  "chart":{"kind":"bar","y_label":"$ millions","labels":["New business signed (Q2)","Incremental 2026 revenue","2027 revenue secured","Sales pipeline"],
+    "series":[{"name":"GXO disclosed","tone":"go","values":[410,1000,353,2700]}]},
+  "body_html":"<p>Revenue <b>$3.441 billion</b> (+4.3%, organic 3.4%), operating income $77 million (from $89 million), net income attributable to GXO $25 million, adjusted EBITDA $219 million (from $212 million), adjusted diluted EPS $0.59 (from $0.57). Around 40% of new wins were in the strategic verticals — aerospace and defence, technology, industrial and life sciences. Net leverage improved to 2.6x from 3.0x. Management noted humanoid-robot deployments are not yet at ROI, roughly two years from production use.</p>",
+  "sowhat":"In contract logistics every win is an implementation: WMS configuration, client system integration, automation commissioning, data flows. A 34% signing rate against 4.3% revenue growth is the most direct services opportunity on the roster, and it compounds.",
+  "sources":[{"label":"GXO Q2 2026 results","url":"https://investors.gxo.com/news-releases/news-release-details/gxo-reports-second-quarter-2026-results"},{"label":"GXO Q2 2026 release (PDF)","url":"https://investors.gxo.com/static-files/1183723b-dd51-4f53-b876-8d87510632ad"}]}
+]'::jsonb,'2026-08-04',true,'current'
+from public.accounts a where slug='gxo';
+
+insert into public.baselines (account_id,version,verdict,verdict_line,thesis,exhibits,as_of,active,review_status)
+select id, coalesce((select max(version) from public.baselines b where b.account_id=a.id),0)+1,'PURSUE',
+'Owned by all seven Class I railroads, operating ~177,000 pooled cars and the majority of North American intermodal well cars. The UP-NS merger forces a divestment below 49% and puts TTX under regulatory scrutiny — a governance moment with an integration agenda attached.',
+'[
+ {"n":"01","text":"<b>One account, every railroad relationship.</b> TTX ownership per the STB record: <b>Union Pacific 37.03%, Norfolk Southern 19.78%, CSX 19.78%, BNSF 17.4%, CN 3.2%, CPKC 2.2%, Ferromex 0.6%.</b> Five of those seven are on this roster."},
+ {"n":"02","text":"<b>It owns the intermodal asset base.</b> Approximately <b>177,000 pooled railcars</b>, including over half of the well cars used for intermodal traffic in North America — the physical substrate of the intermodal horizontal."},
+ {"n":"03","text":"<b>The merger creates a forced change.</b> UP and NS combined would exceed 50% of TTX, so they have committed to divest down to <b>49% or below</b>. Ownership restructuring under STB scrutiny is a governance and data-transparency moment."},
+ {"n":"04","text":"<b>The financial relationship is material to owners.</b> Union Pacific''s TTX investment carrying value was approximately <b>$1.8 billion</b> at end-2023, with car-hire expense of roughly <b>$399 million</b> in 2023 — from one owner alone."}
+]'::jsonb,
+'[
+ {"no":"A","title":"Ownership structure","headline":"Seven railroad owners, five of them on this roster — and a merger that forces the two largest to sell down.",
+  "chart":{"kind":"bar","y_label":"% ownership","labels":["Union Pacific","Norfolk Southern","CSX","BNSF","CN","CPKC","Ferromex"],
+    "series":[{"name":"TTX ownership","tone":"struct","values":[37.03,19.78,19.78,17.4,3.2,2.2,0.6]}]},
+  "body_html":"<p>TTX is privately owned by North America''s Class I railroads and operates as the industry''s railcar cooperative under pooling authority granted by the Surface Transportation Board. Ownership percentages above are drawn from the STB decision published in the Federal Register. In share terms: UP 5,850 shares, NS and CSX 3,125 each, BNSF 2,750, CN 500. Because UP and NS combined would exceed 50%, the merger applicants have committed to divest shares to reach 49% or below and avoid a separate control application.</p><p>Founded in 1955 as Trailer Train by the Pennsylvania Railroad, renamed and restructured under an ICC-approved pooling agreement in 1974.</p>",
+  "sowhat":"Credibility earned at TTX travels to every railroad on the roster simultaneously. And because TTX exists to serve its owners at cost rather than extract margin, an efficiency argument aligns with its charter instead of fighting it.",
+  "sources":[{"label":"STB decision — Federal Register, 29 May 2026","url":"https://www.federalregister.gov/documents/2026/05/29/2026-10751/union-pacific-corporation-and-union-pacific-railroad-company-control-norfolk-southern-corporation"},{"label":"BNSF Form 10-Q Q2 2026 — related party transactions (SEC)","url":"https://www.sec.gov/Archives/edgar/data/0000934612/000093461226000013/bni-20260630.htm"},{"label":"TTX — Who We Are","url":"https://www.ttx.com/about/who-we-are/"}]},
+ {"no":"B","title":"The technology signal","headline":"Joining the RailPulse telematics venture in October 2025 instruments a 177,000-car fleet — and raises the question of what to do with the data.",
+  "body_html":"<p>TTX joined the <b>RailPulse</b> telematics joint venture in October 2025, adding the scale and fleet-management capability of the largest shared railcar provider. Executive Vice President <b>Marty Thomas</b> framed the move as a commitment to innovation and the long-term strength of the freight rail industry. TTX separately invests in industry technology intended to improve the quality and timeliness of financial and operating information for itself and for the owner railroads it reports to. Because most owners are public companies, TTX''s financial reporting must meet Sarbanes-Oxley requirements.</p>",
+  "sowhat":"Telematics answers where a car is and how it is behaving. It does not answer what should happen next — repositioning, maintenance sequencing, pool allocation across seven owners. That second question is the offer.",
+  "sources":[{"label":"Trains — TTX joins RailPulse","url":"https://www.trains.com/pro/mechanical/freight-cars/ttx-joins-railpulse-telematics-joint-venture/"},{"label":"TTX — Who We Are","url":"https://www.ttx.com/about/who-we-are/"}]}
+]'::jsonb,'2026-05-29',true,'current'
+from public.accounts a where slug='ttx';
+
+insert into public.baselines (account_id,version,verdict,verdict_line,thesis,exhibits,as_of,active,review_status)
+select id, coalesce((select max(version) from public.baselines b where b.account_id=a.id),0)+1,'PURSUE',
+'A C$788M carrier mid-way through a cloud TMS replacement, with a cross-border intermodal agreement with CPKC — another customer. Two roster accounts, one lane, and a new platform to integrate around.',
+'[
+ {"n":"01","text":"<b>Scale is established.</b> Revenue of <b>C$788.4 million</b> per the Transport Topics for-hire ranking (data through 31 December 2025), operating 2,000+ tractors and around 10,000 trailers and containers with roughly 4,000 employees and contractors."},
+ {"n":"02","text":"<b>A TMS replacement is under way.</b> Bison partnered with <b>Mastery Logistics Systems</b> to implement the cloud-based MasterMind TMS, announced April 2025, and added barcode technology for real-time freight updates in March 2025."},
+ {"n":"03","text":"<b>The CPKC intermodal agreement links two customers.</b> Bison signed with Canadian Pacific Kansas City for continuous cross-border intermodal service across Canada, the US and Mexico — the intermodal horizontal made literal."},
+ {"n":"04","text":"<b>Leadership changed in 2024.</b> Mike Ludwick became President and CEO effective 1 June 2024, succeeding Rob Penner who retired 31 May 2024. Chairman Don Streuber, COO Steve Zokvic, CFO Hans Andersen."}
+]'::jsonb,
+'[
+ {"no":"A","title":"Scale and the TMS programme","headline":"C$788 million of revenue and a cloud TMS implementation in flight — integration work with a defined anchor.",
+  "chart":{"kind":"bar","y_label":"C$ millions","labels":["FY2025 revenue"],
+    "series":[{"name":"Bison Transport","tone":"struct","values":[788.4]}]},
+  "body_html":"<p>Bison is a privately held, asset-based carrier founded in 1969, headquartered in Winnipeg, acquired by <b>James Richardson and Sons</b> in January 2021. It operates terminals, warehouses and yards across Canada, the United States and Mexico, and owns H.O. Wolding, trading as Bison Transport USA. Revenue of <b>C$788,404 thousand</b> is reported in the Transport Topics for-hire carrier ranking using data through 31 December 2025.</p><p>The company markets specifically to technology and semiconductor shippers, citing GPS tracking, geofencing, carrier vetting, controlled yard processes and real-time visibility for high-value time-sensitive freight, plus dedicated fleet solutions for just-in-time semiconductor supply and data-centre deployment projects.</p>",
+  "sowhat":"A new cloud TMS is the single best time to engage: integration, data migration, analytics and AI layers are all specified in the first eighteen months after go-live. Patient family-conglomerate ownership supports multi-year platform investment.",
+  "sources":[{"label":"Transport Topics for-hire ranking — Bison","url":"https://www.ttnews.com/for-hire/companies/bison/2026"},{"label":"Bison Transport company profile","url":"https://tracxn.com/d/companies/bisontransport/__ajHhMtwDm_gsWfw_rCp9IgaM7V8K190g_VfpuovioJs"},{"label":"Bison Transport — technology shippers","url":"https://www.bisontransport.com/shippers/technology"}]},
+ {"no":"B","title":"The CPKC lane","headline":"A cross-border intermodal agreement with CPKC connects two Mphasis accounts through one lane.",
+  "body_html":"<p>Bison announced an agreement with <b>Canadian Pacific Kansas City</b> (February 2024) to provide continuous cross-border intermodal service through Canada, the United States and Mexico. CPKC is also a Mphasis customer, making this the only place on the roster where two accounts share an operating lane.</p>",
+  "sowhat":"Cross-border intermodal is a data problem before it is a rail or truck problem — customs, three regulatory regimes, equipment interchange, handoff visibility. Bison and CPKC each own one half of that lane and <b>neither owns the data that joins it</b>. One capability, two relationships.",
+  "sources":[{"label":"Bison Transport news","url":"https://www.bisontransport.com/category/news"},{"label":"Bison Transport company profile","url":"https://tracxn.com/d/companies/bisontransport/__ajHhMtwDm_gsWfw_rCp9IgaM7V8K190g_VfpuovioJs"}]}
+]'::jsonb,'2026-08-14',true,'current'
+from public.accounts a where slug='bison';
+
+insert into public.baselines (account_id,version,verdict,verdict_line,thesis,exhibits,as_of,active,review_status)
+select id, coalesce((select max(version) from public.baselines b where b.account_id=a.id),0)+1,'QUALIFY',
+'Revenue up 13% with the operating ratio 90 basis points worse on both measures, and reported EPS down 14%. A three-nation network is a data-integration problem — but no technology owner has been identified.',
+'[
+ {"n":"01","text":"<b>Growth is not converting to efficiency.</b> Q2 2026 revenue <b>$4.2 billion</b> (+13%) against a reported operating ratio of <b>64.6%</b> (worse by 90bps) and a core adjusted OR of <b>61.6%</b> (also worse by 90bps)."},
+ {"n":"02","text":"<b>The GAAP-to-adjusted gap is where integration cost still lives.</b> Reported diluted EPS <b>fell 14% to $1.15</b> while core adjusted diluted EPS rose 13% to $1.27, three years after the CP-KCS merger closed."},
+ {"n":"03","text":"<b>The three-nation network is the differentiator and the complexity.</b> Canada-US-Mexico single-line service means customs, currency and three regulatory regimes across one operating plan."},
+ {"n":"04","text":"<b>The open question is ownership.</b> No senior technology executive has been identified for CPKC in this pass. Until there is a named buyer, this stays QUALIFY rather than PURSUE."}
+]'::jsonb,
+'[
+ {"no":"A","title":"Q2 2026 performance","headline":"Record revenue and a worsening operating ratio on both reported and core adjusted measures.",
+  "chart":{"kind":"grouped","y_label":"OR %","y_min":55,"labels":["Reported OR","Core adjusted OR"],
+    "series":[{"name":"Q2 2025","tone":"dim","values":[63.7,60.7]},{"name":"Q2 2026","tone":"stop","values":[64.6,61.6]}]},
+  "body_html":"<p>Revenue <b>$4.16 billion</b> (+13% from $3.7 billion) with revenue ton-miles up 4%. Net income $1,024 million, from $1,234 million. Reported diluted EPS <b>$1.15</b> (−14%), core adjusted diluted EPS $1.27 (+13%). Fuel expense rose to $618 million from $405 million. The dividend was raised to $0.268 per share from $0.228. Management reaffirmed double-digit earnings growth for 2026 and reported record operating metrics in train speed, dwell and locomotive productivity. President and CEO: Keith Creel.</p>",
+  "sowhat":"A railroad running Precision Scheduled Railroading whose operating ratio degrades during a volume upcycle has a cost-structure question it has not answered. That is the wedge — the same one that works at CN, framed as decision automation rather than headcount.",
+  "sources":[{"label":"CPKC Q2 2026 earnings release (SEC Exhibit 99.1)","url":"https://www.sec.gov/Archives/edgar/data/16875/000001687526000024/exhibit991-q22026earningsr.htm"},{"label":"CPKC investor relations","url":"https://investor.cpkcr.com/news/press-release-details/2026/CPKC-reports-strong-Q2-results-poised-for-accelerated-growth-in-second-half-of-2026/default.aspx"}]}
+]'::jsonb,'2026-07-29',true,'current'
+from public.accounts a where slug='cpkc';
+
+insert into public.baselines (account_id,version,verdict,verdict_line,thesis,exhibits,as_of,active,review_status)
+select id, coalesce((select max(version) from public.baselines b where b.account_id=a.id),0)+1,'QUALIFY',
+'Record revenue, operating margin up 240 basis points and intermodal volume up 9% — a railroad executing well, which makes the efficiency pitch harder. Strong intermodal alignment, no named technology owner yet.',
+'[
+ {"n":"01","text":"<b>This is a strong quarter, not a distressed one.</b> Record revenue of <b>$3.94 billion</b> (+10%), operating income $1.51 billion (+17%), operating margin <b>38.3%</b> (+240bps), diluted EPS $0.54 (+23%)."},
+ {"n":"02","text":"<b>Intermodal is the growth engine</b> — volume up 9% within total volume growth of 6% to 1.68 million units. Direct alignment with the Intermodal-as-Horizontal pillar."},
+ {"n":"03","text":"<b>Cash generation transformed.</b> H1 free cash flow before dividends of <b>$1.62 billion</b> against $444 million in the prior year, with FY2026 guidance of over 80% free cash flow growth and capex held below $2.4 billion."},
+ {"n":"04","text":"<b>Safety improved sharply</b> — FRA injury rate down 19% and train accident rate down 30% year over year, closing the safety-remediation wedge."}
+]'::jsonb,
+'[
+ {"no":"A","title":"Q2 2026 performance","headline":"Record revenue with 240 basis points of margin expansion — CSX is executing, so the entry point is growth, not repair.",
+  "chart":{"kind":"bar","y_label":"% change YoY","labels":["Diluted EPS","Net earnings","Operating income","Revenue","Intermodal volume","Total volume"],
+    "series":[{"name":"Q2 2026","tone":"go","values":[23,21,17,10,9,6]}]},
+  "body_html":"<p>Revenue <b>$3.94 billion</b> (record, +10%), operating income $1.51 billion (+17%), operating margin 38.3% (+240bps), net earnings $1.00 billion (+21%), diluted EPS $0.54 (+23%). Volume 1.68 million units (+6%) with intermodal volume up 9%. First-half free cash flow before dividends $1.62 billion against $444 million. FY2026 guidance: mid-to-high single-digit revenue growth, over 350 basis points of operating-margin expansion, over 80% free cash flow growth, capex below $2.4 billion. CEO: Steve Angel.</p><p class=''note''>CSX is also a 19.78% owner of TTX and a stakeholder in the UP-NS merger proceedings — see the TTX and Union Pacific baselines.</p>",
+  "sowhat":"With margin expanding and cash generation transformed, CSX has money and no crisis. The credible approach is intermodal growth capacity and pricing science — helping them capture more of a segment already growing 9% — rather than cost repair.",
+  "sources":[{"label":"CSX Q2 2026 results coverage","url":"https://ca.finance.yahoo.com/news/csx-q2-earnings-revenues-beat-172900827.html"}]}
+]'::jsonb,'2026-07-22',true,'current'
+from public.accounts a where slug='csx';

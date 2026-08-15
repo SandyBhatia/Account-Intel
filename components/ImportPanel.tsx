@@ -8,6 +8,8 @@ export default function ImportPanel({ accounts }: { accounts: { slug: string; na
   const [result, setResult] = useState<{ ok: boolean; text: string } | null>(null);
   const [busy, setBusy] = useState(false);
   const [mode, setMode] = useState<"import" | "reaffirm">("import");
+  const [bulk, setBulk] = useState<string | null>(null);
+  const [bulkBusy, setBulkBusy] = useState(false);
 
   const nameFor = (slug: string) => accounts.find((a) => a.slug === slug)?.name ?? slug;
 
@@ -43,8 +45,31 @@ export default function ImportPanel({ accounts }: { accounts: { slug: string; na
   const exhibitCount = Array.isArray(payload?.exhibits) ? (payload!.exhibits as unknown[]).length : 0;
   const ready = payload && problems.length === 0;
 
+  async function importAll() {
+    setBulkBusy(true); setBulk(null);
+    const r = await fetch("/api/import-all", { method: "POST" });
+    const j = await r.json();
+    setBulk(r.ok
+      ? `Published ${j.published} of ${j.total} baselines.` +
+        (j.results ?? []).filter((x: { status: string }) => !x.status.startsWith("published"))
+          .map((x: { account: string; detail?: string }) => ` · ${x.account}: ${x.detail}`).join("")
+      : `Failed — ${j.error ?? "unknown"}`);
+    setBulkBusy(false);
+  }
+
   return (
     <div className="gloss" style={{ padding: "22px 24px", marginTop: 18 }}>
+      <div style={{ paddingBottom: 18, marginBottom: 18, borderBottom: "1px solid var(--rule)" }}>
+        <div className="ex-no">Bulk load</div>
+        <p style={{ fontSize: "var(--t-small)", lineHeight: 1.6, margin: "8px 0 12px" }}>
+          Publish every baseline bundled with this build in one pass. Each file goes through the same
+          validation as a single import and creates a new version, archiving the previous one.
+        </p>
+        <button className="bt primary" onClick={importAll} disabled={bulkBusy}>
+          {bulkBusy ? "Publishing all…" : "⇪ Load all bundled baselines"}
+        </button>
+        {bulk && <p className="note" style={{ marginTop: 10 }}>{bulk}</p>}
+      </div>
       <p style={{ fontSize: "var(--t-small)", lineHeight: 1.6, marginBottom: 18 }}>
         Deep research happens in working sessions, then arrives here as a file. Nothing enters the portfolio
         until it passes the evidence checks: a real account, one of the four verdicts, a dated basis, and

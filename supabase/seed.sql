@@ -28,7 +28,8 @@ insert into public.accounts (slug, name, full_name, relationship, sector, is_pub
 ('xpo',       'XPO',                'XPO, Inc.',                        'prospect', 'LTL',             true,  'quarterly-earnings', '2026-10-30'),
 ('gxo',       'GXO',                'GXO Logistics',                    'prospect', 'Contract logistics',true,'quarterly-earnings', '2026-11-04'),
 ('expd',      'Expeditors',         'Expeditors International',         'prospect', 'Forwarding',      true,  'quarterly-earnings', '2026-11-03'),
-('dart',      'Dart Container',     'Dart Container Corporation',       'prospect', 'Mfg/private fleet',false,'private-90d',        null);
+('dart',      'Dart Container',     'Dart Container Corporation',       'prospect', 'Mfg/private fleet',false,'private-90d',        null),
+('nsc',       'Norfolk Southern',   'Norfolk Southern Corporation',     'prospect', 'Rail',            true,  'quarterly-earnings', '2026-10-22');
 
 -- ============================================================
 --  BASELINE 1 · CN RAIL · PURSUE
@@ -38,7 +39,7 @@ insert into public.baselines (account_id, version, verdict, verdict_line, thesis
 select id, 1, 'PURSUE',
 'Operating ratio went the wrong way while the accident rate jumped 47% — and a technology CIO from Wipro now owns the fix. Trigger, clock, and named owner all present.',
 $$[
- {"n":"01","text":"<b>The efficiency story stalled.</b> Q2 2026 operating ratio of 62.5% is 0.8pt worse year-over-year; the 12-quarter trend shows CN oscillating, not improving, while peers compress."},
+ {"n":"01","text":"<b>The efficiency story stalled.</b> Q2 2026 operating ratio of 62.5% is 0.8pt worse year-over-year, the 12-quarter trend shows CN oscillating, not improving, while peers compress."},
  {"n":"02","text":"<b>Safety is now a board-level number.</b> FRA-reportable accident rate 2.30 per million train-miles, up 47% — this buys attention and budget for anything credibly labelled predictive."},
  {"n":"03","text":"<b>The buyer is a technologist.</b> EVP & Chief Information and Technology Officer Velu Ivaturi (ex-Wipro) runs IT with a TBM lens — he evaluates vendors the way we pitch."},
  {"n":"04","text":"<b>IT capex fell 22%</b> — the conversation that lands is do-more-with-less: AI-native operations, automation of inspection and dispatch decisioning, not big-bang platform builds."}
@@ -76,7 +77,7 @@ insert into public.baselines (account_id, version, verdict, verdict_line, thesis
 select id, 1, 'QUALIFY',
 'Nine-figure debt service and a drawn operating line meet a genuinely ambitious ops-technology agenda. Real appetite, constrained wallet — the open question is whether technology spend survives the debt schedule.',
 $$[
- {"n":"01","text":"<b>Growth is real but bought with the regulated lever.</b> FY2025 revenue C$264.4M (+9.5%) — but per-passenger aeronautical revenue rose 29.4% while non-aero rose just 1.9%. They raised fees; they have not yet monetised the estate."},
+ {"n":"01","text":"<b>Growth is real but bought with the regulated lever.</b> FY2025 revenue C$264.4M (+9.5%) — but per-passenger aeronautical revenue rose 29.4% while non-aero rose just 1.9%. They raised fees, they have not yet monetised the estate."},
  {"n":"02","text":"<b>The balance sheet is tight.</b> C$974M debt, C$97M debt service due 2026, cash down 36% to C$18.3M, and the operating line drawn C$20M for the first time."},
  {"n":"03","text":"<b>Yet ops-technology ambition is accelerating</b> — Canada-first Airport Digital Assistant with Air Canada, drone glide-path operations, IOC video analytics, AP automation — while software capex fell 38.5%. Ambition up, internal capacity down: a partner-shaped gap."},
  {"n":"04","text":"<b>CEO language matches our pitch.</b> Myron Keehn's stated agenda is monetising assets — 2,000-acre ICH airport city broke ground, North Tower due Q1 2028. Non-aero revenue growth is where AI maps to revenue, not cost."}
@@ -105,13 +106,13 @@ $$[
   "body_html":"<p>In the same year software capital spending dropped from C$4.5M to C$2.7M, YEG launched a <b>Canada-first Airport Digital Assistant</b> with Air Canada (gates 50–60), ran drone operations crossing an active glide path, deployed video analytics in the IOC, and automated AP/procurement workflows. They also sole-sourced C$174K of asset-management implementation consulting to IBM Canada — just above the competitive threshold, a signal that outside help is being bought in slices.</p>",
   "sowhat":"Ambition is up, internal build capacity is down, and external help is entering through small doors. That is precisely the shape of engagement Mphasis can win: <b>land small on ops-AI, expand on results.</b>",
   "sources":[{"label":"FY2025 Annual Report","url":"https://flyyeg.com/wp-content/uploads/YEG_Annual-Report_Digital_May-1.pdf"},{"label":"YEG newsroom — ADA launch","url":"https://flyyeg.com/newsroom/"}]},
- {"no":"D","title":"Traffic & pipeline","headline":"8.14M passengers (+2.8%), within 0.1% of 2019 — recovery is done; what remains is a monetisation story.",
+ {"no":"D","title":"Traffic & pipeline","headline":"8.14M passengers (+2.8%), within 0.1% of 2019 — recovery is done, what remains is a monetisation story.",
   "chart":{"kind":"line","unit":"M","y_label":"passengers (M)","annotate_last":true,"y_min":0,
            "labels":["2019","2020","2021","2022","2023","2024","2025"],
            "series":[{"name":"Passengers","tone":"go","values":[8.15,2.60,2.79,5.85,7.50,7.92,8.14]}]},
   "table":{"head":["","2019","2020","2021","2022","2023","2024","2025"],
    "rows":[["Passengers (M)","8.15","2.60","2.79","5.85","7.50","7.92","8.14"]]},
-  "sowhat":"Domestic +6.2%, transborder −15%, cargo/ZVL movements +28% with economic impact estimated at C$164M. The 2,000-acre ICH airport city broke ground; North Tower lands Q1 2028. Growth from here is estate + cargo + experience — all data problems.",
+  "sowhat":"Domestic +6.2%, transborder −15%, cargo/ZVL movements +28% with economic impact estimated at C$164M. The 2,000-acre ICH airport city broke ground, North Tower lands Q1 2028. Growth from here is estate + cargo + experience — all data problems.",
   "sources":[{"label":"FY2025 Annual Report","url":"https://flyyeg.com/wp-content/uploads/YEG_Annual-Report_Digital_May-1.pdf"}]}
 ]$$::jsonb,
 '2026-03-19', true, 'current'

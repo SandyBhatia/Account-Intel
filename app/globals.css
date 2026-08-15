@@ -147,3 +147,11 @@ label{font-family:var(--mono);font-size:var(--t-micro);letter-spacing:.12em;text
 .seg a:hover{color:var(--text);text-decoration:none}
 .seg a[data-on="true"]{color:var(--key);background:linear-gradient(178deg,var(--struct),#A9754E)}
 .seg a+a{border-left:1px solid var(--rule)}
+
+/* ---- KPI strip on the financial exhibit ---- */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:18px}
+.kpi{background:linear-gradient(178deg,var(--panel2),var(--panel));border:1px solid var(--rule);
+  border-radius:9px;padding:12px 14px;display:flex;flex-direction:column;gap:3px}
+.kpi-l{font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+.kpi-v{font-family:var(--mono);font-size:1.32rem;font-weight:700;color:var(--key);font-variant-numeric:tabular-nums}
+.kpi-d{font-family:var(--mono);font-size:.72rem;font-weight:600}
