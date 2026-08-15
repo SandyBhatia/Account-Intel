@@ -112,8 +112,26 @@ label{font-family:var(--mono);font-size:var(--t-micro);letter-spacing:.12em;text
 /* ---- wide-screen account layout ---- */
 .acct{display:grid;gap:18px;grid-template-columns:1fr}
 @media (min-width:1080px){
-  .acct{grid-template-columns:330px minmax(0,1fr);align-items:start}
-  .rail{position:sticky;top:74px}
+  .acct{grid-template-columns:340px minmax(0,1fr);align-items:start}
+  /* Sticky, but never taller than the viewport: a sticky element pins its TOP,
+     so anything below the fold would otherwise be unreachable. When the rail
+     outgrows the screen it scrolls internally instead. */
+  .rail{
+    position:sticky;top:70px;
+    max-height:calc(100vh - 86px);
+    overflow-y:auto;overscroll-behavior:contain;
+    padding-right:6px;
+    scrollbar-width:thin;scrollbar-color:var(--rule) transparent;
+  }
+  .rail::-webkit-scrollbar{width:8px}
+  .rail::-webkit-scrollbar-track{background:transparent}
+  .rail::-webkit-scrollbar-thumb{background:var(--rule);border-radius:4px}
+  .rail::-webkit-scrollbar-thumb:hover{background:var(--struct)}
+}
+/* Short viewports (laptops at 100% zoom with the bar visible) get the page
+   scroll back rather than a cramped 300px internal scroller. */
+@media (min-width:1080px) and (max-height:620px){
+  .rail{position:static;max-height:none;overflow:visible;padding-right:0}
 }
 .exgrid{display:grid;gap:16px;grid-template-columns:1fr}
 @media (min-width:1400px){
