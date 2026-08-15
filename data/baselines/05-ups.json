@@ -118,19 +118,19 @@
    "Q1'26",
    "Q2'26"
   ],
-  "basis": "Verified from primary filings. Quarters shown as a dash could not be read from a primary source in this pass and are deliberately left empty rather than estimated.",
+  "basis": "UPS quarterly earnings releases filed with the SEC. Q3 2024 figures are computed from the year-over-year changes stated in the Q3 2025 release.",
   "series": [
    {
     "label": "Revenue",
     "kind": "currency",
     "values": [
-     null,
-     null,
-     null,
+     22200,
+     25300,
+     21500,
      21220,
-     null,
-     null,
-     null,
+     21400,
+     24500,
+     21200,
      22827
     ],
     "headline": true
@@ -140,12 +140,12 @@
     "kind": "currency",
     "values": [
      null,
+     2900,
+     1700,
      null,
-     null,
-     null,
-     null,
-     null,
-     null,
+     1800,
+     2600,
+     1270,
      930
     ],
     "headline": true
@@ -154,13 +154,13 @@
     "label": "Adjusted operating profit",
     "kind": "currency",
     "values": [
-     null,
+     1980,
      null,
      null,
      1880,
-     null,
-     null,
-     null,
+     2130,
+     2900,
+     1320,
      2100
     ]
    },
@@ -168,13 +168,13 @@
     "label": "Adjusted operating margin",
     "kind": "percent",
     "values": [
-     null,
-     null,
-     null,
+     8.9,
+     12.3,
+     8.2,
      8.8,
-     null,
-     null,
-     null,
+     10.0,
+     11.8,
+     6.2,
      9.2
     ],
     "headline": true
@@ -184,12 +184,12 @@
     "kind": "currency",
     "values": [
      null,
+     2.01,
+     1.4,
      null,
-     null,
-     null,
-     null,
-     null,
-     null,
+     1.55,
+     2.1,
+     1.02,
      0.71
     ],
     "headline": true
@@ -198,28 +198,14 @@
     "label": "Adjusted diluted EPS",
     "kind": "currency",
     "values": [
+     1.76,
+     2.75,
+     1.49,
      null,
-     null,
-     null,
-     null,
-     null,
-     null,
-     null,
+     1.74,
+     2.38,
+     1.07,
      1.76
-    ]
-   },
-   {
-    "label": "US Domestic revenue",
-    "kind": "currency",
-    "values": [
-     null,
-     null,
-     null,
-     14085,
-     null,
-     null,
-     null,
-     14930
     ]
    },
    {
@@ -231,38 +217,25 @@
      null,
      7.0,
      null,
-     null,
-     3.5,
+     10.2,
+     4.0,
      8.0
     ]
    },
    {
-    "label": "International revenue",
+    "label": "Transformation charge (after tax)",
     "kind": "currency",
     "values": [
      null,
      null,
      null,
-     4484,
      null,
-     null,
-     null,
-     5044
-    ]
-   },
-   {
-    "label": "International operating margin",
-    "kind": "percent",
-    "values": [
-     null,
-     null,
-     null,
-     15.2,
-     null,
-     null,
-     null,
-     12.4
-    ]
+     250,
+     101,
+     42,
+     891
+    ],
+    "note": "the GAAP-to-adjusted gap"
    }
   ]
  }

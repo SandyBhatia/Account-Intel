@@ -1,7 +1,7 @@
 {
  "slug": "fedex-frt",
  "verdict": "PURSUE",
- "verdict_line": "Operating margin fell from 16.7% to 7.0% in the year it was spun out, and the CEO has publicly called untangling its parcel-centric technology \"a massive effort.\" A transition services agreement expires around June 2028. The clearest carve-out mandate on the roster.",
+ "verdict_line": "Segment operating margin fell from 18.8% to 6.6% across four verified quarters, and the CEO has publicly called untangling its parcel-centric technology \"a massive effort.\" A transition services agreement expires around June 2028. The clearest carve-out mandate on the roster.",
  "as_of": "2026-05-31",
  "thesis": [
   {
@@ -100,17 +100,17 @@
    "Q1'26",
    "Q2'26"
   ],
-  "basis": "Columns before Q2 2026 are FedEx Freight SEGMENT results within FedEx Corporation, not standalone carve-out figures. FedEx fiscal quarters mapped to calendar: Q2'26 = FY26 Q4 (Mar–May 2026). Verified from primary filings. Quarters shown as a dash could not be read from a primary source in this pass and are deliberately left empty rather than estimated.",
+  "basis": "FedEx Freight SEGMENT results within FedEx Corporation for every quarter before Q2 2026 — not standalone carve-out figures. FedEx ran a 31 May fiscal year, so calendar Q3'24 = FY25 Q1 (Jun–Aug 2024), calendar Q3'25 = FY26 Q1, and calendar Q2'26 = FY26 Q4 (Mar–May 2026). The company became independent on 1 June 2026 and has moved to a 31 December year-end.",
   "series": [
    {
     "label": "Segment revenue",
     "kind": "currency",
     "values": [
-     null,
+     2330,
      null,
      null,
      2290,
-     null,
+     2255,
      null,
      null,
      2400
@@ -121,11 +121,11 @@
     "label": "Operating income (GAAP)",
     "kind": "currency",
     "values": [
-     null,
+     439,
      null,
      null,
      477,
-     null,
+     360,
      null,
      null,
      158
@@ -150,11 +150,11 @@
     "label": "Operating margin (GAAP)",
     "kind": "percent",
     "values": [
-     null,
+     18.8,
      null,
      null,
      20.8,
-     null,
+     16.0,
      null,
      null,
      6.6

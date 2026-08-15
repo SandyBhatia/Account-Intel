@@ -6,11 +6,11 @@
  "thesis": [
   {
    "n": "01",
-   "text": "<b>Growth is not converting to efficiency.</b> Q2 2026 revenue <b>$4.2 billion</b> (+13%) against a reported operating ratio of <b>64.6%</b> (worse by 90bps) and a core adjusted OR of <b>61.6%</b> (also worse by 90bps)."
+   "text": "<b>Growth is not converting to efficiency.</b> Q2 2026 revenue <b>C$4.2 billion</b> (+13%) against a reported operating ratio of <b>64.6%</b> (worse by 90bps) and a core adjusted OR of <b>61.6%</b> (also worse by 90bps)."
   },
   {
    "n": "02",
-   "text": "<b>The GAAP-to-adjusted gap is where integration cost still lives.</b> Reported diluted EPS <b>fell 14% to $1.15</b> while core adjusted diluted EPS rose 13% to $1.27, three years after the CP-KCS merger closed."
+   "text": "<b>The GAAP-to-adjusted gap is where integration cost still lives.</b> Reported diluted EPS <b>fell 14% to C$1.15</b> while core adjusted diluted EPS rose 13% to C$1.27, three years after the CP-KCS merger closed."
   },
   {
    "n": "03",
@@ -53,7 +53,7 @@
      }
     ]
    },
-   "body_html": "<p>Revenue <b>$4.16 billion</b> (+13% from $3.7 billion) with revenue ton-miles up 4%. Net income $1,024 million, from $1,234 million. Reported diluted EPS <b>$1.15</b> (−14%), core adjusted diluted EPS $1.27 (+13%). Fuel expense rose to $618 million from $405 million. The dividend was raised to $0.268 per share from $0.228. Management reaffirmed double-digit earnings growth for 2026 and reported record operating metrics in train speed, dwell and locomotive productivity. President and CEO: Keith Creel.</p>",
+   "body_html": "<p>Revenue <b>C$4.2 billion</b> (+13% from C$3.7 billion) with revenue ton-miles up 4%. Net income C$1,024 million, from C$1,234 million. Reported diluted EPS <b>C$1.15</b> (−14%), core adjusted diluted EPS C$1.27 (+13%). Fuel expense rose to C$618 million from C$405 million. The dividend was raised to C$0.268 per share from C$0.228. Management reaffirmed double-digit earnings growth for 2026 and reported record operating metrics in train speed, dwell and locomotive productivity. President and CEO: Keith Creel.</p>",
    "sowhat": "A railroad running Precision Scheduled Railroading whose operating ratio degrades during a volume upcycle has a cost-structure question it has not answered. That is the wedge — the same one that works at CN, framed as decision automation rather than headcount.",
    "sources": [
     {
@@ -80,35 +80,20 @@
    "Q1'26",
    "Q2'26"
   ],
-  "basis": "Verified from primary filings. Quarters shown as a dash could not be read from a primary source in this pass and are deliberately left empty rather than estimated.",
+  "basis": "All figures in CANADIAN dollars — CPKC states amounts are in Canadian dollars unless otherwise noted. Not directly comparable with the US-dollar reporters in this portfolio without conversion. Source: CPKC quarterly earnings releases filed with the SEC. Q1 2025 revenue and operating ratios are computed from the year-over-year changes stated in the Q1 2026 release.",
   "series": [
    {
     "label": "Revenue",
     "kind": "currency",
     "values": [
-     null,
+     3500,
      3860,
-     null,
+     3777,
      3700,
-     null,
+     3700,
      3900,
-     null,
+     3701,
      4200
-    ],
-    "headline": true
-   },
-   {
-    "label": "Operating income",
-    "kind": "currency",
-    "values": [
-     null,
-     null,
-     null,
-     1343,
-     null,
-     null,
-     null,
-     1486
     ],
     "headline": true
    },
@@ -118,11 +103,11 @@
     "values": [
      null,
      null,
-     null,
+     910,
      1234,
      null,
      null,
-     null,
+     846,
      1024
     ]
    },
@@ -130,13 +115,13 @@
     "label": "Diluted EPS",
     "kind": "currency",
     "values": [
-     null,
+     0.9,
      1.28,
-     null,
+     0.97,
      1.33,
-     null,
+     1.01,
      1.2,
-     null,
+     0.94,
      1.15
     ],
     "headline": true
@@ -145,27 +130,28 @@
     "label": "Core adjusted diluted EPS",
     "kind": "currency",
     "values": [
-     null,
+     0.99,
      1.29,
-     null,
+     1.06,
      1.12,
-     null,
+     1.1,
      1.33,
-     null,
+     1.04,
      1.27
-    ]
+    ],
+    "headline": true
    },
    {
     "label": "Operating ratio",
     "kind": "ratio",
     "values": [
+     66.1,
      null,
-     null,
-     null,
+     65.3,
      63.7,
-     null,
+     63.5,
      58.9,
-     null,
+     66.0,
      64.6
     ],
     "inverse": true,
@@ -176,13 +162,13 @@
     "label": "Core adjusted operating ratio",
     "kind": "ratio",
     "values": [
+     62.9,
      null,
-     null,
-     null,
+     62.5,
      60.7,
-     null,
+     60.7,
      55.9,
-     null,
+     63.0,
      61.6
     ],
     "inverse": true
