@@ -61,5 +61,124 @@
     }
    ]
   }
- ]
+ ],
+ "financials": {
+  "currency": "US$",
+  "unit": "millions",
+  "periods": [
+   "Q3'24",
+   "Q4'24",
+   "Q1'25",
+   "Q2'25",
+   "Q3'25",
+   "Q4'25",
+   "Q1'26",
+   "Q2'26"
+  ],
+  "basis": "Verified from primary filings. Quarters shown as a dash could not be read from a primary source in this pass and are deliberately left empty rather than estimated.",
+  "series": [
+   {
+    "label": "Revenue",
+    "kind": "currency",
+    "values": [
+     null,
+     null,
+     null,
+     3260,
+     null,
+     null,
+     null,
+     3400
+    ],
+    "headline": true
+   },
+   {
+    "label": "Adjusted EBITDA",
+    "kind": "currency",
+    "values": [
+     null,
+     null,
+     null,
+     212,
+     null,
+     null,
+     null,
+     219
+    ],
+    "headline": true
+   },
+   {
+    "label": "Net income",
+    "kind": "currency",
+    "values": [
+     null,
+     null,
+     null,
+     28,
+     null,
+     null,
+     null,
+     27
+    ]
+   },
+   {
+    "label": "Diluted EPS",
+    "kind": "currency",
+    "values": [
+     null,
+     null,
+     null,
+     0.23,
+     null,
+     null,
+     null,
+     0.22
+    ]
+   },
+   {
+    "label": "Adjusted diluted EPS",
+    "kind": "currency",
+    "values": [
+     null,
+     null,
+     null,
+     0.57,
+     null,
+     null,
+     null,
+     0.59
+    ],
+    "headline": true
+   },
+   {
+    "label": "Organic revenue growth",
+    "kind": "percent",
+    "values": [
+     null,
+     null,
+     10.8,
+     null,
+     null,
+     null,
+     10.8,
+     3.4
+    ],
+    "headline": true
+   },
+   {
+    "label": "New business signed",
+    "kind": "currency",
+    "values": [
+     null,
+     null,
+     null,
+     306,
+     null,
+     null,
+     null,
+     410
+    ]
+   }
+  ]
+ }
 }

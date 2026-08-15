@@ -18,7 +18,7 @@
   },
   {
    "n": "04",
-   "text": "<b>The financial relationship is material to owners.</b> Union Pacific's TTX investment carrying value was approximately <b>$1.8 billion</b> at end-2023, with car-hire expense of roughly <b>$399 million</b> in 2023 — from one owner alone."
+   "text": "<b>The financial relationship is material to owners.</b> Union Pacific's TTX investment carrying value was approximately <b>$1.8 billion</b>, and its 37.03% economic interest is stated plainly in its Q1 2026 10-Q. Carrying value at end-2023, with car-hire expense of roughly <b>$306 million</b> in the nine months to 30 September 2024 — from one owner of seven."
   }
  ],
  "exhibits": [
@@ -26,9 +26,26 @@
    "no": "A",
    "title": "Ownership structure",
    "headline": "Seven railroad owners, five of them on this roster — and a merger that forces the two largest to sell down.",
+   "body_html": "<p>TTX is privately owned by North America's Class I railroads and operates as the industry's railcar cooperative under pooling authority granted by the Surface Transportation Board. Ownership percentages above are drawn from the STB decision published in the Federal Register. In share terms: UP 5,850 shares, NS and CSX 3,125 each, BNSF 2,750, CN 500. Because UP and NS combined would exceed 50%, the merger applicants have committed to divest shares to reach 49% or below and avoid a separate control application.</p><p>Founded in 1955 as Trailer Train by the Pennsylvania Railroad, renamed and restructured under an ICC-approved pooling agreement in 1974.</p>",
+   "sowhat": "Credibility earned at TTX travels to every railroad on the roster simultaneously. And because TTX exists to serve its owners at cost rather than extract margin, an efficiency argument aligns with its charter instead of fighting it.",
+   "sources": [
+    {
+     "label": "STB decision — Federal Register, 29 May 2026",
+     "url": "https://www.federalregister.gov/documents/2026/05/29/2026-10751/union-pacific-corporation-and-union-pacific-railroad-company-control-norfolk-southern-corporation"
+    },
+    {
+     "label": "BNSF Form 10-Q Q2 2026 — related party transactions (SEC)",
+     "url": "https://www.sec.gov/Archives/edgar/data/0000934612/000093461226000013/bni-20260630.htm"
+    },
+    {
+     "label": "TTX — Who We Are",
+     "url": "https://www.ttx.com/about/who-we-are/"
+    }
+   ],
    "chart": {
     "kind": "bar",
     "y_label": "% ownership",
+    "unit": "%",
     "labels": [
      "Union Pacific",
      "Norfolk Southern",
@@ -53,23 +70,7 @@
       ]
      }
     ]
-   },
-   "body_html": "<p>TTX is privately owned by North America's Class I railroads and operates as the industry's railcar cooperative under pooling authority granted by the Surface Transportation Board. Ownership percentages above are drawn from the STB decision published in the Federal Register. In share terms: UP 5,850 shares, NS and CSX 3,125 each, BNSF 2,750, CN 500. Because UP and NS combined would exceed 50%, the merger applicants have committed to divest shares to reach 49% or below and avoid a separate control application.</p><p>Founded in 1955 as Trailer Train by the Pennsylvania Railroad, renamed and restructured under an ICC-approved pooling agreement in 1974.</p>",
-   "sowhat": "Credibility earned at TTX travels to every railroad on the roster simultaneously. And because TTX exists to serve its owners at cost rather than extract margin, an efficiency argument aligns with its charter instead of fighting it.",
-   "sources": [
-    {
-     "label": "STB decision — Federal Register, 29 May 2026",
-     "url": "https://www.federalregister.gov/documents/2026/05/29/2026-10751/union-pacific-corporation-and-union-pacific-railroad-company-control-norfolk-southern-corporation"
-    },
-    {
-     "label": "BNSF Form 10-Q Q2 2026 — related party transactions (SEC)",
-     "url": "https://www.sec.gov/Archives/edgar/data/0000934612/000093461226000013/bni-20260630.htm"
-    },
-    {
-     "label": "TTX — Who We Are",
-     "url": "https://www.ttx.com/about/who-we-are/"
-    }
-   ]
+   }
   },
   {
    "no": "B",
@@ -88,5 +89,38 @@
     }
    ]
   }
- ]
+ ],
+ "financials": {
+  "currency": "US$",
+  "unit": "millions",
+  "periods": [
+   "2023",
+   "2024",
+   "2025"
+  ],
+  "basis": "TTX publishes no financials. These figures come from owner-railroad SEC filings, which disclose their equity investment in TTX and the car hire they pay it.",
+  "series": [
+   {
+    "label": "Union Pacific equity investment in TTX",
+    "kind": "currency",
+    "values": [
+     1800,
+     null,
+     null
+    ],
+    "headline": true
+   },
+   {
+    "label": "Union Pacific car hire paid to TTX",
+    "kind": "currency",
+    "values": [
+     null,
+     306,
+     null
+    ],
+    "headline": true,
+    "note": "nine months to 30 Sep 2024"
+   }
+  ]
+ }
 }

@@ -71,5 +71,138 @@
     }
    ]
   }
- ]
+ ],
+ "financials": {
+  "currency": "US$",
+  "unit": "millions",
+  "periods": [
+   "Q3'24",
+   "Q4'24",
+   "Q1'25",
+   "Q2'25",
+   "Q3'25",
+   "Q4'25",
+   "Q1'26",
+   "Q2'26"
+  ],
+  "basis": "Verified from primary filings. Quarters shown as a dash could not be read from a primary source in this pass and are deliberately left empty rather than estimated.",
+  "series": [
+   {
+    "label": "Revenue",
+    "kind": "currency",
+    "values": [
+     null,
+     null,
+     null,
+     2930,
+     null,
+     null,
+     null,
+     3500
+    ],
+    "headline": true
+   },
+   {
+    "label": "Operating income",
+    "kind": "currency",
+    "values": [
+     null,
+     null,
+     null,
+     197.3,
+     null,
+     null,
+     null,
+     259.5
+    ],
+    "headline": true
+   },
+   {
+    "label": "Diluted EPS",
+    "kind": "currency",
+    "values": [
+     null,
+     null,
+     null,
+     1.31,
+     null,
+     null,
+     null,
+     1.91
+    ],
+    "headline": true
+   },
+   {
+    "label": "Intermodal revenue",
+    "kind": "currency",
+    "values": [
+     null,
+     null,
+     1470,
+     1434,
+     null,
+     null,
+     1500,
+     1750
+    ]
+   },
+   {
+    "label": "Intermodal operating income",
+    "kind": "currency",
+    "values": [
+     null,
+     null,
+     94.4,
+     95.5,
+     null,
+     null,
+     114.5,
+     150.9
+    ],
+    "headline": true
+   },
+   {
+    "label": "Intermodal loads",
+    "kind": "count",
+    "values": [
+     null,
+     null,
+     null,
+     525500,
+     null,
+     null,
+     null,
+     578072
+    ]
+   },
+   {
+    "label": "Brokerage (ICS) revenue",
+    "kind": "currency",
+    "values": [
+     null,
+     null,
+     null,
+     260,
+     null,
+     null,
+     null,
+     388
+    ]
+   },
+   {
+    "label": "Brokerage operating income",
+    "kind": "currency",
+    "values": [
+     null,
+     null,
+     null,
+     -3.6,
+     null,
+     null,
+     null,
+     1.7
+    ]
+   }
+  ]
+ }
 }

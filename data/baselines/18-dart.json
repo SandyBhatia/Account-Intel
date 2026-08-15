@@ -50,7 +50,7 @@
      }
     ]
    },
-   "body_html": "<p>Dart Container is a privately held manufacturer of single-use foodservice packaging, founded 1960 by William A. Dart, headquartered at Mason, Michigan, where the campus houses corporate headquarters, two production plants, a distribution warehouse and RandD across nearly two million square feet employing about 1,400 people. Revenue of approximately <b>$3 billion in 2025</b> per Forbes America's Largest Private Companies (FactSet data), roughly flat since 2021. Around 13,000 employees overall. It acquired Solo Cup in 2012 and operates under the Dart, Solo, ProPlanet and Fusion brands.</p><p>The primary trucking authority, <b>Dart Container Corporation of California</b> (USDOT #217295), runs 280 power units and 248 drivers over 14,039,000 annual miles, holding a Satisfactory safety rating. No additional Dart Container carrier authorities were identified that would materially change fleet size.</p><p class='note'>Leadership shows a source conflict: Forbes lists CEO Keith Clark, older references list Robert C. Dart. Confirm before any named approach. Note also that <i>Dart Transit Company</i> of Eagan, Minnesota is an unrelated carrier and must not be attributed to Dart Container.</p>",
+   "body_html": "<p>Dart Container is a privately held manufacturer of single-use foodservice packaging, founded 1960 by William A. Dart, headquartered at Mason, Michigan, where the campus houses corporate headquarters, two production plants, a distribution warehouse and RandD across nearly two million square feet employing about 1,400 people. Revenue of approximately <b>$3 billion in 2025</b> per Forbes America's Largest Private Companies (FactSet data), roughly flat since 2021. Around 13,000 employees overall. It acquired Solo Cup in 2012 and operates under the Dart, Solo, ProPlanet and Fusion brands.</p><p>The primary trucking authority, <b>Dart Container Corporation of California</b> (USDOT #217295), runs 280 power units and 248 drivers over 14,039,000 annual miles, holding a Satisfactory safety rating. No additional Dart Container carrier authorities were identified that would materially change fleet size.</p><p class='note'><b>Keith Clark</b> is chief executive, in post since 2021, having joined Dart in 2018 as EVP for manufacturing and supply chain. Older references naming Robert C. Dart are out of date. Note also that <i>Dart Transit Company</i> of Eagan, Minnesota is an unrelated carrier and must not be attributed to Dart Container.</p>",
    "sowhat": "At this scale the freight is a supporting function of a manufacturing business, so any conversation starts from <b>plant-to-customer supply chain and SAP</b>, not from the trucks. Set the review for the next 90-day cycle and check whether the transformation director role has been filled.",
    "sources": [
     {
@@ -71,5 +71,31 @@
     }
    ]
   }
- ]
+ ],
+ "financials": {
+  "currency": "US$",
+  "unit": "billions",
+  "periods": [
+   "2021",
+   "2022",
+   "2023",
+   "2024",
+   "2025"
+  ],
+  "basis": "Forbes America's Largest Private Companies, sourced from FactSet. Dart publishes no audited financials.",
+  "series": [
+   {
+    "label": "Revenue",
+    "kind": "currency",
+    "values": [
+     3.0,
+     3.2,
+     3.2,
+     3.0,
+     3.0
+    ],
+    "headline": true
+   }
+  ]
+ }
 }

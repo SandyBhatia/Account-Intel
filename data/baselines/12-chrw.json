@@ -57,5 +57,125 @@
     }
    ]
   }
- ]
+ ],
+ "financials": {
+  "currency": "US$",
+  "unit": "millions",
+  "periods": [
+   "Q3'24",
+   "Q4'24",
+   "Q1'25",
+   "Q2'25",
+   "Q3'25",
+   "Q4'25",
+   "Q1'26",
+   "Q2'26"
+  ],
+  "basis": "Verified from primary filings. Quarters shown as a dash could not be read from a primary source in this pass and are deliberately left empty rather than estimated.",
+  "series": [
+   {
+    "label": "Revenue",
+    "kind": "currency",
+    "values": [
+     null,
+     null,
+     null,
+     4132,
+     null,
+     null,
+     null,
+     4930
+    ],
+    "headline": true
+   },
+   {
+    "label": "Adjusted gross profit",
+    "kind": "currency",
+    "values": [
+     null,
+     null,
+     null,
+     692.9,
+     null,
+     null,
+     null,
+     738.0
+    ],
+    "headline": true
+   },
+   {
+    "label": "Income from operations",
+    "kind": "currency",
+    "values": [
+     null,
+     null,
+     null,
+     216,
+     null,
+     null,
+     null,
+     256
+    ]
+   },
+   {
+    "label": "Diluted EPS",
+    "kind": "currency",
+    "values": [
+     null,
+     null,
+     null,
+     1.26,
+     null,
+     null,
+     null,
+     1.56
+    ],
+    "headline": true
+   },
+   {
+    "label": "Adjusted diluted EPS",
+    "kind": "currency",
+    "values": [
+     null,
+     null,
+     null,
+     1.29,
+     null,
+     null,
+     null,
+     1.61
+    ]
+   },
+   {
+    "label": "Adjusted operating margin",
+    "kind": "percent",
+    "values": [
+     null,
+     null,
+     null,
+     31.1,
+     null,
+     null,
+     null,
+     34.7
+    ],
+    "headline": true
+   },
+   {
+    "label": "Cash from operations",
+    "kind": "currency",
+    "values": [
+     null,
+     null,
+     null,
+     227.1,
+     null,
+     null,
+     null,
+     35.9
+    ],
+    "note": "the quarter's real story"
+   }
+  ]
+ }
 }

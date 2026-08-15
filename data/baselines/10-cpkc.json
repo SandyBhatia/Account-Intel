@@ -66,5 +66,127 @@
     }
    ]
   }
- ]
+ ],
+ "financials": {
+  "currency": "C$",
+  "unit": "millions",
+  "periods": [
+   "Q3'24",
+   "Q4'24",
+   "Q1'25",
+   "Q2'25",
+   "Q3'25",
+   "Q4'25",
+   "Q1'26",
+   "Q2'26"
+  ],
+  "basis": "Verified from primary filings. Quarters shown as a dash could not be read from a primary source in this pass and are deliberately left empty rather than estimated.",
+  "series": [
+   {
+    "label": "Revenue",
+    "kind": "currency",
+    "values": [
+     null,
+     3860,
+     null,
+     3700,
+     null,
+     3900,
+     null,
+     4200
+    ],
+    "headline": true
+   },
+   {
+    "label": "Operating income",
+    "kind": "currency",
+    "values": [
+     null,
+     null,
+     null,
+     1343,
+     null,
+     null,
+     null,
+     1486
+    ],
+    "headline": true
+   },
+   {
+    "label": "Net income",
+    "kind": "currency",
+    "values": [
+     null,
+     null,
+     null,
+     1234,
+     null,
+     null,
+     null,
+     1024
+    ]
+   },
+   {
+    "label": "Diluted EPS",
+    "kind": "currency",
+    "values": [
+     null,
+     1.28,
+     null,
+     1.33,
+     null,
+     1.2,
+     null,
+     1.15
+    ],
+    "headline": true
+   },
+   {
+    "label": "Core adjusted diluted EPS",
+    "kind": "currency",
+    "values": [
+     null,
+     1.29,
+     null,
+     1.12,
+     null,
+     1.33,
+     null,
+     1.27
+    ]
+   },
+   {
+    "label": "Operating ratio",
+    "kind": "ratio",
+    "values": [
+     null,
+     null,
+     null,
+     63.7,
+     null,
+     58.9,
+     null,
+     64.6
+    ],
+    "inverse": true,
+    "headline": true,
+    "note": "lower is better"
+   },
+   {
+    "label": "Core adjusted operating ratio",
+    "kind": "ratio",
+    "values": [
+     null,
+     null,
+     null,
+     60.7,
+     null,
+     55.9,
+     null,
+     61.6
+    ],
+    "inverse": true
+   }
+  ]
+ }
 }

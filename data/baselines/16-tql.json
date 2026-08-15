@@ -67,5 +67,43 @@
     }
    ]
   }
- ]
+ ],
+ "financials": {
+  "currency": "US$",
+  "unit": "billions",
+  "periods": [
+   "2020",
+   "2021",
+   "2022",
+   "2023",
+   "2024"
+  ],
+  "basis": "Transport Topics freight brokerage rankings and Forbes. Private company; no audited financials published. 2025 gross revenue not verified, though TQL moved from third to second on the 2026 ranking, indicating growth.",
+  "series": [
+   {
+    "label": "Gross revenue",
+    "kind": "currency",
+    "values": [
+     4.1,
+     7.8,
+     8.8,
+     6.7,
+     6.82
+    ],
+    "headline": true
+   },
+   {
+    "label": "Net revenue margin",
+    "kind": "percent",
+    "values": [
+     null,
+     null,
+     null,
+     null,
+     20.1
+    ],
+    "headline": true
+   }
+  ]
+ }
 }

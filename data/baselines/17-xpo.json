@@ -65,5 +65,154 @@
     }
    ]
   }
- ]
+ ],
+ "financials": {
+  "currency": "US$",
+  "unit": "millions",
+  "periods": [
+   "Q3'24",
+   "Q4'24",
+   "Q1'25",
+   "Q2'25",
+   "Q3'25",
+   "Q4'25",
+   "Q1'26",
+   "Q2'26"
+  ],
+  "basis": "Verified from primary filings. Quarters shown as a dash could not be read from a primary source in this pass and are deliberately left empty rather than estimated.",
+  "series": [
+   {
+    "label": "Revenue",
+    "kind": "currency",
+    "values": [
+     null,
+     null,
+     null,
+     2080,
+     null,
+     null,
+     2096,
+     2355
+    ],
+    "headline": true
+   },
+   {
+    "label": "Operating income",
+    "kind": "currency",
+    "values": [
+     null,
+     null,
+     null,
+     198,
+     null,
+     null,
+     null,
+     271
+    ],
+    "headline": true
+   },
+   {
+    "label": "Net income",
+    "kind": "currency",
+    "values": [
+     null,
+     null,
+     null,
+     106,
+     null,
+     null,
+     101,
+     162
+    ]
+   },
+   {
+    "label": "Diluted EPS",
+    "kind": "currency",
+    "values": [
+     null,
+     null,
+     null,
+     0.89,
+     null,
+     null,
+     0.86,
+     1.36
+    ],
+    "headline": true
+   },
+   {
+    "label": "Adjusted diluted EPS",
+    "kind": "currency",
+    "values": [
+     null,
+     null,
+     null,
+     1.05,
+     null,
+     null,
+     null,
+     1.7
+    ]
+   },
+   {
+    "label": "N.A. LTL revenue",
+    "kind": "currency",
+    "values": [
+     null,
+     null,
+     null,
+     1240,
+     null,
+     null,
+     null,
+     1428
+    ]
+   },
+   {
+    "label": "N.A. LTL adjusted operating ratio",
+    "kind": "ratio",
+    "values": [
+     null,
+     null,
+     null,
+     82.9,
+     null,
+     null,
+     83.9,
+     79.9
+    ],
+    "inverse": true,
+    "headline": true,
+    "note": "lower is better"
+   },
+   {
+    "label": "Europe revenue",
+    "kind": "currency",
+    "values": [
+     null,
+     null,
+     null,
+     841,
+     null,
+     null,
+     null,
+     927
+    ]
+   },
+   {
+    "label": "Europe operating income",
+    "kind": "currency",
+    "values": [
+     null,
+     null,
+     null,
+     11,
+     null,
+     null,
+     null,
+     -6
+    ]
+   }
+  ]
+ }
 }

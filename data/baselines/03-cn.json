@@ -86,37 +86,37 @@
    "Q1'26",
    "Q2'26"
   ],
-  "basis": "Only Q2 2026 is verified in this build. Remaining quarters await the financial-history research pass.",
+  "basis": "Verified from primary filings. Quarters shown as a dash could not be read from a primary source in this pass and are deliberately left empty rather than estimated.",
   "series": [
    {
     "label": "Revenue",
     "kind": "currency",
-    "headline": true,
     "values": [
      null,
      null,
      null,
-     null,
+     4272,
      null,
      null,
      null,
      4753
-    ]
+    ],
+    "headline": true
    },
    {
     "label": "Operating income",
     "kind": "currency",
-    "headline": true,
     "values": [
      null,
      null,
      null,
-     null,
+     1640,
      null,
      null,
      null,
      1781
-    ]
+    ],
+    "headline": true
    },
    {
     "label": "Net income",
@@ -125,7 +125,7 @@
      null,
      null,
      null,
-     null,
+     1170,
      null,
      null,
      null,
@@ -135,39 +135,52 @@
    {
     "label": "Diluted EPS",
     "kind": "currency",
-    "headline": true,
     "values": [
      null,
      null,
      null,
-     null,
+     1.87,
      null,
      null,
      null,
      2.06
+    ],
+    "headline": true
+   },
+   {
+    "label": "Adjusted diluted EPS",
+    "kind": "currency",
+    "values": [
+     null,
+     null,
+     null,
+     1.88,
+     null,
+     null,
+     null,
+     2.08
     ]
    },
    {
     "label": "Operating ratio",
     "kind": "ratio",
-    "inverse": true,
-    "headline": true,
-    "note": "lower is better",
     "values": [
      null,
      null,
      null,
-     null,
+     61.7,
      null,
      null,
      null,
      62.5
-    ]
+    ],
+    "inverse": true,
+    "headline": true,
+    "note": "lower is better"
    },
    {
     "label": "Adjusted operating ratio",
     "kind": "ratio",
-    "inverse": true,
     "values": [
      null,
      null,
@@ -177,7 +190,8 @@
      null,
      null,
      62.2
-    ]
+    ],
+    "inverse": true
    }
   ]
  }

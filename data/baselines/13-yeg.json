@@ -102,5 +102,89 @@
     }
    ]
   }
- ]
+ ],
+ "financials": {
+  "currency": "C$",
+  "unit": "thousands",
+  "periods": [
+   "FY2021",
+   "FY2022",
+   "FY2023",
+   "FY2024",
+   "FY2025"
+  ],
+  "basis": "Audited annual statements. FY2021–FY2024 read from the published annual reports; FY2025 from the FY2025 audited statements.",
+  "series": [
+   {
+    "label": "Total revenue",
+    "kind": "currency",
+    "values": [
+     108658,
+     194598,
+     237913,
+     247195,
+     264436
+    ],
+    "headline": true
+   },
+   {
+    "label": "Operating earnings",
+    "kind": "currency",
+    "values": [
+     31957,
+     69780,
+     93895,
+     99262,
+     115025
+    ],
+    "headline": true
+   },
+   {
+    "label": "Net income",
+    "kind": "currency",
+    "values": [
+     -76725,
+     -31600,
+     -6311,
+     1891,
+     15933
+    ],
+    "headline": true
+   },
+   {
+    "label": "Total long-term debt",
+    "kind": "currency",
+    "values": [
+     1173165,
+     1127528,
+     1079298,
+     1027886,
+     973944
+    ]
+   },
+   {
+    "label": "Cash and equivalents",
+    "kind": "currency",
+    "values": [
+     152722,
+     54657,
+     83113,
+     28525,
+     18313
+    ],
+    "headline": true
+   },
+   {
+    "label": "Passengers (millions)",
+    "kind": "count",
+    "values": [
+     2.79,
+     5.85,
+     7.5,
+     7.92,
+     8.14
+    ]
+   }
+  ]
+ }
 }

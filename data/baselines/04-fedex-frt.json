@@ -86,5 +86,124 @@
     }
    ]
   }
- ]
+ ],
+ "financials": {
+  "currency": "US$",
+  "unit": "millions",
+  "periods": [
+   "Q3'24",
+   "Q4'24",
+   "Q1'25",
+   "Q2'25",
+   "Q3'25",
+   "Q4'25",
+   "Q1'26",
+   "Q2'26"
+  ],
+  "basis": "Columns before Q2 2026 are FedEx Freight SEGMENT results within FedEx Corporation, not standalone carve-out figures. FedEx fiscal quarters mapped to calendar: Q2'26 = FY26 Q4 (Mar–May 2026). Verified from primary filings. Quarters shown as a dash could not be read from a primary source in this pass and are deliberately left empty rather than estimated.",
+  "series": [
+   {
+    "label": "Segment revenue",
+    "kind": "currency",
+    "values": [
+     null,
+     null,
+     null,
+     2290,
+     null,
+     null,
+     null,
+     2400
+    ],
+    "headline": true
+   },
+   {
+    "label": "Operating income (GAAP)",
+    "kind": "currency",
+    "values": [
+     null,
+     null,
+     null,
+     477,
+     null,
+     null,
+     null,
+     158
+    ],
+    "headline": true
+   },
+   {
+    "label": "Adjusted operating income",
+    "kind": "currency",
+    "values": [
+     null,
+     null,
+     null,
+     477,
+     null,
+     null,
+     null,
+     363
+    ]
+   },
+   {
+    "label": "Operating margin (GAAP)",
+    "kind": "percent",
+    "values": [
+     null,
+     null,
+     null,
+     20.8,
+     null,
+     null,
+     null,
+     6.6
+    ],
+    "headline": true
+   },
+   {
+    "label": "Adjusted operating margin",
+    "kind": "percent",
+    "values": [
+     null,
+     null,
+     null,
+     20.8,
+     null,
+     null,
+     null,
+     15.1
+    ],
+    "headline": true
+   },
+   {
+    "label": "Average daily shipments (000s)",
+    "kind": "count",
+    "values": [
+     null,
+     null,
+     null,
+     92.1,
+     null,
+     null,
+     null,
+     86.7
+    ]
+   },
+   {
+    "label": "Revenue per shipment ($)",
+    "kind": "currency",
+    "values": [
+     null,
+     null,
+     null,
+     372,
+     null,
+     null,
+     null,
+     415.22
+    ]
+   }
+  ]
+ }
 }

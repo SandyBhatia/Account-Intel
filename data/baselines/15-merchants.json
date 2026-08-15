@@ -10,7 +10,7 @@
   },
   {
    "n": "02",
-   "text": "<b>The leadership question is resolved.</b> Matt Dyer was appointed Chief Executive Officer, announced <b>28 January 2025</b>, ending the interim co-CEO arrangement that followed Brendan Keegan's retirement in May 2024 after fifteen years."
+   "text": "<b>The leadership question is still open.</b> Brendan Keegan retired 17 May 2024 after fifteen years, with CFO Kirk Hoffman and SVP Brad Burgess named interim co-CEOs. A permanent successor could <b>not be confirmed from a primary source</b> in this pass. Establish who actually holds the chair before any senior approach."
   },
   {
    "n": "03",
@@ -26,25 +26,7 @@
    "no": "A",
    "title": "Scale, ownership and the competitive position",
    "headline": "$2B of assets under management and 175,000 fleet units — with Cognizant already holding an automation partnership.",
-   "chart": {
-    "kind": "bar",
-    "y_label": "count / $",
-    "labels": [
-     "Managed fleet units",
-     "Assets under management ($M)"
-    ],
-    "series": [
-     {
-      "name": "Merchants Fleet",
-      "tone": "struct",
-      "values": [
-       175000,
-       2000
-      ]
-     }
-    ]
-   },
-   "body_html": "<p>Founded in 1962 as Merchants Motors in Manchester, New Hampshire, now headquartered in Hooksett. Over <b>$2 billion in assets under management</b> and <b>175,000 managed commercial fleet units</b> across North America, describing itself as the fourth largest and fastest growing fleet management company on the continent, with a business model focused on fleet technology, innovative fleet services and proactive electric-vehicle adoption.</p><p>Ownership was acquired in 2022 by <b>Bain Capital</b> together with a wholly owned subsidiary of the <b>Abu Dhabi Investment Authority</b> and the Merchants leadership team, the company continues to operate independently. CEO <b>Matt Dyer</b> (announced 28 January 2025), CFO <b>Kirk Hoffman</b>.</p><p>On <b>3 December 2025</b>, Cognizant announced a strategic partnership with Merchants Fleet to modernise fleet management through automation.</p>",
+   "body_html": "<p>Founded in 1962 as Merchants Motors in Manchester, New Hampshire, now headquartered in Hooksett. Over <b>$2 billion in assets under management</b> and <b>175,000 managed commercial fleet units</b> across North America, describing itself as the fourth largest and fastest growing fleet management company on the continent, with a business model focused on fleet technology, innovative fleet services and proactive electric-vehicle adoption.</p><p>Ownership was acquired in 2022 by <b>Bain Capital</b> together with a wholly owned subsidiary of the <b>Abu Dhabi Investment Authority</b> and the Merchants leadership team, the company continues to operate independently. CFO <b>Kirk Hoffman</b>, who signs the securitisation filings. The current chief executive is <b>not established</b> from a primary source.</p><p>On <b>3 December 2025</b>, Cognizant announced a strategic partnership with Merchants Fleet to modernise fleet management through automation.</p>",
    "sowhat": "Private-equity ownership plus a new CEO plus EV transition planning is exactly the profile that buys AI and data services — but Cognizant got there first. The realistic play is <b>adjacent scope</b>: EV duty-cycle and charging-siting modelling, or the securitisation data estate, rather than a head-on displacement.",
    "sources": [
     {
@@ -65,5 +47,34 @@
     }
    ]
   }
- ]
+ ],
+ "financials": {
+  "currency": "US$",
+  "unit": "millions",
+  "periods": [
+   "2022",
+   "2025"
+  ],
+  "basis": "Private company owned by Bain Capital and a subsidiary of the Abu Dhabi Investment Authority. Figures from the acquisition announcement and the company's own site. No revenue or profit is publicly disclosed.",
+  "series": [
+   {
+    "label": "Assets under management",
+    "kind": "currency",
+    "values": [
+     2000,
+     2000
+    ],
+    "headline": true
+   },
+   {
+    "label": "Managed fleet units",
+    "kind": "count",
+    "values": [
+     165000,
+     175000
+    ],
+    "headline": true
+   }
+  ]
+ }
 }
