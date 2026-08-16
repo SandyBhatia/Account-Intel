@@ -173,6 +173,40 @@
     ],
     "inverse": true
    }
+  ],
+  "sources": [
+   {
+    "label": "Q3 2024 results",
+    "url": "https://investor.cpkcr.com/news/press-release-details/2024/CPKC-reports-third-quarter-results-driven-by-solid-execution-poised-for-strong-finish-to-2024/default.aspx"
+   },
+   {
+    "label": "Q4 2024 / FY2024 results",
+    "url": "https://investor.cpkcr.com/news/press-release-details/2025/CPKC-delivers-strong-fourth-quarter-results-positioned-to-accelerate-growth-in-2025/default.aspx"
+   },
+   {
+    "label": "Q1 2025 results",
+    "url": "https://investor.cpkcr.com/news/press-release-details/2025/CPKC-reports-first-quarter-results-solid-demand-precision-execution-and-a-resilient-network-powers-strong-start-to-2025/default.aspx"
+   },
+   {
+    "label": "Q2 2025 results",
+    "url": "https://investor.cpkcr.com/news/press-release-details/2025/CPKC-second-quarter-delivers-strong-growth-carries-momentum-into-second-half-of-2025/default.aspx"
+   },
+   {
+    "label": "Q3 2025 results",
+    "url": "https://investor.cpkcr.com/news/press-release-details/2025/CPKC-reports-solid-third-quarter-results-focused-on-growth-for-remainder-of-2025/default.aspx"
+   },
+   {
+    "label": "Q4 2025 / FY2025 results",
+    "url": "https://investor.cpkcr.com/news/press-release-details/2026/CPKC-showcases-strength-of-Precision-Scheduled-Railroading-delivers-record-margins/default.aspx"
+   },
+   {
+    "label": "Q1 2026 results",
+    "url": "https://investor.cpkcr.com/news/press-release-details/2026/CPKC-reports-first-quarter-results-demonstrating-resilient-performance/default.aspx"
+   },
+   {
+    "label": "Q2 2026 results (verified: revenue $4.2B ties to the table above)",
+    "url": "https://investor.cpkcr.com/news/press-release-details/2026/CPKC-reports-strong-Q2-results-poised-for-accelerated-growth-in-second-half-of-2026/default.aspx"
+   }
   ]
  }
 }

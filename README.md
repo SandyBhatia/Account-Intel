@@ -57,7 +57,9 @@ Knowing is automatic; doing is deliberate.
    | `ANTHROPIC_API_KEY` | from step 2 |
    | `ANTHROPIC_MODEL` | `claude-sonnet-4-5` |
    | `NEXT_PUBLIC_SITE_URL` | your Vercel URL after first deploy |
+   | `ADMIN_EMAILS` | comma-separated emails allowed to see **Import** (e.g. yours). Unset = nobody sees it — the safe default for a shared trial. |
 4. Deploy. Open the URL → create your account on the sign-in screen → you're in.
+   Without `ADMIN_EMAILS` set to at least your own address, the Import tool stays hidden from everyone, including you.
 
 ### Local dev
 ```bash
@@ -91,8 +93,20 @@ npm run dev
     "table": { "head": ["", "FY25"], "rows": [["Revenue", "1,100"]] },
     "sowhat": "Why it matters.",
     "sources": [{ "label": "FY25 10-K p.30", "url": "https://..." }]
-  }]
+  }],
+  "financials": {
+    "currency": "US$", "unit": "millions",
+    "periods": ["Q3'24", "Q4'24", "Q1'25", "Q2'25", "Q3'25", "Q4'25", "Q1'26", "Q2'26"],
+    "basis": "Free-text note on comparability, fiscal-year quirks, etc.",
+    "series": [{ "label": "Revenue", "kind": "currency", "values": [4110, 4358, null, 4272, 4165, null, 4379, 4753], "headline": true }],
+    "sources": [{ "label": "Q2 2026 10-Q", "url": "https://..." }]
+  }
 }
 ```
+
+`financials.sources` carries the primary filings/press releases the series values were read from — the same
+evidence standard as exhibits, rendered the same way (a clickable source line under the panel). It is not yet
+enforced at the API layer; see the data-completeness note in `HANDOFF.md` before treating an account's
+financials as fully sourced.
 
 Reaffirm mode: same endpoint with `"mode": "reaffirm"` — stamps `last_reviewed`, no new version.

@@ -32,6 +32,10 @@ export interface Financials {
   periods: string[];      // ["Q3'24", ... "Q2'26"] or ["FY2021", ...]
   basis?: string;         // e.g. "Segment results within FedEx Corp, not carve-out"
   series: FinancialSeries[];
+  /** The filings/press releases these values were read from. Same evidence
+   *  standard as exhibit sources — rendered the same way. Not yet enforced
+   *  at the API layer; many baselines still carry only the `basis` note. */
+  sources?: { label: string; url?: string }[];
 }
 
 const fmt = (v: number | null, kind: string, cur = "") => {
@@ -140,6 +144,14 @@ export default function FinancialsPanel({ fin }: { fin: Financials }) {
           </p>
         )}
       </div>
+
+      {fin.sources && fin.sources.length > 0 && (
+        <div className="src">
+          {fin.sources.map((s, i) => (
+            <span key={i}>{i > 0 && " · "}{s.url ? <a href={s.url} target="_blank" rel="noopener">{s.label} ↗</a> : s.label}</span>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

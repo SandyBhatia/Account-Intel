@@ -237,6 +237,40 @@
     ],
     "note": "the GAAP-to-adjusted gap"
    }
+  ],
+  "sources": [
+   {
+    "label": "3Q 2024 earnings release",
+    "url": "https://investors.ups.com/news-events/press-releases/detail/2131/ups-releases-3q-2024-earnings"
+   },
+   {
+    "label": "4Q 2024 earnings release",
+    "url": "https://investors.ups.com/news-events/press-releases/detail/2135/ups-releases-4q-2024-earnings-and-provides-2025-guidance"
+   },
+   {
+    "label": "1Q 2025 earnings release",
+    "url": "https://investors.ups.com/news-events/press-releases/detail/2142/ups-releases-1q-2025-earnings"
+   },
+   {
+    "label": "2Q 2025 earnings release",
+    "url": "https://investors.ups.com/news-events/press-releases/detail/2146/ups-releases-2q-2025-earnings"
+   },
+   {
+    "label": "3Q 2025 earnings release",
+    "url": "https://investors.ups.com/news-events/press-releases/detail/2150/ups-releases-3q-2025-earnings"
+   },
+   {
+    "label": "4Q 2025 earnings release",
+    "url": "https://investors.ups.com/news-events/press-releases/detail/2154/ups-releases-4q-2025-earnings-and-provides-2026-guidance"
+   },
+   {
+    "label": "1Q 2026 earnings release",
+    "url": "https://investors.ups.com/news-events/press-releases/detail/2158/ups-releases-1q-2026-earnings"
+   },
+   {
+    "label": "2Q 2026 earnings release (verified: revenue, GAAP operating profit and both EPS lines tie to the table above)",
+    "url": "https://investors.ups.com/news-events/press-releases/detail/2164/ups-releases-2q-2026-earnings"
+   }
   ]
  }
 }

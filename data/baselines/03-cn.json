@@ -193,6 +193,40 @@
     ],
     "inverse": true
    }
+  ],
+  "sources": [
+   {
+    "label": "Q3 2024 results — CN Announces Third Quarter Results",
+    "url": "https://www.cn.ca/en/news/2024/10/cn-announces-third-quarter-results/"
+   },
+   {
+    "label": "Q4 2024 / FY2024 results — CN Announces Fourth Quarter and Year-End Results",
+    "url": "https://www.cn.ca/en/news/2025/01/cn-announces-fourth-quarter-and-year-end-results/"
+   },
+   {
+    "label": "Q1 2025 results — CN Announces First Quarter Results",
+    "url": "https://www.cn.ca/en/news/2025/05/cn-announces-first-quarter-results/"
+   },
+   {
+    "label": "Q2 2025 results — CN Announces Second Quarter Results",
+    "url": "https://www.cn.ca/en/news/2025/07/cn-announces-second-quarter-results/"
+   },
+   {
+    "label": "Q3 2025 results — SEC Form 6-K exhibit (verified: revenue, operating income and OR tie to the table above)",
+    "url": "https://www.sec.gov/Archives/edgar/data/0000016868/000001686825000034/a2025q3pressreleasestatssu.htm"
+   },
+   {
+    "label": "Q4 2025 / FY2025 results — CN Announces Solid Fourth Quarter and Year-End Results (verified: revenue, op. income, net income, EPS and OR all tie)",
+    "url": "https://www.cn.ca/en/news/2026/01/cn-announces-solid-fourth-quarter-and-year-end-results/"
+   },
+   {
+    "label": "Q1 2026 results — CN Reports Strong First Quarter Operational and Commercial Performance (verified: all five figures tie)",
+    "url": "https://www.cn.ca/en/news/2026/04/cn-reports-strong-first-quarter-operational-and-commercial-perfo/"
+   },
+   {
+    "label": "Q2 2026 results — CN Delivers on Commitments with Strong Second Quarter Results (verified: all five figures tie)",
+    "url": "https://www.cn.ca/en/news/2026/07/cn-delivers-on-commitments-with-strong-second-quarter-results-an/"
+   }
   ]
  }
 }
