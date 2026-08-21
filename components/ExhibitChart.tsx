@@ -129,30 +129,42 @@ export default function ExhibitChart({ spec }: { spec: ChartSpec }) {
             );
           });
 
-          // Pass 2 — plan every label, then de-collide within each x position.
-          type Lbl = { i: number; px: number; py: number; text: string; last: boolean };
-          const plan: Lbl[] = [];
+          // Pass 2 — every point carries its value, so labels must be placed
+          // with knowledge of each other. Within an x position: order series
+          // by their point height, then alternate above/below so neighbouring
+          // series push apart rather than stack, and finally enforce a
+          // minimum gap in each direction.
+          type Lbl = { i: number; px: number; anchorY: number; py: number; text: string; last: boolean; up: boolean };
+          const groups = new Map<number, Lbl[]>();
           spec.series.forEach((s) => {
             const ends = endIdx(s.values);
             s.values.forEach((v, i) => {
               if (v === null) return;
               if (!showLabels || (endsOnly && !ends.includes(i))) return;
-              const last = i === s.values.length - 1;
-              const above = spec.labels.length > 8 && !endsOnly ? i % 2 === 0 : true;
-              plan.push({ i, px: x(i), py: y(v) + (above ? -11 : 17), text: label(v), last });
+              const g = groups.get(i) ?? [];
+              g.push({ i, px: x(i), anchorY: y(v), py: y(v), text: label(v),
+                       last: i === s.values.length - 1, up: true });
+              groups.set(i, g);
             });
           });
 
-          const GAP = 12;
-          const byX = new Map<number, Lbl[]>();
-          plan.forEach((l) => { const g = byX.get(l.i) ?? []; g.push(l); byX.set(l.i, g); });
-          byX.forEach((group) => {
-            if (group.length < 2) return;
-            group.sort((a, b) => a.py - b.py);
-            for (let k = 1; k < group.length; k++) {
-              const need = group[k - 1].py + GAP;
-              if (group[k].py < need) group[k].py = need;
+          const GAP = 12, OFF = 11;
+          const plan: Lbl[] = [];
+          groups.forEach((g) => {
+            g.sort((a, b) => a.anchorY - b.anchorY);
+            // Single label at this x: keep it above the point.
+            if (g.length === 1) { g[0].py = g[0].anchorY - OFF; plan.push(g[0]); return; }
+            g.forEach((l, k) => { l.up = k % 2 === 0; l.py = l.anchorY + (l.up ? -OFF : OFF + 5); });
+            // Alternation alone is not enough: a label placed below an upper
+            // point and one placed above a lower point can still cross when
+            // the two series run close together. Final sweep guarantees the
+            // minimum gap regardless of direction.
+            g.sort((a, b) => a.py - b.py);
+            for (let k = 1; k < g.length; k++) {
+              const limit = g[k - 1].py + GAP;
+              if (g[k].py < limit) g[k].py = limit;
             }
+            plan.push(...g);
           });
 
           return (
@@ -161,7 +173,7 @@ export default function ExhibitChart({ spec }: { spec: ChartSpec }) {
               {plan.map((l, k) => (
                 <text key={k} x={l.px} y={l.py} textAnchor="middle"
                   fill={l.last ? "var(--key)" : "var(--text)"}
-                  style={{ fontFamily: "var(--mono)", fontSize: l.last ? 11.5 : 10, fontWeight: l.last ? 700 : 400 }}>
+                  style={{ fontFamily: "var(--mono)", fontSize: l.last ? 10.5 : 9.5, fontWeight: l.last ? 700 : 400 }}>
                   {l.text}
                 </text>
               ))}

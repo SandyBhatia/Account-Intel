@@ -157,8 +157,8 @@ export default function FinancialsPanel({ fin }: { fin: Financials }) {
 
         {money.length > 0 && (
           <ExhibitChart spec={{
-            kind: "line", labels: fin.periods, height: 210, y_label: `${cur}${fin.unit ? " " + fin.unit : ""}`,
-            data_labels: money.length === 1 ? true : "ends",
+            kind: "line", labels: fin.periods, height: 250, y_label: `${cur}${fin.unit ? " " + fin.unit : ""}`,
+            data_labels: true,
             series: money.map((s, i) => ({ label: s.label, name: s.label, values: s.values,
               tone: (["struct", "go", "dim", "stop"] as const)[i % 4] })),
           }} />
@@ -167,8 +167,8 @@ export default function FinancialsPanel({ fin }: { fin: Financials }) {
         {perShare.length > 0 && (
           <div style={{ marginTop: money.length ? 18 : 0 }}>
             <ExhibitChart spec={{
-              kind: "line", labels: fin.periods, height: 190, y_label: `${cur} / share`,
-              data_labels: perShare.length === 1 ? true : "ends",
+              kind: "line", labels: fin.periods, height: 225, y_label: `${cur} / share`,
+              data_labels: true,
               series: perShare.map((s, i) => ({ label: s.label, name: s.label, values: s.values,
                 tone: (["go", "struct", "stop", "dim"] as const)[i % 4] })),
             }} />
@@ -178,8 +178,8 @@ export default function FinancialsPanel({ fin }: { fin: Financials }) {
         {rates.length > 0 && (
           <div style={{ marginTop: money.length || perShare.length ? 18 : 0 }}>
             <ExhibitChart spec={{
-              kind: "line", labels: fin.periods, height: 190, unit: "%", y_label: "%",
-              data_labels: rates.length === 1 ? true : "ends",
+              kind: "line", labels: fin.periods, height: 225, unit: "%", y_label: "%",
+              data_labels: true,
               series: rates.map((s, i) => ({ name: s.label, values: s.values,
                 tone: (["stop", "struct", "go", "dim"] as const)[i % 4] })),
             }} />
