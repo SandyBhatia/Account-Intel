@@ -239,7 +239,7 @@
  "brief": {
   "opening": {
    "script": "\"You've said your contribution is creating the mechanism for strategy execution. You've got a record fuel-efficiency quarter and an operating ratio that still moved eighty basis points the wrong way, and a Q1 where 120 basis points went to weather and incidents with no published separation between them. If that number can't be attributed, next winter is a guess. We don't think that's a data problem — you have data.\"",
-   "note": "Ivaturi's own phrase and CN's own published numbers. No product named, no capability list, nothing that competes with Google Cloud, and no claim about CN we cannot source.",
+   "note": "Ivaturi's own phrase, CN's own published numbers. No product named, nothing that competes with Google Cloud.",
    "sources": [
     {
      "label": "Heidrick & Struggles interview (Ivaturi, Enbridge tenure)",
@@ -265,7 +265,7 @@
     "gtm_impact": "This tells us what CN's leadership is preoccupied with and puts a date on it. CN has traded merger neutrality for territory, and an STB decision expected in 2027 now governs a material part of its forward plan. That is a reason to be in conversation and a calendar to work against — and it links this account to three others on the roster.",
     "play": {
      "state": "none",
-     "text": "It is tempting to argue CN must now re-model its network and that this is an ontology problem. CN has said nothing of the sort, and railroads have operated network models for decades. Asserting a need the customer has not evidenced is how credibility is lost in the room. Whether merger integration modelling is owned, and by whom, is a question to ask — it is in the discussion points — not a finding to present."
+     "text": "CN has not said its network modelling is a problem, and railroads have run network models for decades. Whether merger integration modelling is owned is a question for the room — it is in the discussion points — not a finding."
     },
     "sources": [
      {
@@ -280,7 +280,7 @@
     "origin": "curated",
     "headline": "CN attributes a 120-basis-point operating-ratio deterioration to “winter conditions and incidents” — and separates neither.",
     "detail": "Q1 2026 operating ratio came in at 64.6% against 63.4% a year earlier, the worst of the eight quarters on record here, explained by winter weather and incidents. CN reported record Q1 revenue ton-miles of 61,834 million, up 3%, in the same quarter — volume was fine, conversion was not.",
-    "gtm_impact": "Two commingled causes, one number, no published attribution — and it recurs every winter. On CN's own figures, 120bps on Q1 revenue of C$4,379M is roughly C$53M of operating income in a single quarter (our arithmetic, not their disclosure).",
+    "gtm_impact": "Two commingled causes, one number, no published attribution — and it recurs every winter. 120bps on Q1 revenue of C$4,379M is roughly C$53M of operating income in a single quarter (our arithmetic, not CN's disclosure).",
     "play": {
      "state": "direct",
      "layers": [
@@ -333,7 +333,7 @@
     "gtm_impact": "On the stated seven-year term the partnership runs to roughly December 2028 — just past its midpoint. A new chief owns an inherited roadmap he did not scope, with about three years to show it worked. That is the most actionable fact on this page, and it is not a weakness to attack. It is a gap to fill.",
     "play": {
      "state": "none",
-     "text": "Nothing here needs a product attached. It tells you who to talk to, what he is carrying, and how not to open — do not attack the Google Cloud programme in front of the man who now owns it. The positioning question of how we sit relative to Google Cloud belongs in the play section, not bolted onto this signal."
+     "text": "Nothing here needs a product attached. It tells you who to talk to and how not to open: do not attack the Google Cloud programme in front of the man who now owns it."
     },
     "sources": [
      {
@@ -356,10 +356,10 @@
     "origin": "curated",
     "headline": "CN is backing more than 300 customer growth projects across the network.",
     "detail": "Over 70 completed in 2025 representing $2 billion of customer investment; 30 operational in 2026 with roughly 70 more expected by end-2026 or early 2027. Named projects include LNG Canada at Kitimat, BC Hydro Site C, the Zanardi Rapids Bridge and Glen Valley double-track. Edson Subdivision work lifted corridor capacity about 25%.",
-    "gtm_impact": "Evidence of where commercial momentum sits, and a second door into the account that does not depend on Ivaturi's budget line — Janet Drysdale owns it. Useful for access and relationship breadth.",
+    "gtm_impact": "A second door into the account that does not depend on Ivaturi's budget line — Janet Drysdale owns it.",
     "play": {
      "state": "none",
-     "text": "Growth-project delivery is CN's core business and has been for a century. There is no evidenced technology gap here. Recorded because it changes who we can talk to, not because it is a sale."
+     "text": "Growth-project delivery is CN's core business. No evidenced technology gap here."
     },
     "sources": [
      {
@@ -473,7 +473,7 @@
     "relevance": "Not on CN's leadership page. Establish through the relationship before any commercial motion."
    }
   ],
-  "stakeholder_note": "Executive team only, every name and title from CN's own leadership page. One level below CXO is deliberately excluded — those names are rarely verifiable from primary sources, and that is exactly where this project previously recorded a fabricated first name.",
+  "stakeholder_note": "Executive team only. Every name and title from CN's own leadership page. One level below CXO is excluded — those names are rarely verifiable from a primary source.",
   "agenda": [
    {
     "date": "2026-07-24",
@@ -500,7 +500,6 @@
     "text": "Hybrid locomotive fleet conversion targeting fuel efficiency."
    }
   ],
-  "agenda_note": "Freshness rule — every line dated within four quarters, enforced at import. A prior version of this page carried “digitalizing scheduled railroading” from a December 2021 release and labelled it “still operative”. Checked against the Q2 2026 release: CN does not use that phrase anywhere any more. It was the framing of a technology chief who has since left, and the claim that it was still current was asserted rather than verified.",
   "pressure": [
    {
     "text": "<b>Fuel.</b> C$659M against C$413M a year earlier — <b class=\"stop\">+C$246M, +59.6%</b> — absorbed through productivity rather than passed through."
@@ -513,7 +512,6 @@
    }
   ],
   "pressure_read": "CN is winning on efficiency and still losing ground on the ratio. The gap between those two facts is the commercial opening, and it is measured in CN's own published numbers rather than in our assertions.",
-  "pressure_warning": "<b>Correction applied.</b> An earlier version of this baseline stated fuel rose “60% (+C$249M), adding roughly 210bps of operating-ratio pressure.” The Q2 2026 release gives +C$246M / +59.6% and states no basis-point impact from fuel anywhere — the 210bps was derived rather than sourced. Corrected here.",
   "play": {
    "layers": [
     {
@@ -527,7 +525,7 @@
      "layer": "L1",
      "product": "Ontosphere",
      "state": "not_earned",
-     "text": "Would follow <i>only if</i> the attribution work shows CN's enterprise context is the binding constraint. <b class=\"stop\">Do not lead with it.</b> We have no evidence CN's data or network representation is a problem — that was an assumption on an earlier version of this page and it has been removed. Expansion is earned by what Layer 2 finds, not asserted up front.",
+     "text": "Would follow <i>only if</i> the attribution work shows CN's enterprise context is the binding constraint. <b class=\"stop\">Do not lead with it.</b> There is no evidence CN's data or network representation is a problem.",
      "their_trigger": "unknown. To be established."
     },
     {
@@ -538,7 +536,7 @@
      "their_trigger": "Ivaturi's stated objective — “creating the mechanism for strategy execution” — makes this language land when we get there. It does not make it sellable now."
     }
    ],
-   "positioning": "Tria is not a cloud or data platform, so it does not displace Google Cloud — Layer 1 consumes the estate rather than replacing it. The usable line is <i>“your cloud programme is building the floor; we work on top of it.”</i> Recorded here as <b>positioning</b>, which is what it is, rather than dressed up as an insight about CN.",
+   "positioning": "Tria is not a cloud or data platform, so it does not displace Google Cloud — Layer 1 consumes the estate rather than replacing it. The usable line: <i>\"your cloud programme is building the floor; we work on top of it.\"</i>",
    "commercial": {
     "internal": true,
     "text": "Tria is sold on outcomes, and CN publishes an audited outcome metric every quarter. Structure the first engagement against operating ratio or fuel per 1,000 GTM with a defined decision gate. On CN's trailing four quarters of C$17,761M revenue, 10bps of operating ratio is roughly <b>C$17.8M</b> (our arithmetic, not CN's disclosure) — so a modest, defensible share of movement is a material contract without requiring CN to believe anything it cannot verify itself. Pricing model, gate structure and share basis to supply."

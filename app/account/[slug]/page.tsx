@@ -23,10 +23,10 @@ interface Exhibit {
 
 /**
  * Two columns.
- *   LEFT  — signals and foresight: what moved and what follows for our GTM.
+ *   LEFT  — the signal feed: what moved, and what each move means for our GTM.
  *   RIGHT — the analysis stack, identical order on every account:
- *           financials · stakeholders · agenda · pressure · play ·
- *           discussion points · how we lose.
+ *           financials · foresight · stakeholders · agenda · pressure ·
+ *           play · discussion points · how we lose.
  *
  * Curated signals ship inside the published baseline. Signals gathered by
  * the refresh lane live in the `signals` table and are merged in here,
@@ -87,13 +87,13 @@ export default async function AccountPage({ params }: { params: Promise<{ slug: 
               {baseline ? ` · baseline v${baseline.version}, evidence ${baseline.as_of}` : ""}
               {baseline && !brief ? " · legacy exhibit format, not yet migrated to the brief" : ""}
             </p>
+            {baseline?.verdict_line && <p className="verdictline">{baseline.verdict_line}</p>}
           </div>
           <div className="acct-hd-r">
             <span className={`pill ${verdict}`}>{verdict.replace("_", " ")}</span>
             <RefreshButton slug={account.slug} />
           </div>
         </div>
-        {baseline?.verdict_line && <p className="verdictline">{baseline.verdict_line}</p>}
 
         {brief?.opening && <div style={{ marginBottom: 16 }}><OpeningPanel opening={brief.opening} /></div>}
 
@@ -106,7 +106,7 @@ export default async function AccountPage({ params }: { params: Promise<{ slug: 
         <div className="acct">
           {/* ============ LEFT ============ */}
           <div className="col">
-            <div className="colhdr">Signals &amp; foresight · what moves our GTM</div>
+            <div className="colhdr">Signals · what moved and why it matters</div>
 
             {signals.length === 0 && (
               <div className="gloss" style={{ padding: "15px 19px" }}>
@@ -117,9 +117,6 @@ export default async function AccountPage({ params }: { params: Promise<{ slug: 
               </div>
             )}
             {signals.map((s, i) => <SignalCard key={i} signal={s} />)}
-
-            {brief?.foresight && <ForesightPanel items={brief.foresight} />}
-            {brief?.portfolio_link && <PortfolioLinkPanel link={brief.portfolio_link} />}
 
             {actions && actions.length > 0 && (
               <div className="gloss">
@@ -152,6 +149,8 @@ export default async function AccountPage({ params }: { params: Promise<{ slug: 
                   </div>
                 : null}
 
+            {brief?.foresight && <ForesightPanel items={brief.foresight} />}
+            {brief?.portfolio_link && <PortfolioLinkPanel link={brief.portfolio_link} />}
             {brief?.stakeholders && <StakeholderPanel people={brief.stakeholders} note={brief.stakeholder_note} />}
             {brief?.agenda && <AgendaPanel items={brief.agenda} note={brief.agenda_note} />}
             {brief?.pressure && (

@@ -1,4 +1,4 @@
-# Install — build `brief-1.0`
+# Install — build `brief-1.2`
 
 This zip is the **complete project**, not a set of patches. Replace the whole
 folder contents and you are done. No file-by-file copying.
@@ -11,7 +11,7 @@ Unzip somewhere, then copy everything over your repo, overwriting. In
 PowerShell — adjust the two paths on the first two lines if yours differ:
 
 ```powershell
-$src = "$env:USERPROFILE\Downloads\account-intel-brief-1.0"   # where you unzipped
+$src = "$env:USERPROFILE\Downloads\account-intel-brief-1.2"   # where you unzipped
 $dst = "C:\Sandy\Personal\Projects\Account-Intel"
 
 if (-not (Test-Path "$src\lib\brief.ts")) { throw "Wrong source folder - lib\brief.ts not found in $src" }
@@ -54,7 +54,7 @@ npm run dev
 ```
 
 Open `http://localhost:3000`. In the **top bar, right-hand side**, you should
-see `brief-1.0`. That is the build stamp — if it is missing, the new code is
+see `brief-1.2`. That is the build stamp — if it is missing, the new code is
 not running and nothing else in this list will work.
 
 ---
@@ -67,7 +67,7 @@ git commit -m "Account brief structure - build brief-1.0"
 git push
 ```
 
-Wait for Vercel to finish, then load the deployed site and confirm `brief-1.0`
+Wait for Vercel to finish, then load the deployed site and confirm `brief-1.2`
 appears in the top bar there too.
 
 ---

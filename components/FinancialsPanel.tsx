@@ -132,39 +132,11 @@ export default function FinancialsPanel({ fin }: { fin: Financials }) {
           </div>
         )}
 
-        {money.length > 0 && (
-          <ExhibitChart spec={{
-            kind: "line", labels: fin.periods, y_label: `${cur}${fin.unit ? " " + fin.unit : ""}`,
-            data_labels: money.length === 1,
-            series: money.map((s, i) => ({ label: s.label, name: s.label, values: s.values,
-              tone: (["struct", "go", "dim", "stop"] as const)[i % 4] })),
-          }} />
-        )}
 
-        {perShare.length > 0 && (
-          <div style={{ marginTop: money.length ? 18 : 0 }}>
-            <ExhibitChart spec={{
-              kind: "line", labels: fin.periods, y_label: `${cur} / share`,
-              data_labels: perShare.length === 1,
-              series: perShare.map((s, i) => ({ label: s.label, name: s.label, values: s.values,
-                tone: (["go", "struct", "stop", "dim"] as const)[i % 4] })),
-            }} />
-          </div>
-        )}
-
-        {rates.length > 0 && (
-          <div style={{ marginTop: money.length || perShare.length ? 18 : 0 }}>
-            <ExhibitChart spec={{
-              kind: "line", labels: fin.periods, unit: "%", y_label: "%",
-              data_labels: rates.length === 1,
-              series: rates.map((s, i) => ({ name: s.label, values: s.values,
-                tone: (["stop", "struct", "go", "dim"] as const)[i % 4] })),
-            }} />
-          </div>
-        )}
-
-        {/* ---- full series, always shown: the chart is the shape, the table is the record ---- */}
-        <div className="tblwrap" style={{ marginTop: 18 }}>
+        {/* The table is the record and leads; the charts are the shape and
+            follow. Opening the analysis column with three tall charts pushed
+            everything below them off the screen. */}
+        <div className="tblwrap">
           <table className="tbl dense">
             <thead>
               <tr><th>{cur}{fin.unit ? ` ${fin.unit}` : ""}</th>
@@ -182,6 +154,37 @@ export default function FinancialsPanel({ fin }: { fin: Financials }) {
             </tbody>
           </table>
         </div>
+
+        {money.length > 0 && (
+          <ExhibitChart spec={{
+            kind: "line", labels: fin.periods, height: 210, y_label: `${cur}${fin.unit ? " " + fin.unit : ""}`,
+            data_labels: money.length === 1 ? true : "ends",
+            series: money.map((s, i) => ({ label: s.label, name: s.label, values: s.values,
+              tone: (["struct", "go", "dim", "stop"] as const)[i % 4] })),
+          }} />
+        )}
+
+        {perShare.length > 0 && (
+          <div style={{ marginTop: money.length ? 18 : 0 }}>
+            <ExhibitChart spec={{
+              kind: "line", labels: fin.periods, height: 190, y_label: `${cur} / share`,
+              data_labels: perShare.length === 1 ? true : "ends",
+              series: perShare.map((s, i) => ({ label: s.label, name: s.label, values: s.values,
+                tone: (["go", "struct", "stop", "dim"] as const)[i % 4] })),
+            }} />
+          </div>
+        )}
+
+        {rates.length > 0 && (
+          <div style={{ marginTop: money.length || perShare.length ? 18 : 0 }}>
+            <ExhibitChart spec={{
+              kind: "line", labels: fin.periods, height: 190, unit: "%", y_label: "%",
+              data_labels: rates.length === 1 ? true : "ends",
+              series: rates.map((s, i) => ({ name: s.label, values: s.values,
+                tone: (["stop", "struct", "go", "dim"] as const)[i % 4] })),
+            }} />
+          </div>
+        )}
 
         {fin.basis && <p className="note" style={{ marginTop: 12 }}>Basis: {fin.basis}</p>}
         {fin.series.some((s) => s.values.includes(null)) && (

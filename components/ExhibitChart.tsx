@@ -18,8 +18,14 @@ export interface ChartSpec {
   y_min?: number;
   y_max?: number;
   unit?: string;
-  /** Show a value label on every point. Default true. */
-  data_labels?: boolean;
+  /** Plot height in px. Default 280; the financial stack uses less so the
+   *  analysis column does not open with a wall of charts. */
+  height?: number;
+  /** Value labels. true = every point (default), false = none,
+   *  "ends" = first and last verified point of each series — the readable
+   *  compromise for multi-series charts, where labelling all 24 points is
+   *  noise but labelling none makes the reader squint at gridlines. */
+  data_labels?: boolean | "ends";
 }
 
 const TONE: Record<string, string> = {
@@ -51,7 +57,7 @@ function niceTicks(min: number, max: number, target = 4): number[] {
 }
 
 export default function ExhibitChart({ spec }: { spec: ChartSpec }) {
-  const W = 760, H = 280;
+  const W = 760, H = spec.height ?? 280;
   const padL = 56, padR = 22, padT = 28, padB = 42;
   const plotW = W - padL - padR, plotH = H - padT - padB;
 
@@ -77,6 +83,12 @@ export default function ExhibitChart({ spec }: { spec: ChartSpec }) {
   const x = (i: number) => padL + (spec.labels.length === 1 ? plotW / 2 : (i * plotW) / (spec.labels.length - 1));
   const y = (v: number) => padT + plotH - ((v - yMin) / (yMax - yMin || 1)) * plotH;
   const showLabels = spec.data_labels !== false;
+  const endsOnly = spec.data_labels === "ends";
+  /** Indices of the first and last verified point in a series. */
+  const endIdx = (values: (number | null)[]) => {
+    const filled = values.map((v, i) => (v === null ? -1 : i)).filter((i) => i >= 0);
+    return filled.length ? [filled[0], filled[filled.length - 1]] : [];
+  };
 
   return (
     <div style={{ margin: "4px 0 2px", overflowX: "auto" }}>
@@ -104,6 +116,7 @@ export default function ExhibitChart({ spec }: { spec: ChartSpec }) {
         {spec.kind === "line" && spec.series.map((s, si) => {
           const stroke = TONE[s.tone ?? "struct"];
           const pts = s.values.map((v, i) => (v === null ? null : `${x(i)},${y(v)}`)).filter(Boolean).join(" ");
+          const ends = endIdx(s.values);
           return (
             <g key={si}>
               <polyline points={pts} fill="none" stroke={stroke} strokeWidth="2.4" strokeLinejoin="round" strokeLinecap="round" />
@@ -116,7 +129,7 @@ export default function ExhibitChart({ spec }: { spec: ChartSpec }) {
                   <g key={i}>
                     <circle cx={x(i)} cy={y(v)} r={last ? 4.6 : 3.2} fill={stroke}
                       stroke="var(--panel)" strokeWidth={last ? 2 : 0} />
-                    {showLabels && (
+                    {showLabels && (!endsOnly || ends.includes(i)) && (
                       <text x={x(i)} y={y(v) + (above ? -11 : 17)} textAnchor="middle"
                         fill={last ? "var(--key)" : "var(--text)"}
                         style={{ fontFamily: "var(--mono)", fontSize: last ? 11.5 : 10, fontWeight: last ? 700 : 400 }}>
