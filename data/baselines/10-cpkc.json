@@ -113,7 +113,7 @@
    },
    {
     "label": "Diluted EPS",
-    "kind": "currency",
+    "kind": "pershare",
     "values": [
      0.9,
      1.28,
@@ -128,7 +128,7 @@
    },
    {
     "label": "Core adjusted diluted EPS",
-    "kind": "currency",
+    "kind": "pershare",
     "values": [
      0.99,
      1.29,

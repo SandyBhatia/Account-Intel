@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { readdir, readFile } from "fs/promises";
 import path from "path";
+import { validateBrief } from "@/lib/brief";
 
 export const runtime = "nodejs";
 export const maxDuration = 60;
@@ -16,7 +17,7 @@ function isAdmin(email?: string | null) {
 interface Payload {
   slug: string; verdict: string; verdict_line?: string;
   as_of: string; thesis?: unknown; exhibits?: { title?: string; sources?: { url?: string }[] }[];
-  financials?: unknown;
+  financials?: unknown; brief?: unknown; card?: unknown;
 }
 
 /**
@@ -62,6 +63,8 @@ export async function POST() {
         problems.push(`exhibit ${i + 1} has no source URL`);
     });
 
+    if (p.brief) problems.push(...validateBrief(p.brief, String(p.as_of ?? "")));
+
     const account = bySlug.get(p.slug);
     if (!account) problems.push(`unknown account "${p.slug}"`);
 
@@ -83,6 +86,8 @@ export async function POST() {
       thesis: p.thesis ?? [],
       exhibits: p.exhibits,
       financials: p.financials ?? null,
+      brief: p.brief ?? null,
+      card: p.card ?? null,
       as_of: p.as_of,
       active: true, review_status: "current", last_reviewed: new Date().toISOString(),
     });

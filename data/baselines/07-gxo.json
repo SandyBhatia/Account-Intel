@@ -123,7 +123,7 @@
    },
    {
     "label": "Diluted EPS",
-    "kind": "currency",
+    "kind": "pershare",
     "values": [
      null,
      null,
@@ -137,7 +137,7 @@
    },
    {
     "label": "Adjusted diluted EPS",
-    "kind": "currency",
+    "kind": "pershare",
     "values": [
      null,
      null,

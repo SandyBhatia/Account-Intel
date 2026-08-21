@@ -2,7 +2,7 @@
  "slug": "cn",
  "verdict": "PURSUE",
  "verdict_line": "Guidance raised on the back of productivity offsetting a 60% fuel increase — and a CITO fifteen months into the job with a digital transformation mandate. An existing customer with a named buyer and a stated agenda.",
- "as_of": "2026-07-24",
+ "as_of": "2026-08-19",
  "thesis": [
   {
    "n": "01",
@@ -134,7 +134,7 @@
    },
    {
     "label": "Diluted EPS",
-    "kind": "currency",
+    "kind": "pershare",
     "values": [
      null,
      1.82,
@@ -149,7 +149,7 @@
    },
    {
     "label": "Adjusted diluted EPS",
-    "kind": "currency",
+    "kind": "pershare",
     "values": [
      1.72,
      null,
@@ -226,6 +226,380 @@
    {
     "label": "Q2 2026 results — CN Delivers on Commitments with Strong Second Quarter Results (verified: all five figures tie)",
     "url": "https://www.cn.ca/en/news/2026/07/cn-delivers-on-commitments-with-strong-second-quarter-results-an/"
+   }
+  ]
+ },
+ "card": {
+  "insight": "A technology chief sixteen months in, inheriting a seven-year Google Cloud partnership he did not sign and which is now past its midpoint — and absorbing new territory from the UP/NS merger.",
+  "signal": {
+   "date": "22 Jul 2026",
+   "text": "Settled with Union Pacific: dropped merger opposition in exchange for a Kansas City footprint, two terminal railroad interests and St. Louis–KC rights."
+  }
+ },
+ "brief": {
+  "opening": {
+   "script": "\"You've said your contribution is creating the mechanism for strategy execution. You've got a record fuel-efficiency quarter and an operating ratio that still moved eighty basis points the wrong way, and a Q1 where 120 basis points went to weather and incidents with no published separation between them. If that number can't be attributed, next winter is a guess. We don't think that's a data problem — you have data.\"",
+   "note": "Ivaturi's own phrase and CN's own published numbers. No product named, no capability list, nothing that competes with Google Cloud, and no claim about CN we cannot source.",
+   "sources": [
+    {
+     "label": "Heidrick & Struggles interview (Ivaturi, Enbridge tenure)",
+     "url": "https://www.heidrick.com/en/insights/podcasts/e71_integration-across-business-technology-and-energy"
+    },
+    {
+     "label": "CN Q2 2026 results, 24 Jul 2026",
+     "url": "https://www.cn.ca/en/news/2026/07/cn-delivers-on-commitments-with-strong-second-quarter-results-an/"
+    },
+    {
+     "label": "CN Q1 2026 results, 29 Apr 2026",
+     "url": "https://www.cn.ca/en/news/2026/04/cn-reports-strong-first-quarter-operational-and-commercial-perfo/"
+    }
+   ]
+  },
+  "signals": [
+   {
+    "date": "22 Jul 2026",
+    "category": "Merger",
+    "origin": "curated",
+    "headline": "CN settles with Union Pacific and drops its opposition to the Norfolk Southern merger.",
+    "detail": "Binding MOU. CN takes Norfolk Southern's interests in Kansas City Terminal Railway and the Terminal Railroad Association of St. Louis, overhead rights between Tuscola and East St. Louis, rights to serve customers between St. Louis and Kansas City, and a first-time Kansas City footprint via UP's Neff Yard. In exchange CN will not oppose the merger and collaborates through STB approval.",
+    "gtm_impact": "This tells us what CN's leadership is preoccupied with and puts a date on it. CN has traded merger neutrality for territory, and an STB decision expected in 2027 now governs a material part of its forward plan. That is a reason to be in conversation and a calendar to work against — and it links this account to three others on the roster.",
+    "play": {
+     "state": "none",
+     "text": "It is tempting to argue CN must now re-model its network and that this is an ontology problem. CN has said nothing of the sort, and railroads have operated network models for decades. Asserting a need the customer has not evidenced is how credibility is lost in the room. Whether merger integration modelling is owned, and by whom, is a question to ask — it is in the discussion points — not a finding to present."
+    },
+    "sources": [
+     {
+      "label": "UP/CN joint release, 22 Jul 2026",
+      "url": "https://www.up.com/media/releases/260722-up-cn-agreement.htm"
+     }
+    ]
+   },
+   {
+    "date": "29 Apr 2026",
+    "category": "Performance",
+    "origin": "curated",
+    "headline": "CN attributes a 120-basis-point operating-ratio deterioration to “winter conditions and incidents” — and separates neither.",
+    "detail": "Q1 2026 operating ratio came in at 64.6% against 63.4% a year earlier, the worst of the eight quarters on record here, explained by winter weather and incidents. CN reported record Q1 revenue ton-miles of 61,834 million, up 3%, in the same quarter — volume was fine, conversion was not.",
+    "gtm_impact": "Two commingled causes, one number, no published attribution — and it recurs every winter. On CN's own figures, 120bps on Q1 revenue of C$4,379M is roughly C$53M of operating income in a single quarter (our arithmetic, not their disclosure).",
+    "play": {
+     "state": "direct",
+     "layers": [
+      "L2"
+     ],
+     "text": "Continuum's stated capabilities are causal reasoning, scenario simulation and counterfactual analysis. “How much of Q1 was actually preventable?” is a counterfactual question that CN itself left open in its own disclosure, with a dollar value already attached by its own reporting. Answerable retrospectively on data CN already holds, which makes it an unusually low-risk first proof.",
+     "caveat": "CN may well hold an internal attribution it simply does not publish. The gap is evidenced in their disclosure, not proven in their capability. Test it before assuming it."
+    },
+    "sources": [
+     {
+      "label": "CN Q1 2026 results, 29 Apr 2026",
+      "url": "https://www.cn.ca/en/news/2026/04/cn-reports-strong-first-quarter-operational-and-commercial-perfo/"
+     },
+     {
+      "label": "CN Q2 2026 results, 24 Jul 2026",
+      "url": "https://www.cn.ca/en/news/2026/07/cn-delivers-on-commitments-with-strong-second-quarter-results-an/"
+     },
+     {
+      "label": "Mphasis Tria launch, 27 May 2026",
+      "url": "https://www.prnewswire.com/news-releases/mphasis-launches-mphasis-tria-a-first-of-its-kind-enterprise-agency-platform-governed-front2backaccelerates-mphasis-evolution-into-a-platform-led-ai-enterprise-302782984.html"
+     }
+    ]
+   },
+   {
+    "date": "14 Aug 2026",
+    "category": "Technology",
+    "origin": "curated",
+    "headline": "Hybrid locomotive programme moves toward fleet conversion — with no technology partner named.",
+    "detail": "Three hybrid units in testing, two more converted by end-2026. A 2.8MWh solid-state battery with an 800HP Tier 4 engine, AC traction motors in DC frames, output from 3,200 to 3,800 HP. Pilot reported up to 50% fuel-efficiency improvement. The announcement names no vendor.",
+    "gtm_impact": "Fuel is CN's largest cost pressure and this is their answer to it — the freshest evidence of where engineering attention and capital are going. A 50% pilot figure on three yard units is now a number CN will be expected to defend at fleet scale.",
+    "play": {
+     "state": "hypothesis",
+     "layers": [
+      "L2"
+     ],
+     "text": "Scaling three units to a fleet may involve a sequencing and duty-cycle optimisation problem that Continuum would fit. But we have no evidence CN finds this hard, and no vendor being named in a press release means nothing. Railroads plan fleet programmes routinely. This is worth one question in the room and nothing more until answered."
+    },
+    "sources": [
+     {
+      "label": "CN locomotive innovation release, 14 Aug 2026",
+      "url": "https://www.globenewswire.com/news-release/2026/08/14/3345387/0/en/cn-continues-to-advance-locomotive-innovations.html"
+     }
+    ]
+   },
+   {
+    "category": "Leadership",
+    "origin": "curated",
+    "headline": "The defining technology partnership and the technology chief have different vintages.",
+    "detail": "CN's seven-year Google Cloud partnership was announced 14 December 2021, quoting then-EVP and CTO Dominique Malenfant (appointed August 2020) calling it “central to our strategic plan.” Malenfant no longer appears on CN's leadership page. Bhushan Ivaturi was appointed EVP and Chief Information and Technology Officer in April 2025.",
+    "gtm_impact": "On the stated seven-year term the partnership runs to roughly December 2028 — just past its midpoint. A new chief owns an inherited roadmap he did not scope, with about three years to show it worked. That is the most actionable fact on this page, and it is not a weakness to attack. It is a gap to fill.",
+    "play": {
+     "state": "none",
+     "text": "Nothing here needs a product attached. It tells you who to talk to, what he is carrying, and how not to open — do not attack the Google Cloud programme in front of the man who now owns it. The positioning question of how we sit relative to Google Cloud belongs in the play section, not bolted onto this signal."
+    },
+    "sources": [
+     {
+      "label": "CN / Google Cloud release, 14 Dec 2021",
+      "url": "https://www.cn.ca/en/news/2021/12/cn-partners-with-google-cloud-to-modernize-railway-services-and/"
+     },
+     {
+      "label": "CN Leadership Team page",
+      "url": "https://www.cn.ca/en/about-cn/leadership-team/"
+     },
+     {
+      "label": "CN appoints Malenfant, 26 Aug 2020",
+      "url": "https://www.cn.ca/en/news/2020/08/cn-announces-dominique-malenfant-as-executive-vicepresident-and/"
+     }
+    ]
+   },
+   {
+    "date": "30 Jul 2026",
+    "category": "Growth",
+    "origin": "curated",
+    "headline": "CN is backing more than 300 customer growth projects across the network.",
+    "detail": "Over 70 completed in 2025 representing $2 billion of customer investment; 30 operational in 2026 with roughly 70 more expected by end-2026 or early 2027. Named projects include LNG Canada at Kitimat, BC Hydro Site C, the Zanardi Rapids Bridge and Glen Valley double-track. Edson Subdivision work lifted corridor capacity about 25%.",
+    "gtm_impact": "Evidence of where commercial momentum sits, and a second door into the account that does not depend on Ivaturi's budget line — Janet Drysdale owns it. Useful for access and relationship breadth.",
+    "play": {
+     "state": "none",
+     "text": "Growth-project delivery is CN's core business and has been for a century. There is no evidenced technology gap here. Recorded because it changes who we can talk to, not because it is a sale."
+    },
+    "sources": [
+     {
+      "label": "CN customer growth release, 30 Jul 2026",
+      "url": "https://www.globenewswire.com/news-release/2026/07/30/3336296/0/en/CN-Supporting-More-Than-300-Customer-Growth-Projects-Across-Its-Network.html"
+     }
+    ]
+   }
+  ],
+  "foresight": [
+   {
+    "text": "<b>CN's management system and Tria's commercial model are natively compatible — and that is rare.</b> Outcome-based contracting usually fails on metric disputes. CN reports operating ratio and fuel efficiency per 1,000 GTM every quarter, audited, and manages the entire company to them. The outcome metric already exists, is already trusted, and is already public. There may be no better outcome-pricing counterparty on the roster.",
+    "layers": [
+     "L2",
+     "L3"
+    ]
+   },
+   {
+    "text": "<b>One regulatory decision now moves four accounts on this roster.</b> The STB ruling expected in 2027 directly affects CN, Union Pacific, Norfolk Southern and TTX. That is a coverage and timing fact, not a solution claim — we do not know what any of them will need, or whether they will need us. What it does mean is that one calendar event should drive four account conversations, and CN is the only one of the four where a relationship already exists.",
+    "no_play": true
+   },
+   {
+    "text": "<b>CN is winning on efficiency and still losing the ratio — and the gap is the product.</b> A record 0.836 US gal per 1,000 GTM, 3% better year over year, and operating ratio still rose 80bps to 62.5%. Physical efficiency is improving while economic conversion worsens. That divergence is not fixable with more sensors; it is a decisioning problem.",
+    "layers": [
+     "L2"
+    ]
+   },
+   {
+    "text": "<b>Ivaturi has already described Tria's Layer 3 in his own words.</b> He frames his contribution as “creating the mechanism for strategy execution so that people are able to apply technology and innovation.” Mphasis's Chief Solutions Officer launched Tria saying enterprises “lack the ability to turn that intelligence into coordinated, accountable action.” These are the same sentence from two directions. Lead with his, not ours.",
+    "layers": [
+     "L3"
+    ]
+   }
+  ],
+  "portfolio_link": {
+   "text": "The 22 July settlement ties four accounts on this roster to a single regulatory decision expected in 2027. CN also holds a <b>3.2% interest in TTX</b>, the pooled-railcar entity the merger forces UP and NS to divest below 49% — so CN is simultaneously an access beneficiary and a shareholder in a company being restructured by the same transaction.",
+   "accounts": [
+    {
+     "slug": "cn",
+     "name": "CN",
+     "role": "access recipient",
+     "relationship": "customer"
+    },
+    {
+     "slug": "unp",
+     "name": "Union Pacific",
+     "role": "acquirer",
+     "relationship": "prospect"
+    },
+    {
+     "slug": "nsc",
+     "name": "Norfolk Southern",
+     "role": "acquired",
+     "relationship": "prospect"
+    },
+    {
+     "slug": "ttx",
+     "name": "TTX",
+     "role": "restructured",
+     "relationship": "prospect"
+    }
+   ],
+   "note": "Recommend the Actions engine treat an STB milestone as a portfolio-level trigger firing across all four, rather than four unrelated account events."
+  },
+  "stakeholders": [
+   {
+    "name": "Bhushan Ivaturi",
+    "title": "EVP & Chief Information and Technology Officer",
+    "since": "Apr 2025",
+    "role": "Mandate owner",
+    "verified_from": "company_leadership_page",
+    "relevance": "Ex-SVP &amp; CIO at Enbridge. Ran information, technology, cyber, business process, OT, data and digital as one remit — an integrated buyer, which suits a three-layer platform and disfavours point tools."
+   },
+   {
+    "name": "Patrick Whitehead",
+    "title": "EVP & Chief Operating Officer",
+    "role": "Pain owner and the real referee",
+    "verified_from": "company_leadership_page",
+    "relevance": "Owns operating ratio, velocity and fuel efficiency. An outcome-based contract written against OR is signed by Ivaturi and judged by Whitehead."
+   },
+   {
+    "name": "Ghislain Houle",
+    "title": "EVP & Chief Financial Officer",
+    "role": "Budget, and the natural sponsor of outcome pricing",
+    "verified_from": "company_leadership_page",
+    "relevance": "Owns the ~C$2.8B capital programme. Addressed Citi's 2026 Global Industrial Tech and Mobility Conference, 18 Feb 2026."
+   },
+   {
+    "name": "Janet Drysdale",
+    "title": "EVP & Chief Commercial Officer",
+    "role": "Second door",
+    "verified_from": "company_leadership_page",
+    "relevance": "Owns customer-facing digital outcomes and the 300-project growth pipeline — reachable without competing for the IT budget."
+   },
+   {
+    "name": "Tracy Robinson",
+    "title": "President & Chief Executive Officer",
+    "role": "Sponsor",
+    "verified_from": "company_leadership_page",
+    "relevance": "Named voice on the UP settlement. Frames the company around “discipline, focus, and execution” — plain operating language, no branded methodology."
+   },
+   {
+    "name": "Patrick Lortie",
+    "title": "SVP & Chief Strategy and Stakeholder Relations Officer",
+    "verified_from": "company_leadership_page",
+    "relevance": "Likely close to merger-integration planning and the STB process."
+   },
+   {
+    "name": null,
+    "title": "Procurement / vendor management lead",
+    "relevance": "Not on CN's leadership page. Establish through the relationship before any commercial motion."
+   }
+  ],
+  "stakeholder_note": "Executive team only, every name and title from CN's own leadership page. One level below CXO is deliberately excluded — those names are rarely verifiable from primary sources, and that is exactly where this project previously recorded a fabricated first name.",
+  "agenda": [
+   {
+    "date": "2026-07-24",
+    "text": "2026 capital programme approximately <b>C$2.8B</b>, net of amounts reimbursed by customers."
+   },
+   {
+    "date": "2026-07-24",
+    "text": "Guidance <b>raised</b> — low-single-digit RTM growth, mid-to-high single-digit adjusted diluted EPS growth."
+   },
+   {
+    "date": "2026-07-24",
+    "text": "Revenue ton-miles 62,250M, up 5% — a Q2 record."
+   },
+   {
+    "date": "2026-07-24",
+    "text": "Strategic framing in Robinson's own words — “<b>discipline, focus, and execution</b>”, with continued priority on operational execution. No branded operating-model slogan currently in use."
+   },
+   {
+    "date": "2026-07-30",
+    "text": "300+ customer growth projects; $2B customer investment completed in 2025."
+   },
+   {
+    "date": "2026-08-14",
+    "text": "Hybrid locomotive fleet conversion targeting fuel efficiency."
+   }
+  ],
+  "agenda_note": "Freshness rule — every line dated within four quarters, enforced at import. A prior version of this page carried “digitalizing scheduled railroading” from a December 2021 release and labelled it “still operative”. Checked against the Q2 2026 release: CN does not use that phrase anywhere any more. It was the framing of a technology chief who has since left, and the claim that it was still current was asserted rather than verified.",
+  "pressure": [
+   {
+    "text": "<b>Fuel.</b> C$659M against C$413M a year earlier — <b class=\"stop\">+C$246M, +59.6%</b> — absorbed through productivity rather than passed through."
+   },
+   {
+    "text": "<b>Economic conversion is worsening while physical efficiency improves.</b> Operating ratio rose 80bps year over year to 62.5% <i>despite</i> a record fuel-efficiency quarter of 0.836 US gal per 1,000 GTM, 3% better than prior year."
+   },
+   {
+    "text": "<b>Unattributed volatility.</b> Q1 2026 operating ratio hit 64.6% on commingled winter and incident effects, with no published separation between them."
+   }
+  ],
+  "pressure_read": "CN is winning on efficiency and still losing ground on the ratio. The gap between those two facts is the commercial opening, and it is measured in CN's own published numbers rather than in our assertions.",
+  "pressure_warning": "<b>Correction applied.</b> An earlier version of this baseline stated fuel rose “60% (+C$249M), adding roughly 210bps of operating-ratio pressure.” The Q2 2026 release gives +C$246M / +59.6% and states no basis-point impact from fuel anywhere — the 210bps was derived rather than sourced. Corrected here.",
+  "play": {
+   "layers": [
+    {
+     "layer": "L2",
+     "product": "Continuum",
+     "state": "earned",
+     "text": "<b>Land here, and only here.</b> Decompose the Q1'26 120bps into weather versus decision, on data CN already holds. This is the one place CN has evidenced the gap itself — its own release commingles two causes in a single number and separates neither. Retrospective, no operational risk, and roughly C$53M of already-reported impact to argue about.",
+     "their_trigger": "it recurs every winter, and the next one is about five months away."
+    },
+    {
+     "layer": "L1",
+     "product": "Ontosphere",
+     "state": "not_earned",
+     "text": "Would follow <i>only if</i> the attribution work shows CN's enterprise context is the binding constraint. <b class=\"stop\">Do not lead with it.</b> We have no evidence CN's data or network representation is a problem — that was an assumption on an earlier version of this page and it has been removed. Expansion is earned by what Layer 2 finds, not asserted up front.",
+     "their_trigger": "unknown. To be established."
+    },
+    {
+     "layer": "L3",
+     "product": "NeoIP",
+     "state": "later",
+     "text": "Only relevant once a decision model exists worth acting on automatically. In a safety-regulated, STB-supervised environment the governance and audit trail are not overhead — they are the reason an agentic layer would be permissible at all. A genuine differentiator, but a <b>phase-three conversation</b>, not an opening one.",
+     "their_trigger": "Ivaturi's stated objective — “creating the mechanism for strategy execution” — makes this language land when we get there. It does not make it sellable now."
+    }
+   ],
+   "positioning": "Tria is not a cloud or data platform, so it does not displace Google Cloud — Layer 1 consumes the estate rather than replacing it. The usable line is <i>“your cloud programme is building the floor; we work on top of it.”</i> Recorded here as <b>positioning</b>, which is what it is, rather than dressed up as an insight about CN.",
+   "commercial": {
+    "internal": true,
+    "text": "Tria is sold on outcomes, and CN publishes an audited outcome metric every quarter. Structure the first engagement against operating ratio or fuel per 1,000 GTM with a defined decision gate. On CN's trailing four quarters of C$17,761M revenue, 10bps of operating ratio is roughly <b>C$17.8M</b> (our arithmetic, not CN's disclosure) — so a modest, defensible share of movement is a material contract without requiring CN to believe anything it cannot verify itself. Pricing model, gate structure and share basis to supply."
+   },
+   "proof": {
+    "internal": true,
+    "text": "What is public is thin and should be faced honestly. Tria launched <b>27 May 2026</b>. Mphasis reports Fortune 50 and Fortune 10 lighthouse clients and, within seven weeks of launch, multiple deals moving to closure; 63% of Q1 FY27 net-new TCV of $461M was AI-led. But <b class=\"stop\">no named logistics or rail reference is public</b>, and the published rail capability is passenger-oriented — reservations, ticketing, revenue management — not freight. CN would be an early logistics lighthouse. That is a real ask and should be priced and positioned as one."
+   }
+  },
+  "discussion_points": [
+   {
+    "anchor": "Signal 02 · L2",
+    "question": "“Your Q1 release put 120 basis points down to winter and incidents. If you could separate those two retrospectively — actually attribute the number — what would you do differently next winter?”",
+    "why": "Opens the counterfactual conversation on a number he already reported, with no product mentioned."
+   },
+   {
+    "anchor": "Signal 01",
+    "question": "“The UP settlement gives you Kansas City and the St. Louis terminal interests. Who is modelling what that network actually looks like, and does that work start before the STB decision or after it?”",
+    "why": "Tests whether integration modelling is owned. We are not assuming it is a gap — this is the question that would establish it."
+   },
+   {
+    "anchor": "Signal 04",
+    "question": "“You inherited the Google Cloud programme rather than scoping it. Four years in, what has proven out, and where is the gap between what it was sold as and what it does?”",
+    "why": "Invites the gap without attacking the incumbent."
+   },
+   {
+    "anchor": "Signal 03",
+    "question": "“Fifty percent fuel efficiency on three units. Going to fleet — is the constraint the hardware, or deciding which units on which duty cycles in what order?”",
+    "why": "Tests the hypothesis rather than asserting it. If he says the hardware, we drop it."
+   },
+   {
+    "anchor": "Stakeholders",
+    "question": "“At Enbridge you ran information, OT, cyber, data and digital as one organisation. Are you building that shape at CN — and where is it thinnest?”",
+    "why": "His own published philosophy; invites him to name his own gap."
+   },
+   {
+    "anchor": "Commercial",
+    "question": "“You report operating ratio every quarter and the whole company is run to it. Would you contract against it — pay for movement in the number rather than for effort?”",
+    "why": "Tests appetite for outcome-based structure before any proposal exists. If yes, the commercial model is pre-agreed. If no, we learn that free."
+   }
+  ],
+  "how_we_lose": [
+   {
+    "risk": "<b>He does not want to be a lighthouse.</b> Tria is three months old with no public rail reference. A CITO sixteen months in, already carrying an inherited seven-year programme, has limited appetite to also be someone's first freight case study.",
+    "counter": "lead with the retrospective Q1 attribution — it runs on historical data, proves the reasoning without touching operations, and is genuinely low-risk."
+   },
+   {
+    "risk": "<b>Google Cloud expands into the gap.</b> The partnership's stated scope already includes AI/ML on the customer platform and predictive-maintenance co-innovation. An incumbent with three years left and a co-innovation clause can simply propose to do it.",
+    "counter": "the differentiator is governed decisioning and causal reasoning, not model access — and services execution capacity, not hyperscaler tooling."
+   },
+   {
+    "risk": "<b>Consolidation, not addition.</b> A new chief is as likely to be reducing suppliers as adding one. Anything framed as a new vendor relationship loses.",
+    "counter": "frame as reducing his execution risk on a programme he inherited."
+   },
+   {
+    "risk": "<b>Credential mismatch in the room.</b> Our published rail capability is passenger-rail shaped. Presenting it to a freight COO damages credibility on contact.",
+    "counter": "do not present it. Lead with the causal-reasoning proof and cross-industry decisioning references."
+   },
+   {
+    "risk": "<b>Outcome pricing cuts both ways.</b> Contracting against operating ratio means owning a number moved by fuel prices, weather, volume mix and labour — most of which we do not control.",
+    "counter": "that is precisely why attribution has to be the first engagement rather than the last. Do not accept an OR-linked contract until the causal model exists."
    }
   ]
  }

@@ -11,7 +11,7 @@ export default async function Portfolio({ searchParams }: { searchParams: Promis
   const sortBy = sp.sort === "verdict" ? "verdict" : "relationship";
   const supabase = await createClient();
   const { data: accounts } = await supabase.from("accounts").select("*").order("name");
-  const { data: baselines } = await supabase.from("baselines").select("account_id, verdict, verdict_line, as_of, review_status").eq("active", true);
+  const { data: baselines } = await supabase.from("baselines").select("account_id, verdict, verdict_line, as_of, review_status, card").eq("active", true);
   const { data: proposedActions } = await supabase.from("actions").select("account_id").eq("status", "proposed");
 
   const bl = (id: string) => baselines?.find((b) => b.account_id === id);
@@ -83,7 +83,12 @@ export default async function Portfolio({ searchParams }: { searchParams: Promis
 interface CardRow {
   id: string; slug: string; name: string; sector: string | null; relationship: string;
   is_public: boolean; next_report: string | null; actions: number;
-  baseline?: { verdict: string; verdict_line: string | null; as_of: string } | undefined;
+  baseline?: {
+    verdict: string; verdict_line: string | null; as_of: string;
+    /** Standing read plus the latest dated move. The card has to answer
+     *  "what matters here right now", not just "what is our verdict". */
+    card?: { insight?: string; signal?: { date: string; text: string } } | null;
+  } | undefined;
 }
 
 function AccountCard({ a }: { a: CardRow }) {
@@ -98,13 +103,19 @@ function AccountCard({ a }: { a: CardRow }) {
         <span className={`pill ${v}`}>{v.replace("_", " ")}</span>
       </div>
       <div className="c-why">
-        {a.baseline?.verdict_line ?? (
+        {a.baseline?.card?.insight ?? a.baseline?.verdict_line ?? (
           <span className="dim">
             Not yet researched — no verdict earned.{" "}
             {a.is_public ? "Public filings available for the baseline build." : "Private company; baseline will use verifiable public sources only."}
           </span>
         )}
       </div>
+      {a.baseline?.card?.signal && (
+        <div className="c-signal">
+          <span className="d">{a.baseline.card.signal.date}</span>
+          <span className="t">{a.baseline.card.signal.text}</span>
+        </div>
+      )}
       <div className="c-foot">
         <span>{a.next_report ? `Next · ${a.next_report}` : "No public cadence"}{a.baseline ? ` · evidence ${a.baseline.as_of}` : ""}</span>
         <span className="open">{a.actions > 0 ? `${a.actions} action${a.actions > 1 ? "s" : ""} ›` : "Open ›"}</span>

@@ -181,7 +181,7 @@
    },
    {
     "label": "Diluted EPS (GAAP)",
-    "kind": "currency",
+    "kind": "pershare",
     "values": [
      null,
      2.01,
@@ -196,7 +196,7 @@
    },
    {
     "label": "Adjusted diluted EPS",
-    "kind": "currency",
+    "kind": "pershare",
     "values": [
      1.76,
      2.75,

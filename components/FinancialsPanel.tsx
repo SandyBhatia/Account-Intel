@@ -15,8 +15,12 @@ import ExhibitChart from "@/components/ExhibitChart";
 
 export interface FinancialSeries {
   label: string;
-  /** currency = money, percent = margin/growth, ratio = operating ratio, count = units */
-  kind: "currency" | "percent" | "ratio" | "count";
+  /** currency = aggregate money (millions/billions), pershare = per-share
+   *  currency figures (EPS). Kept distinct from "currency" even though both
+   *  are dollar-denominated: EPS (~$2) charted on the same axis as revenue
+   *  (~$4,700M) reads as a flat line at zero, so they get separate charts.
+   *  percent = margin/growth, ratio = operating ratio, count = units */
+  kind: "currency" | "pershare" | "percent" | "ratio" | "count";
   /** null means the figure could not be verified for that period */
   values: (number | null)[];
   /** lower is better (operating ratio) — flips the good/bad colouring */
@@ -49,16 +53,39 @@ const fmt = (v: number | null, kind: string, cur = "") => {
   return `${cur}${s}`;
 };
 
-/** Change between the last two verified points in a series. */
-function delta(s: FinancialSeries) {
+const QUARTER_RE = /^Q[1-4]'\d{2}$/;
+
+/**
+ * Change vs. the same period a year ago when that comparator is available —
+ * every exhibit narrative and thesis point in this tool is framed YoY, and
+ * a seasonal transportation business makes QoQ deltas noisy/misleading next
+ * to that framing. Falls back to the nearest prior verified point if there's
+ * no YoY comparator (short history, or an annual reporter). Always returns a
+ * label so the KPI strip never implies a comparison it isn't making.
+ */
+function delta(s: FinancialSeries, periods: string[]) {
   const pts = s.values.map((v, i) => ({ v, i })).filter((p) => p.v !== null) as { v: number; i: number }[];
   if (pts.length < 2) return null;
-  const last = pts[pts.length - 1], prev = pts[pts.length - 2];
+  const last = pts[pts.length - 1];
+  const quarterly = periods.length >= 5 && periods.every((p) => QUARTER_RE.test(p));
+
+  let prev: { v: number; i: number } | undefined;
+  let label = "";
+  const yoyIdx = last.i - 4;
+  const yoyVal = quarterly && yoyIdx >= 0 ? s.values[yoyIdx] : null;
+  if (quarterly && yoyVal !== null && yoyVal !== undefined) {
+    prev = { v: yoyVal, i: yoyIdx };
+    label = "YoY";
+  } else {
+    prev = pts[pts.length - 2];
+    label = prev.i === last.i - 1 ? (quarterly ? "QoQ" : "vs prior") : `vs ${periods[prev.i]}`;
+  }
+
   const diff = last.v - prev.v;
-  if (s.kind === "percent" || s.kind === "ratio") return { text: `${diff >= 0 ? "+" : ""}${diff.toFixed(1)}pt`, good: s.inverse ? diff < 0 : diff > 0 };
+  if (s.kind === "percent" || s.kind === "ratio") return { text: `${diff >= 0 ? "+" : ""}${diff.toFixed(1)}pt`, label, good: s.inverse ? diff < 0 : diff > 0 };
   if (prev.v === 0) return null;
   const pct = (diff / Math.abs(prev.v)) * 100;
-  return { text: `${pct >= 0 ? "+" : ""}${pct.toFixed(1)}%`, good: s.inverse ? pct < 0 : pct > 0 };
+  return { text: `${pct >= 0 ? "+" : ""}${pct.toFixed(1)}%`, label, good: s.inverse ? pct < 0 : pct > 0 };
 }
 
 export default function FinancialsPanel({ fin }: { fin: Financials }) {
@@ -67,8 +94,11 @@ export default function FinancialsPanel({ fin }: { fin: Financials }) {
   const headline = fin.series.filter((s) => s.headline).slice(0, 4);
   const verifiedCount = (s: FinancialSeries) => s.values.filter((v) => v !== null).length;
 
-  // Group by kind so units never share an axis.
+  // Group by kind so units never share an axis. currency and pershare are
+  // both dollar-denominated but differ by orders of magnitude (revenue in
+  // millions vs. EPS around a few dollars), so they get separate charts too.
   const money = fin.series.filter((s) => s.kind === "currency" && verifiedCount(s) >= 3);
+  const perShare = fin.series.filter((s) => s.kind === "pershare" && verifiedCount(s) >= 3);
   const rates = fin.series.filter((s) => (s.kind === "percent" || s.kind === "ratio") && verifiedCount(s) >= 3);
 
   return (
@@ -85,12 +115,17 @@ export default function FinancialsPanel({ fin }: { fin: Financials }) {
           <div className="kpis">
             {headline.map((s) => {
               const last = [...s.values].reverse().find((v) => v !== null) ?? null;
-              const d = delta(s);
+              const d = delta(s, fin.periods);
+              const isMoney = s.kind === "currency" || s.kind === "pershare";
               return (
                 <div className="kpi" key={s.label}>
                   <span className="kpi-l">{s.label}</span>
-                  <span className="kpi-v">{fmt(last, s.kind, s.kind === "currency" ? cur : "")}</span>
-                  {d && <span className={`kpi-d ${d.good ? "go" : "stop"}`}>{d.text}</span>}
+                  <span className="kpi-v">{fmt(last, s.kind, isMoney ? cur : "")}</span>
+                  {d && (
+                    <span className={`kpi-d ${d.good ? "go" : "stop"}`}>
+                      {d.text} <span className="dim" style={{ fontWeight: 400 }}>{d.label}</span>
+                    </span>
+                  )}
                 </div>
               );
             })}
@@ -106,8 +141,19 @@ export default function FinancialsPanel({ fin }: { fin: Financials }) {
           }} />
         )}
 
-        {rates.length > 0 && (
+        {perShare.length > 0 && (
           <div style={{ marginTop: money.length ? 18 : 0 }}>
+            <ExhibitChart spec={{
+              kind: "line", labels: fin.periods, y_label: `${cur} / share`,
+              data_labels: perShare.length === 1,
+              series: perShare.map((s, i) => ({ label: s.label, name: s.label, values: s.values,
+                tone: (["go", "struct", "stop", "dim"] as const)[i % 4] })),
+            }} />
+          </div>
+        )}
+
+        {rates.length > 0 && (
+          <div style={{ marginTop: money.length || perShare.length ? 18 : 0 }}>
             <ExhibitChart spec={{
               kind: "line", labels: fin.periods, unit: "%", y_label: "%",
               data_labels: rates.length === 1,
@@ -129,7 +175,7 @@ export default function FinancialsPanel({ fin }: { fin: Financials }) {
                 <tr key={s.label}>
                   <td>{s.label}{s.note && <span className="dim" style={{ fontSize: ".72rem" }}> · {s.note}</span>}</td>
                   {s.values.map((v, i) => (
-                    <td key={i} className={v === null ? "dim" : ""}>{fmt(v, s.kind, s.kind === "currency" ? cur : "")}</td>
+                    <td key={i} className={v === null ? "dim" : ""}>{fmt(v, s.kind, (s.kind === "currency" || s.kind === "pershare") ? cur : "")}</td>
                   ))}
                 </tr>
               ))}

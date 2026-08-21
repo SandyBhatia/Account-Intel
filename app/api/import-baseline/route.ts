@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
+import { validateBrief } from "@/lib/brief";
 
 export const runtime = "nodejs";
 
@@ -20,7 +21,7 @@ export async function POST(req: Request) {
   if (!user) return NextResponse.json({ error: "unauthorized" }, { status: 401 });
 
   const body = await req.json();
-  const { slug, verdict, verdict_line, thesis, exhibits, financials, as_of, mode } = body ?? {};
+  const { slug, verdict, verdict_line, thesis, exhibits, financials, brief, card, as_of, mode } = body ?? {};
 
   const problems: string[] = [];
   if (!slug) problems.push("slug missing");
@@ -33,6 +34,11 @@ export async function POST(req: Request) {
     if (!srcs.some((s) => s.url && /^https?:\/\//.test(s.url)))
       problems.push(`exhibit ${i + 1} ("${ex.title ?? "?"}"): needs at least one source with a URL`);
   });
+  // The brief carries the rules that matter most: every signal states its GTM
+  // impact, every play declares whether it was earned, named people carry
+  // provenance, agenda items are within four quarters.
+  if (brief) problems.push(...validateBrief(brief, String(as_of ?? "")));
+
   if (problems.length) return NextResponse.json({ error: "validation_failed", problems }, { status: 422 });
 
   const { data: account } = await supabase.from("accounts").select("id").eq("slug", slug).single();
@@ -55,7 +61,8 @@ export async function POST(req: Request) {
     account_id: account.id,
     version: (prev?.version ?? 0) + 1,
     verdict, verdict_line: verdict_line ?? null,
-    thesis: thesis ?? [], exhibits, financials: financials ?? null, as_of,
+    thesis: thesis ?? [], exhibits, financials: financials ?? null,
+    brief: brief ?? null, card: card ?? null, as_of,
     active: true, review_status: "current", last_reviewed: new Date().toISOString(),
   });
   if (error) return NextResponse.json({ error: "insert_failed", detail: error.message }, { status: 500 });

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import SignOut from "@/components/SignOut";
+import { BUILD } from "@/lib/version";
 
 /** Admin emails see the Import tool. Set ADMIN_EMAILS="a@x.com,b@y.com" in env.
  *  Empty/unset => nobody sees Import, which is the safe default for a shared trial. */
@@ -23,6 +24,7 @@ export default async function TopBar({ active }: { active: "portfolio" | "action
         {admin && <Link className={`nb ${active === "admin" ? "on" : ""}`} href="/admin">⇪ Import</Link>}
       </nav>
       <span style={{ display: "inline-flex", gap: 12, alignItems: "center" }}>
+        <span className="note" title={`build ${BUILD}`}>{BUILD}</span>
         <span className="note" title={user?.email ?? ""}>{user?.email?.split("@")[0] ?? ""}</span>
         <SignOut />
       </span>

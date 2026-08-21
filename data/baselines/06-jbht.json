@@ -119,7 +119,7 @@
    },
    {
     "label": "Diluted EPS",
-    "kind": "currency",
+    "kind": "pershare",
     "values": [
      null,
      null,
