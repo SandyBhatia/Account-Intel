@@ -59,9 +59,32 @@ Focus: filings/results, leadership changes, guidance moves, safety data, major c
   });
 
   const text = resp.content.filter((b) => b.type === "text").map((b) => (b as { text: string }).text).join("\n");
-  let parsed: { signals?: Record<string, unknown>[] } = {};
-  try { parsed = JSON.parse(text.replace(/```json|```/g, "").trim()); }
-  catch { return NextResponse.json({ error: "parse_failed", raw: text.slice(0, 400) }, { status: 502 }); }
+
+  /**
+   * With web search enabled the model narrates what it found before (and
+   * sometimes after) the JSON, so parsing the whole response fails. Take the
+   * outermost {...} and parse that. Falls back to a readable error rather
+   * than a bare "parse_failed", which told the user nothing.
+   */
+  function extractJson(raw: string): { signals?: Record<string, unknown>[] } | null {
+    const cleaned = raw.replace(/```json|```/g, "").trim();
+    try { return JSON.parse(cleaned); } catch { /* fall through */ }
+    const first = cleaned.indexOf("{"), last = cleaned.lastIndexOf("}");
+    if (first >= 0 && last > first) {
+      try { return JSON.parse(cleaned.slice(first, last + 1)); } catch { /* fall through */ }
+    }
+    return null;
+  }
+
+  const parsedOrNull = extractJson(text);
+  if (!parsedOrNull) {
+    return NextResponse.json({
+      error: "no_json_in_response",
+      detail: "The model replied but no JSON object could be recovered from it. Nothing was written.",
+      raw: text.slice(0, 600),
+    }, { status: 502 });
+  }
+  const parsed = parsedOrNull;
 
   const candidates = Array.isArray(parsed.signals) ? parsed.signals : [];
   const accepted: Record<string, unknown>[] = [];

@@ -113,35 +113,61 @@ export default function ExhibitChart({ spec }: { spec: ChartSpec }) {
           );
         })}
 
-        {spec.kind === "line" && spec.series.map((s, si) => {
-          const stroke = TONE[s.tone ?? "struct"];
-          const pts = s.values.map((v, i) => (v === null ? null : `${x(i)},${y(v)}`)).filter(Boolean).join(" ");
-          const ends = endIdx(s.values);
+        {spec.kind === "line" && (() => {
+          // Pass 1 — lines and points.
+          const marks = spec.series.map((s, si) => {
+            const stroke = TONE[s.tone ?? "struct"];
+            const pts = s.values.map((v, i) => (v === null ? null : `${x(i)},${y(v)}`)).filter(Boolean).join(" ");
+            return (
+              <g key={si}>
+                <polyline points={pts} fill="none" stroke={stroke} strokeWidth="2.4" strokeLinejoin="round" strokeLinecap="round" />
+                {s.values.map((v, i) => v === null ? null : (
+                  <circle key={i} cx={x(i)} cy={y(v)} r={i === s.values.length - 1 ? 4.6 : 3.2} fill={stroke}
+                    stroke="var(--panel)" strokeWidth={i === s.values.length - 1 ? 2 : 0} />
+                ))}
+              </g>
+            );
+          });
+
+          // Pass 2 — plan every label, then de-collide within each x position.
+          type Lbl = { i: number; px: number; py: number; text: string; last: boolean };
+          const plan: Lbl[] = [];
+          spec.series.forEach((s) => {
+            const ends = endIdx(s.values);
+            s.values.forEach((v, i) => {
+              if (v === null) return;
+              if (!showLabels || (endsOnly && !ends.includes(i))) return;
+              const last = i === s.values.length - 1;
+              const above = spec.labels.length > 8 && !endsOnly ? i % 2 === 0 : true;
+              plan.push({ i, px: x(i), py: y(v) + (above ? -11 : 17), text: label(v), last });
+            });
+          });
+
+          const GAP = 12;
+          const byX = new Map<number, Lbl[]>();
+          plan.forEach((l) => { const g = byX.get(l.i) ?? []; g.push(l); byX.set(l.i, g); });
+          byX.forEach((group) => {
+            if (group.length < 2) return;
+            group.sort((a, b) => a.py - b.py);
+            for (let k = 1; k < group.length; k++) {
+              const need = group[k - 1].py + GAP;
+              if (group[k].py < need) group[k].py = need;
+            }
+          });
+
           return (
-            <g key={si}>
-              <polyline points={pts} fill="none" stroke={stroke} strokeWidth="2.4" strokeLinejoin="round" strokeLinecap="round" />
-              {s.values.map((v, i) => {
-                if (v === null) return null;
-                const last = i === s.values.length - 1;
-                // Alternate label side on dense series so they never overlap.
-                const above = spec.labels.length > 8 ? i % 2 === 0 : true;
-                return (
-                  <g key={i}>
-                    <circle cx={x(i)} cy={y(v)} r={last ? 4.6 : 3.2} fill={stroke}
-                      stroke="var(--panel)" strokeWidth={last ? 2 : 0} />
-                    {showLabels && (!endsOnly || ends.includes(i)) && (
-                      <text x={x(i)} y={y(v) + (above ? -11 : 17)} textAnchor="middle"
-                        fill={last ? "var(--key)" : "var(--text)"}
-                        style={{ fontFamily: "var(--mono)", fontSize: last ? 11.5 : 10, fontWeight: last ? 700 : 400 }}>
-                        {label(v)}
-                      </text>
-                    )}
-                  </g>
-                );
-              })}
+            <g>
+              {marks}
+              {plan.map((l, k) => (
+                <text key={k} x={l.px} y={l.py} textAnchor="middle"
+                  fill={l.last ? "var(--key)" : "var(--text)"}
+                  style={{ fontFamily: "var(--mono)", fontSize: l.last ? 11.5 : 10, fontWeight: l.last ? 700 : 400 }}>
+                  {l.text}
+                </text>
+              ))}
             </g>
           );
-        })}
+        })()}
 
         {(spec.kind === "bar" || spec.kind === "grouped") && (() => {
           const n = spec.labels.length, k = spec.series.length;
@@ -170,7 +196,7 @@ export default function ExhibitChart({ spec }: { spec: ChartSpec }) {
         })()}
 
         {spec.y_label && (
-          <text x={padL - 10} y={14} textAnchor="end" fill="var(--dim)"
+          <text x={4} y={12} textAnchor="start" fill="var(--dim)"
             style={{ fontFamily: "var(--mono)", fontSize: 9.5, letterSpacing: ".1em" }}>{spec.y_label}</text>
         )}
       </svg>
